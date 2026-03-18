@@ -47,6 +47,22 @@ async def cmd_add_youtube(args):
         print(json.dumps({"added": len(added), "urls": added}))
 
 
+async def cmd_add_urls(args):
+    async with await NotebookLMClient.from_storage() as client:
+        added = []
+        failed = []
+        for url in args.urls:
+            print(f"Adding source: {url}", file=sys.stderr)
+            try:
+                await client.sources.add_url(args.notebook_id, url, wait=True, wait_timeout=180.0)
+                added.append(url)
+                print(f"  Done: {url}", file=sys.stderr)
+            except Exception as e:
+                print(f"  Failed: {url} - {e}", file=sys.stderr)
+                failed.append({"url": url, "error": str(e)})
+        print(json.dumps({"added": len(added), "failed": len(failed), "urls": added, "errors": failed}))
+
+
 async def cmd_ask(args):
     async with await NotebookLMClient.from_storage() as client:
         result = await client.chat.ask(args.notebook_id, args.question)
@@ -168,6 +184,11 @@ def build_parser():
     p.add_argument("notebook_id", help="Notebook ID")
     p.add_argument("urls", nargs="+", help="YouTube URLs to add")
 
+    # add-urls
+    p = sub.add_parser("add-urls", help="Add website URLs as sources")
+    p.add_argument("notebook_id", help="Notebook ID")
+    p.add_argument("urls", nargs="+", help="Website URLs to add")
+
     # ask
     p = sub.add_parser("ask", help="Ask a question about notebook sources")
     p.add_argument("notebook_id", help="Notebook ID")
@@ -226,6 +247,7 @@ def main():
     cmd_map = {
         "create": cmd_create,
         "add-youtube": cmd_add_youtube,
+        "add-urls": cmd_add_urls,
         "ask": cmd_ask,
         "generate-infographic": cmd_generate_infographic,
         "generate-slides": cmd_generate_slides,
