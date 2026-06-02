@@ -26,7 +26,7 @@
 |---|-----------|---------|--------------|---------------|---------|
 | 7 | Licencia médica activa del Director Médico | Junta de Licenciamiento y Disciplina Médica PR | $300–$700 renov. | Verificar | ☐ |
 | 8 | Registro DEA individual del prescriptor (si fentermina u otros controlados) | DEA | ~$888 / 3 años | 4–6 sem | ☐ |
-| 9 | Registro ASSMCA del profesional | ASSMCA | Verificar | 2–4 sem | ☐ |
+| 9 | Registro estatal de sustancias controladas del prescriptor (solo si fentermina u otros controlados) — **NOTA: ya NO es ASSMCA; pasó al Depto. de Salud, Oficina de Sustancias Controladas (OA 282 de 2011)**. Lleva núm. estatal + DEA en cada receta | Depto. de Salud — Oficina de Sustancias Controladas | Verificar | 2–4 sem | ☐ |
 | 10 | Licencias de enfermería (RN/NP) del personal | Junta Examinadora de Enfermería PR | Varía | Verificar | ☐ |
 | 11 | Certificaciones BLS/ACLS del personal que inyecta | Proveedor AHA | $100–$300 c/u | 1 día | ☐ |
 | 12 | Definir protocolos delegados / standing orders firmados | Director Médico | — | 1–2 sem | ☐ |
@@ -37,9 +37,10 @@
 
 | # | Requisito | Agencia | Costo aprox. | Tiempo aprox. | Estatus |
 |---|-----------|---------|--------------|---------------|---------|
-| 13 | Determinar categoría de facilidad de salud | SARAFS / Depto. de Salud PR | — | 1 sem | ☐ |
-| 14 | Licencia de facilidad de salud | SARAFS / Depto. de Salud PR | Varía por categoría | 8–16 sem | ☐ |
-| 15 | Registro de la facilidad en ASSMCA (prerequisito de DEA de facilidad) | ASSMCA | Verificar | 2–4 sem | ☐ |
+| 13 | Determinar categoría de facilidad de salud (¿activan procedimientos invasivos la licencia ambulatoria?) | SARAFS / Depto. de Salud PR (Ley 101-1965, Regl. 9184) | — | 1 sem | ☐ |
+| 13b | Certificado de Necesidad y Conveniencia (CNC) — **se obtiene ANTES de la licencia** (Ley 2-1975, Regl. 112). Confirmar si aplica a oficina pequeña | Depto. de Salud PR | Varía | Varía | ☐ |
+| 14 | Licencia de facilidad de salud | SARAFS / Depto. de Salud PR | Varía (estatuto: $5/cama — no mapea a oficina sin camas; confirmar) | 8–16 sem | ☐ |
+| 15 | Registro de facilidad en ASSMCA — **SOLO si ofreces salud mental / adicciones** (Ley 408-2000). No aplica a clínica estética/wellness general | ASSMCA | Verificar | 2–4 sem | ☐ |
 | 16 | Permiso de Uso del local | OGPe / Municipio | $150–$500+ | 4–12 sem | ☐ |
 | 17 | Permiso de Bomberos | Cuerpo de Bomberos PR | $50–$200 | 2–6 sem | ☐ |
 | 18 | Inspección de Salud Ambiental | Salud Ambiental municipal | Varía | 2–4 sem | ☐ |
@@ -51,10 +52,11 @@
 
 | # | Requisito | Agencia | Costo aprox. | Tiempo aprox. | Estatus |
 |---|-----------|---------|--------------|---------------|---------|
-| 20 | Decisión: **administrar** en sitio vs. **dispensar** al paciente | Abogado + Director Médico | — | — | ☐ |
-| 21 | Licencia de farmacia (solo si vas a dispensar) | Junta de Farmacia PR | Varía | 6–12 sem | ☐ |
+| 20 | Decisión: **administrar** en sitio (botiquín bajo licencia médica) vs. **dispensar** al paciente (requiere farmacia) | Abogado + Director Médico | — | — | ☐ |
+| 20b | Registro de **botiquín**: registro trienal de medicamentos ante Depto. de Salud (Ley 95-2014) — permite mantener fármacos para administrar SIN licencia de farmacia | Depto. de Salud PR | Cuota (verificar) | 2–4 sem | ☐ |
+| 21 | Licencia de farmacia (**solo si vas a dispensar** producto para llevar a casa) | Junta de Farmacia / Depto. de Salud PR | Varía | 6–12 sem | ☐ |
 | 22 | Contratar farmacéutico licenciado (si dispensas) | — | Salario | — | ☐ |
-| 23 | Registro DEA de la facilidad (si controlados) | DEA + ASSMCA | ~$888/3 años | 4–8 sem | ☐ |
+| 23 | Registro DEA de la facilidad (**solo si controlados, ej. fentermina**; semaglutida/tirzepatida NO lo requieren) | DEA (+ registro estatal Depto. Salud) | ~$888/3 años | 4–8 sem | ☐ |
 | 24 | Cuentas con distribuidores mayoristas licenciados (compra de fármacos) | Wholesalers licenciados | — | 2–4 sem | ☐ |
 | 25 | Verificar estatus de farmacia compounding 503A/503B (si usas compounded) | FDA / Junta Farmacia | — | — | ☐ |
 | 26 | Sistema de bitácora de inventario (recibo, administración, mermas, disposición) | Interno | software | 1–2 sem | ☐ |
