@@ -19,6 +19,8 @@ This document demonstrates:
 
 The **BMTCI Program** (Hematopoietic Stem Cell Transplantation & Cellular Immunotherapy) launches at CCCUPR as a new department — peer to Medical Oncology and Surgical Oncology — under the Hospital Medical Director. TCT Oncology provides transplant/cellular therapy expertise in collaboration with the CCCUPR academic platform.
 
+**TCT Oncology dual-site presence:** TCT operates at both CCCUPR (BMTCI Program) and Auxilio Mutuo Hospital (HAM), where TCT has an established allogeneic HSCT program and CIBMTR reporting infrastructure. This creates a **complementary referral network** — CCCUPR handles auto-HCT and CAR-T, while allo-HSCT patients identified at CCCUPR are referred to HAM through TCT, **increasing HAM's allogeneic volume**.
+
 | Phase | Timeline | Scope | Volume Target |
 |-------|----------|-------|---------------|
 | Phase 1 | Year 1 (2026-2027) | Autologous HCT | 10-15 auto-HCTs |
@@ -52,8 +54,10 @@ The **BMTCI Program** (Hematopoietic Stem Cell Transplantation & Cellular Immuno
 |-------|---------------|-------|
 | New hematologic malignancies diagnosed in PR | ~1,110 | All subtypes |
 | Auto SCT-eligible (myeloma, relapsed NHL, HD) | ~150-200 | Standard consolidation or salvage |
+| Allo-HSCT eligible (AML, ALL, MDS, high-risk NHL) | ~40-60 | Requires matched donor |
 | CAR-T eligible (2nd/3rd+ line DLBCL, MCL, FL, ALL, MM) | ~80-120 | After >=1 prior line failure |
-| Currently receiving SCT **on-island** | ~20-35 | HAM only |
+| Currently receiving auto SCT **on-island** | ~20-35 | HAM only |
+| Currently receiving allo-HSCT **on-island** | ~8-15 | HAM only (limited) |
 | Currently receiving CAR-T **on-island** | **0** | No program exists |
 | Traveling to mainland US for SCT or CAR-T | ~60-100 | Those who can afford/access |
 | **Eligible but untreated (lost to access gap)** | **~70-120** | Cannot afford or access mainland |
@@ -70,11 +74,11 @@ The ARC contract must cover the following services for the BMTCI Program. These 
 |-------------|---------------|---------------|---------------|---------------|
 | **Autologous HSC collections** | 12-18 | 22-32 | 30-42 | 40-55 |
 | **CAR-T lymphocyte apheresis** | 4-8 | 10-14 | 16-22 | 30-45 |
-| **Allogeneic donor collections** | 0 | 0 | 2-5 | 8-15 |
-| Cryopreservation events | 12-18 | 22-32 | 32-47 | 48-70 |
-| Product release testing | 16-26 | 32-46 | 48-69 | 78-115 |
-| Chain-of-custody/identity events | 16-26 | 32-46 | 48-69 | 78-115 |
-| **Total apheresis procedures** | **16-26** | **32-46** | **48-69** | **78-115** |
+| **Allogeneic donor collections (HAM via TCT)** | 4-6 | 8-12 | 10-15 | 15-22 |
+| Cryopreservation events | 16-24 | 30-44 | 40-57 | 55-77 |
+| Product release testing | 20-32 | 40-58 | 56-80 | 85-122 |
+| Chain-of-custody/identity events | 20-32 | 40-58 | 56-80 | 85-122 |
+| **Total apheresis procedures** | **20-32** | **40-58** | **56-80** | **85-122** |
 
 ### 4.2 ARC Contract Scope Requirements
 
@@ -96,17 +100,17 @@ The ARC contract must cover the following services for the BMTCI Program. These 
 
 ### 5.1 Baseline: Where Patients Go Today (Pre-BMTCI Program)
 
-| Hospital / Destination | Hem/Onc Consults/Yr | Chemo Infusions/Yr | Auto SCT/Yr | CAR-T/Yr | Role |
-|------------------------|---------------------|---------------------|-------------|----------|------|
-| **CCCUPR** | 2,200-2,800 | 1,800-2,200 | 0 | 0 | Largest public referral hub; no transplant |
-| **Auxilio Mutuo (HAM)** | 1,800-2,200 | 1,500-1,800 | 15-25 | 0 | Only active BMT; 6-room transplant unit |
-| **HIMA San Pablo Oncologico** | 1,500-1,800 | 1,200-1,500 | 5-10 | 0 | Building stem cell center |
-| **Other PR hospitals & practices** | 2,400-3,400 | 1,800-2,600 | 0 | 0 | Community oncology |
-| **Mainland US** (MDAnderson, Moffitt, MSK, etc.) | — | — | 40-60 | 30-50 | Patients leave island |
-| **Access gap** (eligible, never treated) | — | — | ~50-80 | ~50-70 | Lost to cost/logistics |
-| **Total** | **~8,000-10,200** | **~6,300-8,100** | **~110-175** | **~80-120** | |
+| Hospital / Destination | Hem/Onc Consults/Yr | Auto SCT/Yr | Allo-HSCT/Yr | CAR-T/Yr | Role |
+|------------------------|---------------------|-------------|-------------|----------|------|
+| **CCCUPR** | 2,200-2,800 | 0 | 0 | 0 | Largest public referral hub; no transplant program |
+| **Auxilio Mutuo (HAM) — TCT Oncology** | 1,800-2,200 | 15-25 | 8-15 | 0 | Only active BMT in PR; allo-HSCT via TCT; 6-room transplant unit; CIBMTR reporting |
+| **HIMA San Pablo Oncologico** | 1,500-1,800 | 5-10 | 0 | 0 | Building stem cell center |
+| **Other PR hospitals & practices** | 2,400-3,400 | 0 | 0 | 0 | Community oncology |
+| **Mainland US** (MD Anderson, Moffitt, MSK, etc.) | — | 40-60 | 20-30 | 30-50 | Patients leave island |
+| **Access gap** (eligible, never treated) | — | ~50-80 | ~12-15 | ~50-70 | Cannot afford or access mainland |
+| **Total eligible** | **~8,000-10,200** | **~110-175** | **~40-60** | **~80-120** | |
 
-**On-island treatment rate — SCT: ~18-20% | CAR-T: 0%**
+**On-island treatment rates — Auto SCT: ~18-20% | Allo-HSCT: ~20-25% | CAR-T: 0%**
 
 ### 5.2 Projected Annual Volume by Hospital — With BMTCI Program at CCCUPR
 
@@ -115,13 +119,30 @@ The ARC contract must cover the following services for the BMTCI Program. These 
 | Hospital / Destination | Baseline | Year 1 (2027) | Year 2 (2028) | Year 3 (2029) | Year 5 (2031) |
 |------------------------|----------|---------------|---------------|---------------|---------------|
 | **CCCUPR / BMTCI Program** | **0** | **10-15** | **22-30** | **30-40** | **40-50** |
-| Auxilio Mutuo (HAM) | 15-25 | 13-22 | 12-20 | 10-18 | 10-15 |
+| **Auxilio Mutuo (HAM) — TCT** | 15-25 | 13-22 | 12-20 | 10-18 | 10-15 |
 | HIMA San Pablo | 5-10 | 5-10 | 8-12 | 10-15 | 12-18 |
 | Mainland US | 40-60 | 30-45 | 22-35 | 15-25 | 8-15 |
 | Access gap (untreated) | 50-80 | 40-60 | 28-42 | 18-28 | 8-12 |
 | **Total eligible** | **110-175** | **98-152** | **92-139** | **83-126** | **78-110** |
 | **Treated on-island** | **20-35** | **28-47** | **42-62** | **50-73** | **62-83** |
 | **On-island capture rate** | **~18-20%** | **~29-31%** | **~46-45%** | **~60-58%** | **~79-75%** |
+
+#### Allogeneic HSCT (Cases Per Year) — HAM via TCT Oncology
+
+TCT's dual-site presence creates a **direct referral pipeline from CCCUPR to HAM** for allo-HSCT. Patients identified at CCCUPR who require allogeneic transplant are referred to HAM through TCT — the only team in Puerto Rico performing allo-HSCT. This **increases HAM allo volume** rather than competing with it.
+
+| Hospital / Destination | Baseline | Year 1 (2027) | Year 2 (2028) | Year 3 (2029) | Year 5 (2031) |
+|------------------------|----------|---------------|---------------|---------------|---------------|
+| **Auxilio Mutuo (HAM) — TCT** | **8-15** | **12-18** | **16-24** | **20-30** | **25-38** |
+| CCCUPR / BMTCI Program | 0 | 0 | 0 | 0-2 | 3-8 |
+| HIMA San Pablo | 0 | 0 | 0 | 0 | 0 |
+| Mainland US | 20-30 | 16-25 | 12-20 | 10-16 | 6-10 |
+| Access gap (untreated) | 12-15 | 10-12 | 8-10 | 5-8 | 3-5 |
+| **Total eligible** | **~40-60** | **~38-55** | **~36-54** | **~35-56** | **~37-61** |
+| **HAM treated** | **8-15** | **12-18** | **16-24** | **20-30** | **25-38** |
+| **HAM allo growth vs. baseline** | **—** | **+50-20%** | **+100-60%** | **+150-100%** | **+213-153%** |
+
+**Key driver:** CCCUPR diagnoses ~15-25 allo-eligible patients per year who currently either go to the mainland or go untreated. TCT at CCCUPR identifies these patients early and routes them to HAM, where TCT has the established allo-HSCT program, credentialing, and infrastructure.
 
 #### CAR-T Infusions (Cases Per Year)
 
@@ -141,11 +162,11 @@ The ARC contract must cover the following services for the BMTCI Program. These 
 | Hospital / Program | Baseline | Year 1 (2027) | Year 2 (2028) | Year 3 (2029) | Year 5 (2031) |
 |--------------------|----------|---------------|---------------|---------------|---------------|
 | **CCCUPR** (incl. BMTCI consults) | 2,200-2,800 | 2,500-3,200 | 2,700-3,400 | 2,900-3,600 | 3,200-3,900 |
-| Auxilio Mutuo (HAM) | 1,800-2,200 | 1,750-2,150 | 1,700-2,100 | 1,650-2,050 | 1,600-2,000 |
+| **Auxilio Mutuo (HAM) — TCT** | 1,800-2,200 | 1,850-2,250 | 1,900-2,300 | 1,950-2,350 | 2,000-2,400 |
 | HIMA San Pablo | 1,500-1,800 | 1,500-1,800 | 1,500-1,800 | 1,500-1,800 | 1,500-1,800 |
 | Other PR hospitals & practices | 2,400-3,400 | 2,350-3,350 | 2,300-3,300 | 2,300-3,300 | 2,300-3,300 |
 
-**Note:** CCCUPR consult volume **increases** as the BMTCI Program draws transplant/CAR-T evaluations to the center — patients who previously went directly to HAM or the mainland are now evaluated at CCCUPR first.
+**Note:** Both CCCUPR and HAM consult volumes **increase**. CCCUPR gains transplant/CAR-T evaluations. HAM gains allo-HSCT evaluations and pre-transplant workups referred from CCCUPR through TCT. The TCT dual-site model is additive, not competitive.
 
 ---
 
@@ -163,14 +184,28 @@ The ARC contract must cover the following services for the BMTCI Program. These 
 
 ### 6.2 Net Impact on Each Hospital
 
-| Hospital | SCT Impact | CAR-T Impact | Consult Impact | Net Assessment |
-|----------|-----------|-------------|----------------|----------------|
-| **CCCUPR** | +10-50 cases/yr (new capability) | +4-45 cases/yr (new capability) | +300-1,100/yr (gains) | **Strong positive** — gains transplant program, strengthens NCI application |
-| **Auxilio Mutuo (HAM)** | -2 to -10 cases/yr | No change (0→0) | -50 to -200/yr | **Mild negative on SCT** — retains allo-HSCT niche; ARC SLA partnership revenue offsets |
-| **HIMA San Pablo** | Minimal change | No change | Stable | **Neutral** — different catchment area; growing independently |
-| **Other PR hospitals** | No change | No change | -50 to -100/yr | **Minimal** — community hem/onc unaffected |
-| **Mainland US centers** | -10 to -45 cases/yr | -5 to -34 cases/yr | — | **Significant reduction** — largest volume shift as patients stay on-island |
-| **Access gap patients** | -10 to -68 cases treated | -8 to -48 cases treated | — | **Major positive** — previously untreated patients now receive therapy |
+| Hospital | Auto SCT | Allo-HSCT | CAR-T | Consults | Net Assessment |
+|----------|----------|-----------|-------|----------|----------------|
+| **CCCUPR** | +10-50/yr (new) | 0→0-8/yr (Phase 3) | +4-45/yr (new) | +300-1,100/yr ↑ | **Strong positive** — gains transplant program, strengthens NCI application |
+| **Auxilio Mutuo (HAM) — TCT** | -2 to -10/yr | **+4 to +23/yr ↑↑** | No change | +50-200/yr ↑ | **Net positive** — mild auto SCT loss more than offset by allo-HSCT growth from CCCUPR referrals + increased consults |
+| **HIMA San Pablo** | Minimal change | No change | No change | Stable | **Neutral** — different catchment area; growing independently |
+| **Other PR hospitals** | No change | No change | No change | -50 to -100/yr | **Minimal** — community hem/onc unaffected |
+| **Mainland US centers** | -10 to -45/yr | -6 to -20/yr | -5 to -34/yr | — | **Significant reduction** — largest volume shift as patients stay on-island |
+| **Access gap patients** | -10 to -68 treated | -4 to -10 treated | -8 to -48 treated | — | **Major positive** — previously untreated patients now receive therapy |
+
+### 6.3 Auxilio Mutuo (HAM) — Detailed Impact via TCT Oncology
+
+TCT's dual-site model makes HAM a **net beneficiary** of the BMTCI Program at CCCUPR:
+
+| HAM Metric | Baseline | Year 5 (2031) | Change |
+|------------|----------|---------------|--------|
+| Auto SCT cases/year | 15-25 | 10-15 | -5 to -10 (mild decline) |
+| **Allo-HSCT cases/year** | **8-15** | **25-38** | **+17 to +23 (significant growth)** |
+| Total transplants/year | 23-40 | 35-53 | **+12 to +13 net gain** |
+| Hem/onc consults/year | 1,800-2,200 | 2,000-2,400 | +200 (allo workups from CCCUPR) |
+| CIBMTR reportable cases | 23-40 | 35-53 | +52-33% increase |
+
+**The allo-HSCT growth alone more than compensates for any auto SCT volume shift.** HAM's transplant program becomes *larger* and *more complex* — strengthening its FACT credentials and academic profile.
 
 ---
 
@@ -187,14 +222,20 @@ The net effect is a transformation of Puerto Rico's cellular therapy landscape:
 | Metric | Today | Year 5 (2031) | Change |
 |--------|-------|---------------|--------|
 | On-island auto SCT/year | 20-35 | 62-83 | **+210-137%** |
+| On-island allo-HSCT/year (HAM via TCT) | 8-15 | 25-38 | **+213-153%** |
 | On-island CAR-T/year | 0 | 30-45 | **From zero** |
-| On-island capture rate (SCT) | 18-20% | 75-79% | **+57 pts** |
+| **Total on-island transplants + CAR-T** | **28-50** | **117-166** | **+318-232%** |
+| On-island capture rate (auto SCT) | 18-20% | 75-79% | **+57 pts** |
+| On-island capture rate (allo-HSCT) | 20-25% | 68-62% | **+43 pts** |
 | Treatment access rate (CAR-T) | 38-42% | 73% | **+33 pts** |
 | Patients traveling to mainland | 60-100/yr | 18-31/yr | **-70%** |
 | Eligible patients going untreated | 120-150/yr | 23-34/yr | **-78%** |
-| ARC apheresis procedures/year | 0 (for BMTCI) | 78-115 | **New volume** |
+| HAM total transplant volume | 23-40/yr | 35-53/yr | **+52-33% (net positive)** |
+| ARC apheresis procedures/year | 0 (for BMTCI) | 85-122 | **New volume** |
 
-**For ARC:** This represents a sustained, growing volume of apheresis collections and cell processing services — starting at 16-26 procedures in Year 1 and scaling to 78-115 procedures by Year 5. This is entirely new volume, not shifted from other ARC contracts.
+**For ARC:** This represents a sustained, growing volume of apheresis collections and cell processing services — starting at 20-32 procedures in Year 1 and scaling to 85-122 procedures by Year 5. This includes auto HSC collections (CCCUPR), CAR-T leukapheresis (CCCUPR), and allo donor collections (HAM via TCT). This is entirely new programmatic volume.
+
+**For HAM:** TCT's dual-site model drives a **net increase** in HAM's total transplant volume (+52-33% by Year 5). The mild decline in auto SCT (-5 to -10 cases) is more than offset by allo-HSCT growth (+17 to +23 cases) generated by CCCUPR referrals through TCT.
 
 ---
 
