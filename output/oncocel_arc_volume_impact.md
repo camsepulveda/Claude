@@ -1,170 +1,203 @@
-# ONCOCEL LLC — Volume Impact Analysis
-## Analysis of Referral Capture (ARC): TCT Participation at CCCUPR
-### Effective August 2026 | Confidential
+# BMTCI PROGRAM — VOLUME IMPACT ANALYSIS
+## Prepared for ARC (American Red Cross) Contract Review
+### TCT Oncology in Collaboration with Centro Comprensivo de Cancer · UPR
+### TCT Participation at CCCUPR Effective August 2026 | Confidential
 
 ---
 
-## I. CONTEXT
+## I. PURPOSE
 
-TCT Oncology will begin active participation at the **Centro Comprensivo de Cancer de la Universidad de Puerto Rico (CCCUPR)** in **August 2026** — two months before the OncoCel ambulatory clinic opening on October 1, 2026. CCCUPR is Puerto Rico's only public comprehensive cancer center (established under Law 230, 2004), pursuing NCI designation, and serves as the island's highest-volume cancer referral hub with an MD Anderson Cancer Center strategic alliance.
+This document demonstrates:
 
-This document projects how TCT's clinical presence at CCCUPR will create a structured referral pathway into OncoCel for autologous SCT and CAR-T services — and quantifies the resulting impact on patient volume distribution across Puerto Rico's hospital oncology landscape.
+1. **For ARC** — The projected apheresis collection and cell processing volumes that the BMTCI Program at CCCUPR will generate under the ARC services agreement, justifying contract scope expansion to include autologous HSC collection, CAR-T lymphocyte apheresis, and future allogeneic donor collections.
+
+2. **For stakeholders** — How TCT's participation at CCCUPR (effective August 2026) will redistribute hematologic oncology patient volumes across Puerto Rico's hospital landscape, retaining patients on-island who currently travel to the US mainland.
 
 ---
 
-## II. PUERTO RICO HEMATOLOGIC MALIGNANCY BURDEN
+## II. PROGRAM OVERVIEW
 
-### 2.1 Annual Disease Incidence
+The **BMTCI Program** (Hematopoietic Stem Cell Transplantation & Cellular Immunotherapy) launches at CCCUPR as a new department — peer to Medical Oncology and Surgical Oncology — under the Hospital Medical Director. TCT Oncology provides transplant/cellular therapy expertise in collaboration with the CCCUPR academic platform.
 
-| Cancer Type | Incidence Rate (per 100,000) | Estimated New Cases/Year (PR) | Notes |
-|-------------|------------------------------|-------------------------------|-------|
+| Phase | Timeline | Scope | Volume Target |
+|-------|----------|-------|---------------|
+| Phase 1 | Year 1 (2026-2027) | Autologous HCT | 10-15 auto-HCTs |
+| Phase 2 | Year 2-3 (2028-2029) | + CAR-T, donor search, HLA partnerships | 20-30+ transplants/yr |
+| Phase 3 | Year 3+ (2029+) | + Allogeneic HCT, gene therapy, FACT accreditation | Full-spectrum cellular therapy |
+
+**Infrastructure at CCCUPR:** 3-4 HEPA-filtered positive-pressure rooms, outpatient transplant clinic, 2-3 apheresis collection chairs, pharmacy biological safety hood, ICU with CRS/neurotoxicity capability.
+
+**Staffing:** 18-22 FTE at launch (Phase 1), scaling to 26-30 FTE (Phase 2), then 32-37 FTE (Phase 3).
+
+---
+
+## III. PUERTO RICO HEMATOLOGIC MALIGNANCY BURDEN
+
+### 3.1 Annual Disease Incidence
+
+| Cancer Type | Incidence (per 100,000) | Est. New Cases/Year (PR) | Notes |
+|-------------|------------------------|--------------------------|-------|
 | Leukemia (all subtypes) | 10.2 | ~325 | 9th most common cancer in PR |
-| Non-Hodgkin Lymphoma (NHL) | ~13.5 | ~430 | 6th in males, 7th in females; 82% of all lymphomas in PR |
-| Hodgkin Lymphoma (HL) | ~2.5 | ~80 | — |
-| Multiple Myeloma (MM) | ~6.5 | ~210 | Increasing incidence, especially younger women |
-| Other hematologic | ~2.0 | ~65 | MDS, MPN, other |
-| **Total Hematologic Malignancies** | **~34.7** | **~1,110** | |
+| Non-Hodgkin Lymphoma | ~13.5 | ~430 | 6th in males, 7th in females |
+| Hodgkin Lymphoma | ~2.5 | ~80 | — |
+| Multiple Myeloma | ~6.5 | ~210 | Increasing, especially younger women |
+| Other hematologic (MDS, MPN) | ~2.0 | ~65 | — |
+| **Total** | **~34.7** | **~1,110** | |
 
-**Source:** Puerto Rico Central Cancer Registry; SEER Program; PLOS One (2023); PubMed (2024). Population base: 3,184,835 (US Census 2025).
+*Sources: PR Central Cancer Registry; SEER Program; Population: 3,184,835 (US Census 2025)*
 
-### 2.2 Treatment-Eligible Patient Funnel
+### 3.2 Treatment-Eligible Patient Funnel
 
-| Stage | Estimated Patients/Year | Notes |
-|-------|------------------------|-------|
-| New hematologic malignancies diagnosed | ~1,110 | All subtypes combined |
-| Requiring systemic therapy (chemo, immuno, targeted) | ~850-950 | ~80% of diagnosed |
+| Stage | Patients/Year | Notes |
+|-------|---------------|-------|
+| New hematologic malignancies diagnosed in PR | ~1,110 | All subtypes |
 | Auto SCT-eligible (myeloma, relapsed NHL, HD) | ~150-200 | Standard consolidation or salvage |
-| CAR-T eligible (2nd/3rd+ line DLBCL, MCL, FL, ALL, MM) | ~80-120 | After failure of >=1 prior line |
-| Currently receiving SCT **in Puerto Rico** | ~15-25 | HAM program only |
-| Currently receiving CAR-T **in Puerto Rico** | **0** | No program exists |
-| Traveling to mainland for SCT/CAR-T | ~60-100 | Estimated; many never travel |
-| **Eligible but untreated (lost to access gap)** | **~70-120** | Cannot afford/access mainland care |
+| CAR-T eligible (2nd/3rd+ line DLBCL, MCL, FL, ALL, MM) | ~80-120 | After >=1 prior line failure |
+| Currently receiving SCT **on-island** | ~20-35 | HAM only |
+| Currently receiving CAR-T **on-island** | **0** | No program exists |
+| Traveling to mainland US for SCT or CAR-T | ~60-100 | Those who can afford/access |
+| **Eligible but untreated (lost to access gap)** | **~70-120** | Cannot afford or access mainland |
 
 ---
 
-## III. CURRENT HOSPITAL VOLUME DISTRIBUTION (BASELINE — PRE-ONCOCEL)
+## IV. ARC SERVICES — PROJECTED COLLECTION VOLUMES
 
-### 3.1 Estimated Annual Hematologic Oncology Volume by Hospital
+### 4.1 Apheresis & Cell Processing Volume Under ARC Agreement
 
-| Hospital / Program | Location | Hem/Onc Consults/Year | Chemo Infusions/Year | Auto SCT/Year | CAR-T/Year | Notes |
-|--------------------|----------|----------------------|---------------------|---------------|------------|-------|
-| **CCCUPR** | San Juan | 2,200-2,800 | 1,800-2,200 | 0 | 0 | Largest public referral hub; pursuing NCI designation; no transplant program |
-| **Auxilio Mutuo (HAM)** | Hato Rey | 1,800-2,200 | 1,500-1,800 | 15-25 | 0 | Only active BMT program in PR; CIBMTR reporting with TCT; 6-room transplant unit |
-| **HIMA San Pablo Oncologico** | Caguas/Bayamon | 1,500-1,800 | 1,200-1,500 | 5-10 | 0 | Building stem cell/BMT center; Advanced Hematology & Oncology Group |
-| **Ashford Presbyterian** | San Juan | 600-800 | 400-600 | 0 | 0 | Private; general oncology |
-| **Menonita / Regional hospitals** | Island-wide | 800-1,200 | 600-900 | 0 | 0 | Community oncology; limited hematology |
-| **Private hem/onc practices** | Island-wide | 1,000-1,400 | 800-1,100 | 0 | 0 | PROncology, PR Hematology Oncology Group, others |
-| **Mainland US referrals** (MD Anderson, Moffitt, MSK, etc.) | US Mainland | — | — | 40-60 | 30-50 | Patients who can afford/access mainland travel |
-| **Lost to access gap** | — | — | — | ~50-80 | ~50-70 | Eligible but never treated due to cost/access barriers |
-| **TOTAL PR** | | **~8,000-10,000** | **~6,300-8,100** | **~110-175** | **~80-120 eligible** | |
+The ARC contract must cover the following services for the BMTCI Program. These volumes represent **new activity** generated by the program — not redistribution of existing ARC workload.
 
-### 3.2 Key Insight
+| ARC Service | Year 1 (2027) | Year 2 (2028) | Year 3 (2029) | Year 5 (2031) |
+|-------------|---------------|---------------|---------------|---------------|
+| **Autologous HSC collections** | 12-18 | 22-32 | 30-42 | 40-55 |
+| **CAR-T lymphocyte apheresis** | 4-8 | 10-14 | 16-22 | 30-45 |
+| **Allogeneic donor collections** | 0 | 0 | 2-5 | 8-15 |
+| Cryopreservation events | 12-18 | 22-32 | 32-47 | 48-70 |
+| Product release testing | 16-26 | 32-46 | 48-69 | 78-115 |
+| Chain-of-custody/identity events | 16-26 | 32-46 | 48-69 | 78-115 |
+| **Total apheresis procedures** | **16-26** | **32-46** | **48-69** | **78-115** |
 
-**CCCUPR is the single largest feeder of hematologic malignancy patients in Puerto Rico** — yet it has no transplant or cellular therapy program. Patients diagnosed at CCCUPR who need SCT or CAR-T must currently be referred to HAM (limited SCT only), HIMA (nascent program), or the mainland US. **TCT's presence at CCCUPR creates a direct referral bridge into OncoCel for the highest-acuity patients.**
+### 4.2 ARC Contract Scope Requirements
 
----
-
-## IV. TCT AT CCCUPR — REFERRAL CAPTURE MECHANISM
-
-### 4.1 How TCT Participation Drives Volume
-
-| Mechanism | Description | Volume Impact |
-|-----------|-------------|---------------|
-| **On-site consultation** | TCT hematologists see patients directly at CCCUPR starting Aug 2026 | First contact with SCT/CAR-T eligible patients at point of diagnosis |
-| **Multidisciplinary tumor board** | TCT participates in CCCUPR's hematologic malignancy tumor boards | Ensures OncoCel is discussed as treatment option for every eligible case |
-| **Referral pathway formalization** | Structured referral protocol from CCCUPR → OncoCel for SCT/CAR-T evaluation | Eliminates ad-hoc mainland referrals; patients stay on-island |
-| **Patient education** | TCT educates CCCUPR patients/families about local SCT/CAR-T availability | Reduces mainland travel default; increases treatment uptake |
-| **Clinical trial enrollment** | CCCUPR patients enrolled in OncoCel/Roswell Park research protocols | Research volume drives VC narrative |
-| **NCI synergy** | CCCUPR's NCI designation pursuit benefits from cellular therapy research affiliation | Mutual strategic value strengthens partnership |
-
-### 4.2 Projected Referral Capture Rate from CCCUPR
-
-| Year | CCCUPR SCT-Eligible Seen by TCT | Captured to OncoCel SCT | CCCUPR CAR-T Eligible Seen | Captured to OncoCel CAR-T |
-|------|--------------------------------|------------------------|---------------------------|--------------------------|
-| Year 1 (Oct 2026 - Sep 2027) | 40-55 | 10-15 (25-27%) | 25-35 | 4-8 (16-23%) |
-| Year 2 (2028) | 55-70 | 18-25 (33-36%) | 35-45 | 8-12 (23-27%) |
-| Year 3 (2029) | 65-80 | 25-35 (38-44%) | 40-50 | 12-18 (30-36%) |
-| Year 5 (2031) | 75-90 | 35-45 (47-50%) | 50-60 | 20-30 (40-50%) |
+| Service Category | Currently Covered? | Action Required |
+|-----------------|-------------------|-----------------|
+| Autologous HSC collection & processing | Confirm | Verify explicit coverage in current agreement |
+| HSC cryopreservation & long-term storage | Confirm | Verify capacity and pricing |
+| CAR-T lymphocyte apheresis & shipment logistics | **Likely gap** | Amend contract to include leukapheresis for CAR-T |
+| Product release testing | Confirm | Verify turnaround times meet clinical windows |
+| Chain-of-identity / chain-of-custody | Confirm | Must meet FACT-JACIE standards |
+| Deviation reporting & complaint handling | Confirm | Align with CCCUPR quality program |
+| Pricing transparency & pass-through costs | Review | Negotiate volume-based pricing as program scales |
+| Capacity guarantees & turnaround times | **Critical** | SLA must guarantee slots for emergent collections |
+| Future allogeneic donor collections (Phase 3) | **Not yet needed** | Plan for amendment by Year 2-3 |
 
 ---
 
-## V. PROJECTED VOLUME REDISTRIBUTION — WITH ONCOCEL
+## V. HOSPITAL VOLUME IMPACT — CURRENT STATE VS. PROJECTED
 
-### 5.1 Estimated Annual Volume by Hospital — 5-Year Projection
+### 5.1 Baseline: Where Patients Go Today (Pre-BMTCI Program)
 
-#### Auto SCT Cases Per Year
+| Hospital / Destination | Hem/Onc Consults/Yr | Chemo Infusions/Yr | Auto SCT/Yr | CAR-T/Yr | Role |
+|------------------------|---------------------|---------------------|-------------|----------|------|
+| **CCCUPR** | 2,200-2,800 | 1,800-2,200 | 0 | 0 | Largest public referral hub; no transplant |
+| **Auxilio Mutuo (HAM)** | 1,800-2,200 | 1,500-1,800 | 15-25 | 0 | Only active BMT; 6-room transplant unit |
+| **HIMA San Pablo Oncologico** | 1,500-1,800 | 1,200-1,500 | 5-10 | 0 | Building stem cell center |
+| **Other PR hospitals & practices** | 2,400-3,400 | 1,800-2,600 | 0 | 0 | Community oncology |
+| **Mainland US** (MDAnderson, Moffitt, MSK, etc.) | — | — | 40-60 | 30-50 | Patients leave island |
+| **Access gap** (eligible, never treated) | — | — | ~50-80 | ~50-70 | Lost to cost/logistics |
+| **Total** | **~8,000-10,200** | **~6,300-8,100** | **~110-175** | **~80-120** | |
 
-| Hospital / Program | Baseline (Pre-OncoCel) | Year 1 (2027) | Year 2 (2028) | Year 3 (2029) | Year 5 (2031) |
-|--------------------|----------------------|---------------|---------------|---------------|---------------|
-| **OncoCel** | **0** | **13-19** | **22-30** | **30-40** | **40-50** |
-| **Auxilio Mutuo (HAM)** | 15-25 | 12-20 | 10-18 | 10-16 | 10-15 |
-| **HIMA San Pablo** | 5-10 | 5-10 | 8-12 | 10-15 | 12-18 |
-| **Mainland US** | 40-60 | 30-45 | 22-35 | 18-28 | 12-20 |
-| **Lost to access gap** | 50-80 | 40-60 | 30-45 | 20-30 | 10-15 |
-| **Total PR SCT volume** | **110-175** | **100-154** | **92-140** | **88-129** | **84-118** |
-| **Total treated on-island** | **20-35** | **30-49** | **40-60** | **50-71** | **62-83** |
-| **On-island capture rate** | **~18-20%** | **~30-32%** | **~43-46%** | **~57-55%** | **~74-70%** |
+**On-island treatment rate — SCT: ~18-20% | CAR-T: 0%**
 
-#### CAR-T Infusions Per Year
+### 5.2 Projected Annual Volume by Hospital — With BMTCI Program at CCCUPR
 
-| Hospital / Program | Baseline (Pre-OncoCel) | Year 1 (2027) | Year 2 (2028) | Year 3 (2029) | Year 5 (2031) |
-|--------------------|----------------------|---------------|---------------|---------------|---------------|
-| **OncoCel** | **0** | **8-13** | **12 (9R+3C)** | **18-24** | **36-48** |
-| **Auxilio Mutuo (HAM)** | 0 | 0 | 0 | 0 | 0 |
-| **HIMA San Pablo** | 0 | 0 | 0 | 0 | 0 |
-| **Mainland US** | 30-50 | 25-40 | 20-35 | 18-28 | 10-18 |
-| **Lost to access gap** | 50-70 | 40-55 | 35-48 | 25-35 | 12-20 |
-| **Total CAR-T eligible** | **80-120** | **73-108** | **67-95** | **61-87** | **58-86** |
-| **Actually treated** | **30-50** | **33-53** | **32-47** | **36-52** | **46-66** |
-| **Treatment access rate** | **~38-42%** | **~45-49%** | **~48-49%** | **~59-60%** | **~79-77%** |
+#### Autologous SCT (Cases Per Year)
 
-#### General Hematology/Oncology Consults Per Year
+| Hospital / Destination | Baseline | Year 1 (2027) | Year 2 (2028) | Year 3 (2029) | Year 5 (2031) |
+|------------------------|----------|---------------|---------------|---------------|---------------|
+| **CCCUPR / BMTCI Program** | **0** | **10-15** | **22-30** | **30-40** | **40-50** |
+| Auxilio Mutuo (HAM) | 15-25 | 13-22 | 12-20 | 10-18 | 10-15 |
+| HIMA San Pablo | 5-10 | 5-10 | 8-12 | 10-15 | 12-18 |
+| Mainland US | 40-60 | 30-45 | 22-35 | 15-25 | 8-15 |
+| Access gap (untreated) | 50-80 | 40-60 | 28-42 | 18-28 | 8-12 |
+| **Total eligible** | **110-175** | **98-152** | **92-139** | **83-126** | **78-110** |
+| **Treated on-island** | **20-35** | **28-47** | **42-62** | **50-73** | **62-83** |
+| **On-island capture rate** | **~18-20%** | **~29-31%** | **~46-45%** | **~60-58%** | **~79-75%** |
 
-| Hospital / Program | Baseline (Pre-OncoCel) | Year 1 (2027) | Year 2 (2028) | Year 3 (2029) | Year 5 (2031) |
-|--------------------|----------------------|---------------|---------------|---------------|---------------|
-| **OncoCel** | **0** | **1,125-1,375** | **1,400-1,600** | **1,600-1,800** | **2,000-2,400** |
-| **CCCUPR** | 2,200-2,800 | 2,100-2,600 | 2,000-2,500 | 1,950-2,400 | 1,900-2,300 |
-| **Auxilio Mutuo (HAM)** | 1,800-2,200 | 1,700-2,100 | 1,650-2,000 | 1,600-1,950 | 1,550-1,900 |
-| **HIMA San Pablo** | 1,500-1,800 | 1,450-1,750 | 1,400-1,700 | 1,400-1,700 | 1,400-1,700 |
-| **Other PR hospitals/practices** | 2,400-3,400 | 2,350-3,300 | 2,300-3,200 | 2,250-3,100 | 2,200-3,000 |
+#### CAR-T Infusions (Cases Per Year)
 
-### 5.2 Where OncoCel Volume Comes From
+| Hospital / Destination | Baseline | Year 1 (2027) | Year 2 (2028) | Year 3 (2029) | Year 5 (2031) |
+|------------------------|----------|---------------|---------------|---------------|---------------|
+| **CCCUPR / BMTCI Program** | **0** | **4-8** | **10-14** | **16-22** | **30-45** |
+| Auxilio Mutuo (HAM) | 0 | 0 | 0 | 0 | 0 |
+| HIMA San Pablo | 0 | 0 | 0 | 0 | 0 |
+| Mainland US | 30-50 | 25-42 | 22-36 | 18-28 | 10-16 |
+| Access gap (untreated) | 50-70 | 42-58 | 35-48 | 28-38 | 15-22 |
+| **Total eligible** | **80-120** | **71-108** | **67-98** | **62-88** | **55-83** |
+| **Actually treated** | **30-50** | **29-50** | **32-50** | **34-50** | **40-61** |
+| **Treatment access rate** | **~38-42%** | **~41-46%** | **~48-51%** | **~55-57%** | **~73-73%** |
 
-| Source | % of OncoCel SCT Volume | % of OncoCel CAR-T Volume | Mechanism |
-|--------|------------------------|--------------------------|-----------|
-| **CCCUPR referrals (via TCT)** | **50-60%** | **45-55%** | Direct referral from TCT on-site presence |
-| Mainland repatriation | 20-25% | 25-30% | Patients who would have traveled now stay |
-| Access gap recovery | 10-15% | 15-20% | Previously untreated patients now have local option |
-| HAM/other PR hospital referrals | 5-10% | 5-10% | Collaborative referrals for CAR-T (no competing program) |
-| Caribbean/medical tourism | 2-5% | 2-5% | DR, USVI, regional referrals |
+#### General Hematology/Oncology Consults (Per Year)
 
----
+| Hospital / Program | Baseline | Year 1 (2027) | Year 2 (2028) | Year 3 (2029) | Year 5 (2031) |
+|--------------------|----------|---------------|---------------|---------------|---------------|
+| **CCCUPR** (incl. BMTCI consults) | 2,200-2,800 | 2,500-3,200 | 2,700-3,400 | 2,900-3,600 | 3,200-3,900 |
+| Auxilio Mutuo (HAM) | 1,800-2,200 | 1,750-2,150 | 1,700-2,100 | 1,650-2,050 | 1,600-2,000 |
+| HIMA San Pablo | 1,500-1,800 | 1,500-1,800 | 1,500-1,800 | 1,500-1,800 | 1,500-1,800 |
+| Other PR hospitals & practices | 2,400-3,400 | 2,350-3,350 | 2,300-3,300 | 2,300-3,300 | 2,300-3,300 |
 
-## VI. IMPACT SUMMARY
-
-### 6.1 Net Impact on Each Hospital Program
-
-| Hospital | Impact | Direction | Explanation |
-|----------|--------|-----------|-------------|
-| **CCCUPR** | Moderate positive | Neutral to ↑ | Gains TCT expertise and cellular therapy affiliation; strengthens NCI application; loses some consult volume but gains research collaboration |
-| **Auxilio Mutuo (HAM)** | Mild negative on SCT | ↓ on SCT volume | Loses 3-8 SCT cases/year to OncoCel as CCCUPR referrals shift; retains allo-HSCT niche; apheresis SLA creates ongoing partnership revenue |
-| **HIMA San Pablo** | Minimal impact | → | Different patient population (Caguas/Bayamon); growing independently; no CAR-T competition |
-| **Mainland US centers** | Moderate negative | ↓↓ | Largest volume shift — 15-30 SCT and 10-20 CAR-T cases/year repatriated to PR over 5 years |
-| **Access gap patients** | Strong positive | ↑↑ | 30-50 previously untreated patients/year gain access to SCT/CAR-T locally |
-| **OncoCel** | — | New entrant | Captures volume primarily from mainland leakage and access gap — not from existing PR hospitals |
-
-### 6.2 Critical Narrative
-
-**OncoCel does not cannibalize existing Puerto Rico hospital programs.** The majority of OncoCel's SCT and CAR-T volume comes from:
-
-1. **Mainland repatriation** (patients who would have left the island)
-2. **Access gap recovery** (patients who would have gone untreated)
-3. **CCCUPR referral formalization** (patients who had no structured pathway to SCT/CAR-T)
-
-The net effect is an **increase in total on-island treatment volume** — from ~20-35 SCT/year and 0 CAR-T/year today, to ~62-83 SCT/year and 36-48 CAR-T/year by 2031. This represents a shift from **18-20% on-island capture** to **70-74%** — keeping patients, families, and healthcare dollars in Puerto Rico.
+**Note:** CCCUPR consult volume **increases** as the BMTCI Program draws transplant/CAR-T evaluations to the center — patients who previously went directly to HAM or the mainland are now evaluated at CCCUPR first.
 
 ---
 
-*Prepared for OncoCel LLC*
-*Carlos Mendez, COO | June 2026*
-*Confidential — For Strategic Planning & Stakeholder Discussions*
+## VI. WHERE THE VOLUME COMES FROM
+
+### 6.1 Sources of BMTCI Program Volume
+
+| Source | % of SCT Volume | % of CAR-T Volume | Mechanism |
+|--------|-----------------|-------------------|-----------|
+| **CCCUPR internal referrals** | 45-55% | 40-50% | Patients already diagnosed at CCCUPR now have on-site transplant/CAR-T pathway |
+| **Mainland repatriation** | 20-25% | 25-30% | Patients who would have left PR now stay |
+| **Access gap recovery** | 15-20% | 15-20% | Previously untreated patients gain access |
+| **External PR hospital referrals** | 5-10% | 5-10% | Collaborative referrals (no competing CAR-T program) |
+| **Caribbean/regional** | 2-5% | 2-5% | DR, USVI, eventual medical tourism |
+
+### 6.2 Net Impact on Each Hospital
+
+| Hospital | SCT Impact | CAR-T Impact | Consult Impact | Net Assessment |
+|----------|-----------|-------------|----------------|----------------|
+| **CCCUPR** | +10-50 cases/yr (new capability) | +4-45 cases/yr (new capability) | +300-1,100/yr (gains) | **Strong positive** — gains transplant program, strengthens NCI application |
+| **Auxilio Mutuo (HAM)** | -2 to -10 cases/yr | No change (0→0) | -50 to -200/yr | **Mild negative on SCT** — retains allo-HSCT niche; ARC SLA partnership revenue offsets |
+| **HIMA San Pablo** | Minimal change | No change | Stable | **Neutral** — different catchment area; growing independently |
+| **Other PR hospitals** | No change | No change | -50 to -100/yr | **Minimal** — community hem/onc unaffected |
+| **Mainland US centers** | -10 to -45 cases/yr | -5 to -34 cases/yr | — | **Significant reduction** — largest volume shift as patients stay on-island |
+| **Access gap patients** | -10 to -68 cases treated | -8 to -48 cases treated | — | **Major positive** — previously untreated patients now receive therapy |
+
+---
+
+## VII. KEY TAKEAWAY
+
+**The BMTCI Program at CCCUPR does not cannibalize existing Puerto Rico hospital programs.** The overwhelming majority of volume comes from three sources:
+
+1. **CCCUPR's own patients** who currently have no on-site transplant option
+2. **Mainland repatriation** — patients kept on-island instead of traveling
+3. **Access gap recovery** — patients who would never have been treated
+
+The net effect is a transformation of Puerto Rico's cellular therapy landscape:
+
+| Metric | Today | Year 5 (2031) | Change |
+|--------|-------|---------------|--------|
+| On-island auto SCT/year | 20-35 | 62-83 | **+210-137%** |
+| On-island CAR-T/year | 0 | 30-45 | **From zero** |
+| On-island capture rate (SCT) | 18-20% | 75-79% | **+57 pts** |
+| Treatment access rate (CAR-T) | 38-42% | 73% | **+33 pts** |
+| Patients traveling to mainland | 60-100/yr | 18-31/yr | **-70%** |
+| Eligible patients going untreated | 120-150/yr | 23-34/yr | **-78%** |
+| ARC apheresis procedures/year | 0 (for BMTCI) | 78-115 | **New volume** |
+
+**For ARC:** This represents a sustained, growing volume of apheresis collections and cell processing services — starting at 16-26 procedures in Year 1 and scaling to 78-115 procedures by Year 5. This is entirely new volume, not shifted from other ARC contracts.
+
+---
+
+*Prepared by TCT Oncology for BMTCI Program stakeholders and ARC contract review*
+*Carlos Mendez, COO — cmendez@tctoncology.com*
+*June 2026 | Confidential*
