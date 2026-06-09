@@ -140,13 +140,13 @@ r = p.add_run("June 2026  ·  Confidential"); r.font.size = Pt(8.5); r.font.colo
 # ============================================================
 section(doc, "01", "Context")
 
-body(doc, "TCT Oncology is launching a BMTCI Program (Hematopoietic Stem Cell Transplantation & Cellular Immunotherapy) at the Centro Comprensivo de Cancer de la Universidad de Puerto Rico (CCCUPR), with clinical operations beginning August 2026. OncoCel LLC provides strategic, operational, and research infrastructure support to the program.")
+body(doc, "OncoCel LLC is launching a BMTCI Program (Hematopoietic Stem Cell Transplantation & Cellular Immunotherapy) at the Centro Comprensivo de Cancer de la Universidad de Puerto Rico (CCCUPR), with clinical operations beginning August 2026. The program will deliver autologous HCT, CAR-T cellular therapy, and — in later phases — allogeneic transplant and gene therapy on-island for the first time.")
 
-body(doc, "TCT Oncology also operates the established allogeneic HSCT program and CIBMTR reporting infrastructure at Auxilio Mutuo Hospital (HAM). Together, TCT Oncology and OncoCel create Puerto Rico's first comprehensive cellular therapy network — with CCCUPR handling autologous HCT and CAR-T, and HAM continuing as the allo-HSCT center.")
+body(doc, "OncoCel works with TCT Oncology, which operates the established allogeneic HSCT program and CIBMTR reporting infrastructure at Auxilio Mutuo Hospital (HAM). This collaboration creates Puerto Rico's first comprehensive cellular therapy network — with CCCUPR handling autologous HCT and CAR-T, and HAM continuing as the allo-HSCT center through TCT Oncology.")
 
-body(doc, "ARC is the only FACT-accredited apheresis and cell processing provider on the island. As TCT Oncology scales across both sites with OncoCel support, ARC's collection and processing volume will increase significantly.", after=6)
+body(doc, "ARC is the only FACT-accredited apheresis and cell processing provider on the island. As OncoCel scales the BMTCI Program at CCCUPR and referral volume to HAM increases, ARC's collection and processing workload will grow significantly.", after=6)
 
-callout(doc, "Purpose: Provide ARC advance notice of anticipated volume growth across TCT Oncology at CCCUPR and HAM — supported by OncoCel — to enable capacity planning, contract scope review, and service continuity.")
+callout(doc, "Purpose: Provide ARC advance notice of anticipated volume growth driven by OncoCel's BMTCI Program at CCCUPR and the associated referral pipeline to HAM, enabling capacity planning, contract scope review, and service continuity.")
 
 # ============================================================
 # 02 PROGRAM PHASES
@@ -162,7 +162,7 @@ tbl(doc,
     ], hc="007C8A")
 
 body(doc, "")
-body(doc, "TCT Oncology also operates the allogeneic HSCT program at Auxilio Mutuo Hospital (HAM). Patients identified at CCCUPR who need allo-HSCT will be referred to HAM, generating additional donor collection volume for ARC across both sites.", size=8.5)
+body(doc, "OncoCel works with TCT Oncology at Auxilio Mutuo Hospital (HAM) for allogeneic HSCT. Patients identified at CCCUPR who need allo-HSCT will be referred to HAM through TCT Oncology, generating additional donor collection volume for ARC.", size=8.5)
 
 # ============================================================
 # 03 PROJECTED ARC VOLUMES
@@ -196,7 +196,7 @@ tbl(doc,
 # ============================================================
 section(doc, "04", "Contract Scope — Items to Review")
 
-body(doc, "OncoCel, on behalf of TCT Oncology, requests ARC confirm coverage for the following services:", after=4)
+body(doc, "OncoCel requests ARC confirm coverage for the following services as the program scales:", after=4)
 
 tbl(doc,
     ["Service", "Status", "Action"],
@@ -217,7 +217,7 @@ section(doc, "05", "Why Volume Is Growing")
 body(doc, "Puerto Rico currently has no on-island CAR-T program and limited transplant capacity. Most eligible patients travel to the US mainland or go untreated:", after=4)
 
 tbl(doc,
-    ["Metric", "Current State", "With TCT/OncoCel (Year 5)"],
+    ["Metric", "Current State", "With OncoCel Program (Year 5)"],
     [
         ["Auto SCT on-island / year", "20–35", "62–83"],
         ["Allo-HSCT on-island / year", "8–15", "25–38"],
@@ -228,7 +228,7 @@ tbl(doc,
     ], hc="0C2340")
 
 body(doc, "")
-callout(doc, "ARC is positioned as the sole on-island partner for this growth. No other FACT-accredited provider in Puerto Rico can support the apheresis and cell processing requirements of TCT Oncology's cellular therapy network.")
+callout(doc, "ARC is positioned as the sole on-island partner for this growth. No other FACT-accredited provider in Puerto Rico can support the apheresis and cell processing requirements of OncoCel's cellular therapy program.")
 
 # ============================================================
 # 06 TIMELINE
@@ -238,16 +238,16 @@ section(doc, "06", "Timeline & Next Steps")
 tbl(doc,
     ["When", "What", "ARC Impact"],
     [
-        ["August 2026", "TCT Oncology launches BMTCI at CCCUPR", "First collections anticipated Q4 2026"],
+        ["August 2026", "OncoCel launches BMTCI at CCCUPR", "First collections anticipated Q4 2026"],
         ["Q4 2026", "First autologous HSC collections (CCCUPR)", "12–18 collections in Year 1"],
         ["Q1 2027", "First CAR-T leukapheresis (CCCUPR)", "Contract amendment needed"],
-        ["2028", "Allo-HSCT donor collections ramp (HAM)", "Donor volume increasing"],
+        ["2028", "Allo-HSCT donor collections ramp (HAM via TCT)", "Donor volume increasing"],
         ["2028–2029", "Program reaches 40–58 procedures / year", "Volume-based pricing discussion"],
         ["2031", "Full program at 85–122 procedures / year", "Steady-state capacity planning"],
     ], hc="007C8A")
 
 body(doc, "")
-body(doc, "OncoCel, on behalf of TCT Oncology, proposes a meeting with ARC leadership to:", bold=True, size=9, color=TEAL, after=2)
+body(doc, "OncoCel proposes a meeting with ARC leadership to:", bold=True, size=9, color=TEAL, after=2)
 bullet(doc, "Review current contract scope against projected service needs")
 bullet(doc, "Confirm capacity availability for Year 1 collections (Q4 2026 start)")
 bullet(doc, "Discuss CAR-T leukapheresis as a new service category and amend agreement")
@@ -270,7 +270,7 @@ p = doc.add_paragraph(); p.space_after = Pt(1)
 r = p.add_run("Carlos Mendez, COO  ·  cmendez@tctoncology.com"); r.font.size = Pt(8); r.font.color.rgb = MED_GRAY; r.font.name = FONT_BODY
 
 p = doc.add_paragraph(); p.space_after = Pt(1)
-r = p.add_run("Supporting TCT Oncology at CCCUPR and Auxilio Mutuo Hospital"); r.font.size = Pt(7.5); r.font.color.rgb = LIGHT_GRAY; r.font.name = FONT_BODY; r.italic = True
+r = p.add_run("Bone Marrow Transplant  ·  Cellular Therapy  ·  Research"); r.font.size = Pt(7.5); r.font.color.rgb = LIGHT_GRAY; r.font.name = FONT_BODY; r.italic = True
 
 p = doc.add_paragraph()
 r = p.add_run("San Juan, Puerto Rico  ·  June 2026  ·  Confidential"); r.font.size = Pt(7.5); r.font.color.rgb = LIGHT_GRAY; r.font.name = FONT_BODY
