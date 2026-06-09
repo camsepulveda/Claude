@@ -148,13 +148,13 @@ r = p.add_run("June 2026  |  Confidential"); r.font.size = Pt(8.5); r.font.color
 # ============================================================
 sect(doc, "01", "Context")
 
-body(doc, "OncoCel LLC is launching a BMTCI Program (Hematopoietic Stem Cell Transplantation & Cellular Immunotherapy) at the Centro Comprensivo de Cancer de la Universidad de Puerto Rico (CCCUPR), with clinical operations beginning August 2026.")
+body(doc, "TCT Oncology is launching a BMTCI Program (Hematopoietic Stem Cell Transplantation & Cellular Immunotherapy) at the Centro Comprensivo de Cancer de la Universidad de Puerto Rico (CCCUPR), with clinical operations beginning August 2026. OncoCel LLC provides strategic, operational, and research infrastructure support to the program.")
 
-body(doc, "OncoCel works in collaboration with TCT Oncology, which operates the established allogeneic HSCT program and CIBMTR reporting infrastructure at Auxilio Mutuo Hospital (HAM). Together, the OncoCel-TCT partnership creates Puerto Rico's first comprehensive cellular therapy network — with CCCUPR handling autologous HCT and CAR-T, and HAM continuing as the allo-HSCT center through TCT Oncology.")
+body(doc, "TCT Oncology also operates the established allogeneic HSCT program and CIBMTR reporting infrastructure at Auxilio Mutuo Hospital (HAM). Together, TCT Oncology and OncoCel create Puerto Rico's first comprehensive cellular therapy network — with CCCUPR handling autologous HCT and CAR-T, and HAM continuing as the allo-HSCT center.")
 
-body(doc, "ARC is the only FACT-accredited apheresis and cell processing provider on the island. As the OncoCel-TCT network scales across both sites, ARC's collection and processing volume will increase significantly. This document provides ARC with advance notice of projected volumes to support capacity planning and contract scope review.", after=6)
+body(doc, "ARC is the only FACT-accredited apheresis and cell processing provider on the island. As TCT Oncology scales across both sites with OncoCel support, ARC's collection and processing volume will increase significantly. This document provides ARC with advance notice of projected volumes to support capacity planning and contract scope review.", after=6)
 
-callout(doc, "Purpose: Give ARC a heads-up on anticipated volume growth across the OncoCel (CCCUPR) and TCT Oncology (HAM) network so both organizations can plan capacity, amend contract scope, and ensure service continuity.")
+callout(doc, "Purpose: Give ARC a heads-up on anticipated volume growth across TCT Oncology at CCCUPR and HAM — supported by OncoCel — so both organizations can plan capacity, amend contract scope, and ensure service continuity.")
 
 # ============================================================
 # 02 PROGRAM PHASES
@@ -170,7 +170,7 @@ table(doc,
     ], hdr_hex="007B7F")
 
 body(doc, "")
-body(doc, "OncoCel's partner, TCT Oncology, operates the allogeneic HSCT program at Auxilio Mutuo Hospital (HAM). Patients identified at CCCUPR who need allo-HSCT will be referred to HAM through TCT Oncology, generating additional donor collection volume for ARC across both sites.", size=8.5)
+body(doc, "TCT Oncology also operates the allogeneic HSCT program at Auxilio Mutuo Hospital (HAM). Patients identified at CCCUPR who need allo-HSCT will be referred to HAM through TCT Oncology, generating additional donor collection volume for ARC across both sites.", size=8.5)
 
 # ============================================================
 # 03 PROJECTED ARC VOLUMES
@@ -236,7 +236,7 @@ table(doc,
     ], hdr_hex="1B2A4A")
 
 body(doc, "")
-callout(doc, "ARC is positioned as the sole on-island partner for this growth. No other FACT-accredited provider in Puerto Rico can support the apheresis and cell processing requirements of the OncoCel-TCT Oncology cellular therapy network.")
+callout(doc, "ARC is positioned as the sole on-island partner for this growth. No other FACT-accredited provider in Puerto Rico can support the apheresis and cell processing requirements of TCT Oncology's cellular therapy network.")
 
 # ============================================================
 # 06 TIMELINE
@@ -246,7 +246,7 @@ sect(doc, "06", "Timeline & Next Steps")
 table(doc,
     ["When", "What", "ARC Impact"],
     [
-        ["August 2026", "OncoCel begins clinical operations at CCCUPR", "First collection requests anticipated Q4 2026"],
+        ["August 2026", "TCT Oncology launches BMTCI at CCCUPR", "First collection requests anticipated Q4 2026"],
         ["Q4 2026", "First autologous HSC collections (CCCUPR)", "12-18 collections in Year 1"],
         ["Q1 2027", "First CAR-T leukapheresis (CCCUPR)", "New service type — contract amendment needed"],
         ["2028", "Allo-HSCT donor collections ramp (HAM via TCT)", "Donor collection volume increasing"],
@@ -255,7 +255,7 @@ table(doc,
     ], hdr_hex="007B7F")
 
 body(doc, "")
-body(doc, "OncoCel proposes a meeting with ARC leadership to:", bold=True, size=9, color=OC_TEAL, after=2)
+body(doc, "OncoCel, on behalf of TCT Oncology, proposes a meeting with ARC leadership to:", bold=True, size=9, color=OC_TEAL, after=2)
 bullet(doc, "Review current contract scope against projected service needs")
 bullet(doc, "Confirm capacity availability for Year 1 collections (Q4 2026 start)")
 bullet(doc, "Discuss CAR-T leukapheresis as a new service category and amend agreement")
@@ -276,10 +276,7 @@ p = doc.add_paragraph(); p.space_after = Pt(1)
 r = p.add_run("Carlos Mendez, COO — cmendez@tctoncology.com"); r.font.size = Pt(8); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"
 
 p = doc.add_paragraph(); p.space_after = Pt(1)
-r = p.add_run("In collaboration with TCT Oncology (Auxilio Mutuo Hospital)"); r.font.size = Pt(7.5); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"; r.italic = True
-
-p = doc.add_paragraph(); p.space_after = Pt(1)
-r = p.add_run("Centro Comprensivo de Cancer · Universidad de Puerto Rico"); r.font.size = Pt(7.5); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"; r.italic = True
+r = p.add_run("Supporting TCT Oncology at CCCUPR and Auxilio Mutuo Hospital"); r.font.size = Pt(7.5); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"; r.italic = True
 
 p = doc.add_paragraph()
 r = p.add_run("June 2026  |  Confidential"); r.font.size = Pt(7.5); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"
