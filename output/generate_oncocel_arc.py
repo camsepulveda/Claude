@@ -150,9 +150,11 @@ sect(doc, "01", "Context")
 
 body(doc, "OncoCel LLC is launching a BMTCI Program (Hematopoietic Stem Cell Transplantation & Cellular Immunotherapy) at the Centro Comprensivo de Cancer de la Universidad de Puerto Rico (CCCUPR), with clinical operations beginning August 2026.")
 
-body(doc, "ARC is the only FACT-accredited apheresis and cell processing provider on the island. As OncoCel scales its three-pillar program — autologous HCT, allogeneic HSCT, and CAR-T cellular therapy — ARC's collection and processing volume will increase significantly. This document provides ARC with advance notice of projected volumes to support capacity planning and contract scope review.", after=6)
+body(doc, "OncoCel works in collaboration with TCT Oncology, which operates the established allogeneic HSCT program and CIBMTR reporting infrastructure at Auxilio Mutuo Hospital (HAM). Together, the OncoCel-TCT partnership creates Puerto Rico's first comprehensive cellular therapy network — with CCCUPR handling autologous HCT and CAR-T, and HAM continuing as the allo-HSCT center through TCT Oncology.")
 
-callout(doc, "Purpose: Give ARC a heads-up on anticipated volume growth so both organizations can plan capacity, amend contract scope, and ensure service continuity.")
+body(doc, "ARC is the only FACT-accredited apheresis and cell processing provider on the island. As the OncoCel-TCT network scales across both sites, ARC's collection and processing volume will increase significantly. This document provides ARC with advance notice of projected volumes to support capacity planning and contract scope review.", after=6)
+
+callout(doc, "Purpose: Give ARC a heads-up on anticipated volume growth across the OncoCel (CCCUPR) and TCT Oncology (HAM) network so both organizations can plan capacity, amend contract scope, and ensure service continuity.")
 
 # ============================================================
 # 02 PROGRAM PHASES
@@ -168,7 +170,7 @@ table(doc,
     ], hdr_hex="007B7F")
 
 body(doc, "")
-body(doc, "OncoCel also operates the allogeneic HSCT program at Auxilio Mutuo Hospital (HAM). Patients identified at CCCUPR who need allo-HSCT will be referred to HAM, generating additional donor collection volume for ARC.", size=8.5)
+body(doc, "OncoCel's partner, TCT Oncology, operates the allogeneic HSCT program at Auxilio Mutuo Hospital (HAM). Patients identified at CCCUPR who need allo-HSCT will be referred to HAM through TCT Oncology, generating additional donor collection volume for ARC across both sites.", size=8.5)
 
 # ============================================================
 # 03 PROJECTED ARC VOLUMES
@@ -182,7 +184,7 @@ table(doc,
     [
         ["Autologous HSC collections (CCCUPR)", "12-18", "22-32", "30-42", "40-55"],
         ["CAR-T leukapheresis (CCCUPR)", "4-8", "10-14", "16-22", "30-45"],
-        ["Allogeneic donor collections (HAM)", "4-6", "8-12", "10-15", "15-22"],
+        ["Allo donor collections (HAM via TCT Oncology)", "4-6", "8-12", "10-15", "15-22"],
         ["Total apheresis procedures", "20-32", "40-58", "56-80", "85-122"],
     ], hdr_hex="007B7F")
 
@@ -234,7 +236,7 @@ table(doc,
     ], hdr_hex="1B2A4A")
 
 body(doc, "")
-callout(doc, "ARC is positioned as the sole on-island partner for this growth. No other FACT-accredited provider in Puerto Rico can support the apheresis and cell processing requirements of a multi-modality cellular therapy program.")
+callout(doc, "ARC is positioned as the sole on-island partner for this growth. No other FACT-accredited provider in Puerto Rico can support the apheresis and cell processing requirements of the OncoCel-TCT Oncology cellular therapy network.")
 
 # ============================================================
 # 06 TIMELINE
@@ -245,9 +247,9 @@ table(doc,
     ["When", "What", "ARC Impact"],
     [
         ["August 2026", "OncoCel begins clinical operations at CCCUPR", "First collection requests anticipated Q4 2026"],
-        ["Q4 2026", "First autologous HSC collections", "12-18 collections in Year 1"],
-        ["Q1 2027", "First CAR-T leukapheresis", "New service type — contract amendment needed"],
-        ["2028", "Allo-HSCT donor collections ramp at HAM", "Donor collection volume increasing"],
+        ["Q4 2026", "First autologous HSC collections (CCCUPR)", "12-18 collections in Year 1"],
+        ["Q1 2027", "First CAR-T leukapheresis (CCCUPR)", "New service type — contract amendment needed"],
+        ["2028", "Allo-HSCT donor collections ramp (HAM via TCT)", "Donor collection volume increasing"],
         ["2028-2029", "Program reaches 40-58 procedures/year", "Volume-based pricing discussion"],
         ["2031", "Full program at 85-122 procedures/year", "Steady-state capacity planning"],
     ], hdr_hex="007B7F")
@@ -274,7 +276,10 @@ p = doc.add_paragraph(); p.space_after = Pt(1)
 r = p.add_run("Carlos Mendez, COO — cmendez@tctoncology.com"); r.font.size = Pt(8); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"
 
 p = doc.add_paragraph(); p.space_after = Pt(1)
-r = p.add_run("In collaboration with Centro Comprensivo de Cancer · Universidad de Puerto Rico"); r.font.size = Pt(7.5); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"; r.italic = True
+r = p.add_run("In collaboration with TCT Oncology (Auxilio Mutuo Hospital)"); r.font.size = Pt(7.5); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"; r.italic = True
+
+p = doc.add_paragraph(); p.space_after = Pt(1)
+r = p.add_run("Centro Comprensivo de Cancer · Universidad de Puerto Rico"); r.font.size = Pt(7.5); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"; r.italic = True
 
 p = doc.add_paragraph()
 r = p.add_run("June 2026  |  Confidential"); r.font.size = Pt(7.5); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"
