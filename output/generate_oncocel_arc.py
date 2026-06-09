@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate OncoCel LLC branded ARC Volume Heads-Up document."""
+"""Generate OncoCel LLC ARC document using official Brand Identity System."""
 
 from docx import Document
 from docx.shared import Inches, Pt, Cm, RGBColor
@@ -9,23 +9,33 @@ from docx.oxml.ns import qn, nsdecls
 from docx.oxml import parse_xml
 import os
 
-# OncoCel colors - clean professional palette
-# Using navy + teal + green (derived from OncoCel strategic plan style)
-OC_NAVY = RGBColor(0x1B, 0x2A, 0x4A)
-OC_TEAL = RGBColor(0x00, 0x7B, 0x7F)
-OC_GREEN = RGBColor(0x2E, 0x86, 0x4B)
-OC_BLUE = RGBColor(0x2C, 0x5F, 0x8A)
-OC_LIGHT = RGBColor(0xE8, 0xF0, 0xF2)
-OC_DARK = RGBColor(0x2C, 0x2C, 0x2C)
-OC_GRAY = RGBColor(0x77, 0x77, 0x77)
-OC_WHITE = RGBColor(0xFF, 0xFF, 0xFF)
-OC_RED = RGBColor(0xBB, 0x33, 0x33)
-OC_POS = RGBColor(0x1E, 0x88, 0x49)
+# ============================================================
+# ONCOCEL BRAND IDENTITY SYSTEM — COLOR PALETTE (Section 05)
+# ============================================================
+DEEP_NAVY   = RGBColor(0x0C, 0x23, 0x40)  # #0C2340
+BIOTECH_BLU = RGBColor(0x1B, 0x5E, 0x8A)  # #1B5E8A
+TEAL        = RGBColor(0x00, 0x7C, 0x8A)  # #007C8A
+CYAN        = RGBColor(0x00, 0xA3, 0xB5)  # #00A3B5
+CYAN_LT     = RGBColor(0x00, 0xBC, 0xD4)  # #00BCD4
+GOLD        = RGBColor(0xC4, 0xA3, 0x5A)  # #C4A35A
+WHITE       = RGBColor(0xFF, 0xFF, 0xFF)
+BODY_TEXT   = RGBColor(0x33, 0x33, 0x33)
+LIGHT_GRAY  = RGBColor(0x99, 0x99, 0x99)
+MED_GRAY    = RGBColor(0x66, 0x66, 0x66)
+GREEN_POS   = RGBColor(0x1E, 0x88, 0x49)
+RED_NEG     = RGBColor(0xBB, 0x33, 0x33)
 
-def shade(cell, hex_color):
-    cell._tc.get_or_add_tcPr().append(parse_xml(f'<w:shd {nsdecls("w")} w:fill="{hex_color}"/>'))
+# Typography: Instrument Sans (body), DM Mono (labels) — Calibri as Word fallback
+FONT_BODY = "Calibri"
 
-def border(cell, c="CCCCCC"):
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+LETTERHEAD = os.path.join(SCRIPT_DIR, "oncocel_letterhead.png")
+ICON = os.path.join(SCRIPT_DIR, "oncocel_icon.png")
+
+def shade(cell, h):
+    cell._tc.get_or_add_tcPr().append(parse_xml(f'<w:shd {nsdecls("w")} w:fill="{h}"/>'))
+
+def bdr(cell, c="D8D8D8"):
     cell._tc.get_or_add_tcPr().append(parse_xml(
         f'<w:tcBorders {nsdecls("w")}>'
         f'<w:top w:val="single" w:sz="2" w:space="0" w:color="{c}"/>'
@@ -34,179 +44,161 @@ def border(cell, c="CCCCCC"):
         f'<w:right w:val="single" w:sz="2" w:space="0" w:color="{c}"/>'
         f'</w:tcBorders>'))
 
-def margins(cell, v=40, h=80):
+def pad(cell, v=45, h=80):
     cell._tc.get_or_add_tcPr().append(parse_xml(
         f'<w:tcMar {nsdecls("w")}>'
         f'<w:top w:w="{v}" w:type="dxa"/><w:bottom w:w="{v}" w:type="dxa"/>'
         f'<w:left w:w="{h}" w:type="dxa"/><w:right w:w="{h}" w:type="dxa"/>'
         f'</w:tcMar>'))
 
-def table(doc, headers, rows, hdr_hex="1B2A4A"):
-    t = doc.add_table(rows=1+len(rows), cols=len(headers))
-    t.alignment = WD_TABLE_ALIGNMENT.CENTER
-    t.autofit = True
-    for i, h in enumerate(headers):
-        c = t.rows[0].cells[i]
-        c.text = ""
-        p = c.paragraphs[0]
-        p.space_before = Pt(1); p.space_after = Pt(1)
-        r = p.add_run(h)
-        r.bold = True; r.font.size = Pt(8); r.font.color.rgb = OC_WHITE; r.font.name = "Calibri"
+def tbl(doc, hdrs, rows, hc="0C2340"):
+    t = doc.add_table(rows=1+len(rows), cols=len(hdrs))
+    t.alignment = WD_TABLE_ALIGNMENT.CENTER; t.autofit = True
+    for i, h in enumerate(hdrs):
+        c = t.rows[0].cells[i]; c.text = ""
+        p = c.paragraphs[0]; p.space_before = Pt(2); p.space_after = Pt(2)
+        r = p.add_run(h); r.bold = True; r.font.size = Pt(8); r.font.color.rgb = WHITE; r.font.name = FONT_BODY
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        shade(c, hdr_hex); border(c, hdr_hex); margins(c)
+        shade(c, hc); bdr(c, hc); pad(c)
     for ri, rd in enumerate(rows):
-        is_sum = any(k in str(rd[0]).lower() for k in ["total","capture","treated","access","growth","on-island","arc "])
+        sumrow = any(k in str(rd[0]).lower() for k in ["total","capture","treated","access","growth","on-island","arc "])
         for ci, v in enumerate(rd):
-            c = t.rows[ri+1].cells[ci]
-            c.text = ""
-            p = c.paragraphs[0]
-            p.space_before = Pt(1); p.space_after = Pt(1)
-            txt = str(v)
-            r = p.add_run(txt)
-            r.font.size = Pt(8); r.font.name = "Calibri"
+            c = t.rows[ri+1].cells[ci]; c.text = ""
+            p = c.paragraphs[0]; p.space_before = Pt(1); p.space_after = Pt(1)
+            tx = str(v); r = p.add_run(tx); r.font.size = Pt(8); r.font.name = FONT_BODY
             if ci == 0:
-                r.bold = True
-                r.font.color.rgb = OC_TEAL if is_sum else OC_DARK
+                r.bold = True; r.font.color.rgb = TEAL if sumrow else DEEP_NAVY
                 p.alignment = WD_ALIGN_PARAGRAPH.LEFT
             else:
                 p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-                if "+" in txt and any(d.isdigit() for d in txt):
-                    r.font.color.rgb = OC_POS; r.bold = True
-                elif txt.startswith("-") and any(d.isdigit() for d in txt):
-                    r.font.color.rgb = OC_RED
-                elif is_sum:
-                    r.bold = True; r.font.color.rgb = OC_TEAL
-                else:
-                    r.font.color.rgb = OC_DARK
-            bg = "F5F7F8" if ri % 2 == 1 else "FFFFFF"
-            if is_sum: bg = "E8F4F0"
-            shade(c, bg); border(c); margins(c)
-    return t
+                if "+" in tx and any(d.isdigit() for d in tx): r.font.color.rgb = GREEN_POS; r.bold = True
+                elif tx.startswith("-") and any(d.isdigit() for d in tx): r.font.color.rgb = RED_NEG
+                elif sumrow: r.bold = True; r.font.color.rgb = TEAL
+                else: r.font.color.rgb = BODY_TEXT
+            bg = "F4F7F8" if ri % 2 == 1 else "FFFFFF"
+            if sumrow: bg = "E6F2F2"
+            shade(c, bg); bdr(c); pad(c)
 
-def sect(doc, num, title):
-    p = doc.add_paragraph()
-    p.space_before = Pt(16); p.space_after = Pt(2)
-    r = p.add_run(f"{num}  "); r.font.size = Pt(9); r.font.color.rgb = OC_TEAL; r.font.name = "Calibri"; r.bold = True
-    r = p.add_run(title.upper()); r.font.size = Pt(13); r.font.color.rgb = OC_NAVY; r.font.name = "Calibri"; r.bold = True
+def section(doc, num, title):
+    p = doc.add_paragraph(); p.space_before = Pt(18); p.space_after = Pt(2)
+    r = p.add_run(f"{num}  "); r.font.size = Pt(9); r.font.color.rgb = GOLD; r.font.name = FONT_BODY; r.bold = True
+    r = p.add_run(title.upper()); r.font.size = Pt(13); r.font.color.rgb = DEEP_NAVY; r.font.name = FONT_BODY; r.bold = True
+    # Gold underline matching letterhead accent bar
     p2 = doc.add_paragraph(); p2.space_after = Pt(4)
-    p2._p.get_or_add_pPr().append(parse_xml(f'<w:pBdr {nsdecls("w")}><w:bottom w:val="single" w:sz="6" w:space="1" w:color="007B7F"/></w:pBdr>'))
-
-def sub(doc, title):
-    p = doc.add_paragraph(); p.space_before = Pt(8); p.space_after = Pt(2)
-    r = p.add_run(title); r.font.size = Pt(10); r.font.color.rgb = OC_TEAL; r.font.name = "Calibri"; r.bold = True
+    p2._p.get_or_add_pPr().append(parse_xml(f'<w:pBdr {nsdecls("w")}><w:bottom w:val="single" w:sz="6" w:space="1" w:color="C4A35A"/></w:pBdr>'))
 
 def body(doc, text, bold=False, color=None, size=9, after=3):
     p = doc.add_paragraph(); p.space_after = Pt(after)
-    r = p.add_run(text); r.font.size = Pt(size); r.font.name = "Calibri"; r.bold = bold; r.font.color.rgb = color or OC_DARK
-    return p
+    r = p.add_run(text); r.font.size = Pt(size); r.font.name = FONT_BODY; r.bold = bold; r.font.color.rgb = color or BODY_TEXT
 
 def bullet(doc, text, prefix=None):
     p = doc.add_paragraph(style='List Bullet')
     p.paragraph_format.left_indent = Inches(0.3); p.space_after = Pt(2)
     if prefix:
-        r = p.add_run(prefix); r.bold = True; r.font.size = Pt(8.5); r.font.name = "Calibri"; r.font.color.rgb = OC_TEAL
-        r = p.add_run(f" — {text}"); r.font.size = Pt(8.5); r.font.name = "Calibri"; r.font.color.rgb = OC_DARK
+        r = p.add_run(prefix); r.bold = True; r.font.size = Pt(8.5); r.font.name = FONT_BODY; r.font.color.rgb = TEAL
+        r = p.add_run(f" — {text}"); r.font.size = Pt(8.5); r.font.name = FONT_BODY; r.font.color.rgb = BODY_TEXT
     else:
-        r = p.add_run(text); r.font.size = Pt(8.5); r.font.name = "Calibri"; r.font.color.rgb = OC_DARK
+        r = p.add_run(text); r.font.size = Pt(8.5); r.font.name = FONT_BODY; r.font.color.rgb = BODY_TEXT
 
-def callout(doc, text, color=None):
-    p = doc.add_paragraph(); p.space_before = Pt(4); p.space_after = Pt(4)
+def callout(doc, text):
+    p = doc.add_paragraph(); p.space_before = Pt(4); p.space_after = Pt(6)
     p.paragraph_format.left_indent = Inches(0.15)
-    p._p.get_or_add_pPr().append(parse_xml(f'<w:pBdr {nsdecls("w")}><w:left w:val="single" w:sz="16" w:space="8" w:color="007B7F"/></w:pBdr>'))
-    r = p.add_run(text); r.font.size = Pt(8.5); r.font.name = "Calibri"; r.bold = True; r.font.color.rgb = color or OC_NAVY
+    p._p.get_or_add_pPr().append(parse_xml(f'<w:pBdr {nsdecls("w")}><w:left w:val="single" w:sz="18" w:space="8" w:color="C4A35A"/></w:pBdr>'))
+    r = p.add_run(text); r.font.size = Pt(8.5); r.font.name = FONT_BODY; r.bold = True; r.font.color.rgb = DEEP_NAVY
 
 # ============================================================
 doc = Document()
-s = doc.styles['Normal']; s.font.name = 'Calibri'; s.font.size = Pt(9); s.font.color.rgb = OC_DARK
+s = doc.styles['Normal']; s.font.name = FONT_BODY; s.font.size = Pt(9); s.font.color.rgb = BODY_TEXT
 for sec in doc.sections:
-    sec.top_margin = Cm(1.8); sec.bottom_margin = Cm(1.5); sec.left_margin = Cm(2.2); sec.right_margin = Cm(2.2)
+    sec.top_margin = Cm(1.5); sec.bottom_margin = Cm(1.5); sec.left_margin = Cm(2.2); sec.right_margin = Cm(2.2)
 
 # ============================================================
-# HEADER
+# LETTERHEAD HEADER (matches brand guide Section 09)
 # ============================================================
-p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.LEFT; p.space_after = Pt(0)
-r = p.add_run("ONCOCEL"); r.font.size = Pt(26); r.font.color.rgb = OC_NAVY; r.font.name = "Calibri"; r.bold = True
-r = p.add_run("  LLC"); r.font.size = Pt(14); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"
+if os.path.exists(LETTERHEAD):
+    p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER; p.space_after = Pt(12)
+    run = p.add_run()
+    run.add_picture(LETTERHEAD, width=Inches(6.2))
 
-p = doc.add_paragraph(); p.space_after = Pt(8)
-p._p.get_or_add_pPr().append(parse_xml(f'<w:pBdr {nsdecls("w")}><w:bottom w:val="single" w:sz="10" w:space="1" w:color="007B7F"/></w:pBdr>'))
+# ============================================================
+# TITLE BLOCK
+# ============================================================
+p = doc.add_paragraph(); p.space_after = Pt(3); p.alignment = WD_ALIGN_PARAGRAPH.LEFT
+r = p.add_run("Volume Growth Notification"); r.font.size = Pt(20); r.font.color.rgb = DEEP_NAVY; r.font.name = FONT_BODY; r.bold = True
 
 p = doc.add_paragraph(); p.space_after = Pt(2)
-r = p.add_run("Volume Growth Notification"); r.font.size = Pt(18); r.font.color.rgb = OC_TEAL; r.font.name = "Calibri"; r.bold = True
-
-p = doc.add_paragraph(); p.space_after = Pt(2)
-r = p.add_run("Prepared for American Red Cross (ARC)"); r.font.size = Pt(11); r.font.color.rgb = OC_DARK; r.font.name = "Calibri"
+r = p.add_run("Prepared for American Red Cross (ARC)"); r.font.size = Pt(11); r.font.color.rgb = BIOTECH_BLU; r.font.name = FONT_BODY
 
 p = doc.add_paragraph(); p.space_after = Pt(1)
-r = p.add_run("Apheresis & Cell Processing Services — Anticipated Volume Increase"); r.font.size = Pt(9); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"; r.italic = True
+r = p.add_run("Apheresis & Cell Processing Services — Anticipated Volume Increase"); r.font.size = Pt(9); r.font.color.rgb = MED_GRAY; r.font.name = FONT_BODY; r.italic = True
 
-p = doc.add_paragraph(); p.space_after = Pt(6)
-r = p.add_run("June 2026  |  Confidential"); r.font.size = Pt(8.5); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"
+p = doc.add_paragraph(); p.space_after = Pt(8)
+r = p.add_run("June 2026  ·  Confidential"); r.font.size = Pt(8.5); r.font.color.rgb = LIGHT_GRAY; r.font.name = FONT_BODY
 
 # ============================================================
 # 01 CONTEXT
 # ============================================================
-sect(doc, "01", "Context")
+section(doc, "01", "Context")
 
 body(doc, "TCT Oncology is launching a BMTCI Program (Hematopoietic Stem Cell Transplantation & Cellular Immunotherapy) at the Centro Comprensivo de Cancer de la Universidad de Puerto Rico (CCCUPR), with clinical operations beginning August 2026. OncoCel LLC provides strategic, operational, and research infrastructure support to the program.")
 
 body(doc, "TCT Oncology also operates the established allogeneic HSCT program and CIBMTR reporting infrastructure at Auxilio Mutuo Hospital (HAM). Together, TCT Oncology and OncoCel create Puerto Rico's first comprehensive cellular therapy network — with CCCUPR handling autologous HCT and CAR-T, and HAM continuing as the allo-HSCT center.")
 
-body(doc, "ARC is the only FACT-accredited apheresis and cell processing provider on the island. As TCT Oncology scales across both sites with OncoCel support, ARC's collection and processing volume will increase significantly. This document provides ARC with advance notice of projected volumes to support capacity planning and contract scope review.", after=6)
+body(doc, "ARC is the only FACT-accredited apheresis and cell processing provider on the island. As TCT Oncology scales across both sites with OncoCel support, ARC's collection and processing volume will increase significantly.", after=6)
 
-callout(doc, "Purpose: Give ARC a heads-up on anticipated volume growth across TCT Oncology at CCCUPR and HAM — supported by OncoCel — so both organizations can plan capacity, amend contract scope, and ensure service continuity.")
+callout(doc, "Purpose: Provide ARC advance notice of anticipated volume growth across TCT Oncology at CCCUPR and HAM — supported by OncoCel — to enable capacity planning, contract scope review, and service continuity.")
 
 # ============================================================
 # 02 PROGRAM PHASES
 # ============================================================
-sect(doc, "02", "OncoCel Program Phases")
+section(doc, "02", "Program Phases")
 
-table(doc,
+tbl(doc,
     ["Phase", "Timeline", "Scope", "Volume Target"],
     [
-        ["Phase 1", "Year 1 (Aug 2026-2027)", "Autologous HCT", "10-15 auto-HCTs"],
-        ["Phase 2", "Year 2-3 (2028-2029)", "+ CAR-T + Donor Search", "20-30+ transplants/yr"],
+        ["Phase 1", "Year 1 (Aug 2026–2027)", "Autologous HCT", "10–15 auto-HCTs"],
+        ["Phase 2", "Year 2–3 (2028–2029)", "+ CAR-T + Donor Search", "20–30+ transplants/yr"],
         ["Phase 3", "Year 3+ (2029+)", "+ Allogeneic HCT + Gene Therapy", "Full-spectrum program"],
-    ], hdr_hex="007B7F")
+    ], hc="007C8A")
 
 body(doc, "")
-body(doc, "TCT Oncology also operates the allogeneic HSCT program at Auxilio Mutuo Hospital (HAM). Patients identified at CCCUPR who need allo-HSCT will be referred to HAM through TCT Oncology, generating additional donor collection volume for ARC across both sites.", size=8.5)
+body(doc, "TCT Oncology also operates the allogeneic HSCT program at Auxilio Mutuo Hospital (HAM). Patients identified at CCCUPR who need allo-HSCT will be referred to HAM, generating additional donor collection volume for ARC across both sites.", size=8.5)
 
 # ============================================================
 # 03 PROJECTED ARC VOLUMES
 # ============================================================
-sect(doc, "03", "Projected ARC Collection Volumes")
+section(doc, "03", "Projected ARC Collection Volumes")
 
-body(doc, "All volumes below represent new programmatic activity. This is not a redistribution of existing ARC workload.", bold=True, size=9, color=OC_TEAL, after=6)
+body(doc, "All volumes below represent new programmatic activity. This is not a redistribution of existing ARC workload.", bold=True, size=9, color=TEAL, after=6)
 
-table(doc,
+tbl(doc,
     ["ARC Service", "Year 1", "Year 2", "Year 3", "Year 5"],
     [
-        ["Autologous HSC collections (CCCUPR)", "12-18", "22-32", "30-42", "40-55"],
-        ["CAR-T leukapheresis (CCCUPR)", "4-8", "10-14", "16-22", "30-45"],
-        ["Allo donor collections (HAM via TCT Oncology)", "4-6", "8-12", "10-15", "15-22"],
-        ["Total apheresis procedures", "20-32", "40-58", "56-80", "85-122"],
-    ], hdr_hex="007B7F")
+        ["Autologous HSC collections (CCCUPR)", "12–18", "22–32", "30–42", "40–55"],
+        ["CAR-T leukapheresis (CCCUPR)", "4–8", "10–14", "16–22", "30–45"],
+        ["Allo donor collections (HAM via TCT)", "4–6", "8–12", "10–15", "15–22"],
+        ["Total apheresis procedures", "20–32", "40–58", "56–80", "85–122"],
+    ], hc="007C8A")
 
 body(doc, "")
-body(doc, "Supporting processing volume:", bold=True, size=9, color=OC_TEAL, after=2)
+body(doc, "Supporting processing volume:", bold=True, size=9, color=BIOTECH_BLU, after=2)
 
-table(doc,
+tbl(doc,
     ["Processing Service", "Year 1", "Year 2", "Year 3", "Year 5"],
     [
-        ["Cryopreservation events", "16-24", "30-44", "40-57", "55-77"],
-        ["Product release testing", "20-32", "40-58", "56-80", "85-122"],
-        ["Chain-of-custody/identity", "20-32", "40-58", "56-80", "85-122"],
-    ], hdr_hex="1B2A4A")
+        ["Cryopreservation events", "16–24", "30–44", "40–57", "55–77"],
+        ["Product release testing", "20–32", "40–58", "56–80", "85–122"],
+        ["Chain-of-custody / identity", "20–32", "40–58", "56–80", "85–122"],
+    ], hc="0C2340")
 
 # ============================================================
-# 04 CONTRACT SCOPE REVIEW
+# 04 CONTRACT SCOPE
 # ============================================================
-sect(doc, "04", "Contract Scope — Items to Review")
+section(doc, "04", "Contract Scope — Items to Review")
 
-body(doc, "OncoCel requests ARC confirm coverage for the following services as the program scales:", after=4)
+body(doc, "OncoCel, on behalf of TCT Oncology, requests ARC confirm coverage for the following services:", after=4)
 
-table(doc,
+tbl(doc,
     ["Service", "Status", "Action"],
     [
         ["Autologous HSC collection & processing", "Confirm", "Verify explicit coverage in current agreement"],
@@ -215,25 +207,25 @@ table(doc,
         ["Allogeneic donor collections", "Plan ahead", "Amendment needed by Year 2 (2028)"],
         ["Capacity guarantees & turnaround SLA", "Critical", "Must guarantee slots for emergent collections"],
         ["Volume-based pricing", "Discuss", "As volume scales from 20 to 85+ procedures/year"],
-    ], hdr_hex="007B7F")
+    ], hc="007C8A")
 
 # ============================================================
-# 05 WHY THIS MATTERS
+# 05 WHY VOLUME IS GROWING
 # ============================================================
-sect(doc, "05", "Why Volume Is Growing")
+section(doc, "05", "Why Volume Is Growing")
 
 body(doc, "Puerto Rico currently has no on-island CAR-T program and limited transplant capacity. Most eligible patients travel to the US mainland or go untreated:", after=4)
 
-table(doc,
-    ["Metric", "Current State", "With OncoCel (Year 5)"],
+tbl(doc,
+    ["Metric", "Current State", "With TCT/OncoCel (Year 5)"],
     [
-        ["Auto SCT performed on-island/year", "20-35", "62-83"],
-        ["Allo-HSCT performed on-island/year", "8-15", "25-38"],
-        ["CAR-T performed on-island/year", "0", "30-45"],
-        ["Total on-island cellular therapy cases", "28-50", "117-166"],
-        ["Patients traveling to mainland/year", "60-100", "18-31"],
-        ["ARC apheresis procedures/year (OncoCel)", "0", "85-122"],
-    ], hdr_hex="1B2A4A")
+        ["Auto SCT on-island / year", "20–35", "62–83"],
+        ["Allo-HSCT on-island / year", "8–15", "25–38"],
+        ["CAR-T on-island / year", "0", "30–45"],
+        ["Total on-island cellular therapy", "28–50", "117–166"],
+        ["Patients traveling to mainland", "60–100 / yr", "18–31 / yr"],
+        ["ARC apheresis procedures (new)", "0", "85–122 / yr"],
+    ], hc="0C2340")
 
 body(doc, "")
 callout(doc, "ARC is positioned as the sole on-island partner for this growth. No other FACT-accredited provider in Puerto Rico can support the apheresis and cell processing requirements of TCT Oncology's cellular therapy network.")
@@ -241,21 +233,21 @@ callout(doc, "ARC is positioned as the sole on-island partner for this growth. N
 # ============================================================
 # 06 TIMELINE
 # ============================================================
-sect(doc, "06", "Timeline & Next Steps")
+section(doc, "06", "Timeline & Next Steps")
 
-table(doc,
+tbl(doc,
     ["When", "What", "ARC Impact"],
     [
-        ["August 2026", "TCT Oncology launches BMTCI at CCCUPR", "First collection requests anticipated Q4 2026"],
-        ["Q4 2026", "First autologous HSC collections (CCCUPR)", "12-18 collections in Year 1"],
-        ["Q1 2027", "First CAR-T leukapheresis (CCCUPR)", "New service type — contract amendment needed"],
-        ["2028", "Allo-HSCT donor collections ramp (HAM via TCT)", "Donor collection volume increasing"],
-        ["2028-2029", "Program reaches 40-58 procedures/year", "Volume-based pricing discussion"],
-        ["2031", "Full program at 85-122 procedures/year", "Steady-state capacity planning"],
-    ], hdr_hex="007B7F")
+        ["August 2026", "TCT Oncology launches BMTCI at CCCUPR", "First collections anticipated Q4 2026"],
+        ["Q4 2026", "First autologous HSC collections (CCCUPR)", "12–18 collections in Year 1"],
+        ["Q1 2027", "First CAR-T leukapheresis (CCCUPR)", "Contract amendment needed"],
+        ["2028", "Allo-HSCT donor collections ramp (HAM)", "Donor volume increasing"],
+        ["2028–2029", "Program reaches 40–58 procedures / year", "Volume-based pricing discussion"],
+        ["2031", "Full program at 85–122 procedures / year", "Steady-state capacity planning"],
+    ], hc="007C8A")
 
 body(doc, "")
-body(doc, "OncoCel, on behalf of TCT Oncology, proposes a meeting with ARC leadership to:", bold=True, size=9, color=OC_TEAL, after=2)
+body(doc, "OncoCel, on behalf of TCT Oncology, proposes a meeting with ARC leadership to:", bold=True, size=9, color=TEAL, after=2)
 bullet(doc, "Review current contract scope against projected service needs")
 bullet(doc, "Confirm capacity availability for Year 1 collections (Q4 2026 start)")
 bullet(doc, "Discuss CAR-T leukapheresis as a new service category and amend agreement")
@@ -263,25 +255,27 @@ bullet(doc, "Establish turnaround and capacity SLA for emergent collection slots
 bullet(doc, "Plan volume-based pricing as the program scales")
 
 # ============================================================
-# FOOTER
+# FOOTER — Gold accent bar + OncoCel branding
 # ============================================================
 p = doc.add_paragraph(); p.space_before = Pt(24)
-p._p.get_or_add_pPr().append(parse_xml(f'<w:pBdr {nsdecls("w")}><w:top w:val="single" w:sz="6" w:space="6" w:color="007B7F"/></w:pBdr>'))
+p._p.get_or_add_pPr().append(parse_xml(f'<w:pBdr {nsdecls("w")}><w:top w:val="single" w:sz="8" w:space="6" w:color="C4A35A"/></w:pBdr>'))
 
-p = doc.add_paragraph(); p.space_after = Pt(0)
-r = p.add_run("ONCOCEL"); r.font.size = Pt(12); r.font.color.rgb = OC_NAVY; r.font.name = "Calibri"; r.bold = True
-r = p.add_run("  LLC"); r.font.size = Pt(8); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"
-
-p = doc.add_paragraph(); p.space_after = Pt(1)
-r = p.add_run("Carlos Mendez, COO — cmendez@tctoncology.com"); r.font.size = Pt(8); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"
+p = doc.add_paragraph(); p.space_after = Pt(0); p.alignment = WD_ALIGN_PARAGRAPH.LEFT
+r = p.add_run("OncoCel"); r.font.size = Pt(14); r.font.color.rgb = DEEP_NAVY; r.font.name = FONT_BODY; r.bold = True
 
 p = doc.add_paragraph(); p.space_after = Pt(1)
-r = p.add_run("Supporting TCT Oncology at CCCUPR and Auxilio Mutuo Hospital"); r.font.size = Pt(7.5); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"; r.italic = True
+r = p.add_run("CELLULAR THERAPY & TRANSPLANTATION"); r.font.size = Pt(7); r.font.color.rgb = LIGHT_GRAY; r.font.name = FONT_BODY
+
+p = doc.add_paragraph(); p.space_after = Pt(1)
+r = p.add_run("Carlos Mendez, COO  ·  cmendez@tctoncology.com"); r.font.size = Pt(8); r.font.color.rgb = MED_GRAY; r.font.name = FONT_BODY
+
+p = doc.add_paragraph(); p.space_after = Pt(1)
+r = p.add_run("Supporting TCT Oncology at CCCUPR and Auxilio Mutuo Hospital"); r.font.size = Pt(7.5); r.font.color.rgb = LIGHT_GRAY; r.font.name = FONT_BODY; r.italic = True
 
 p = doc.add_paragraph()
-r = p.add_run("June 2026  |  Confidential"); r.font.size = Pt(7.5); r.font.color.rgb = OC_GRAY; r.font.name = "Calibri"
+r = p.add_run("San Juan, Puerto Rico  ·  June 2026  ·  Confidential"); r.font.size = Pt(7.5); r.font.color.rgb = LIGHT_GRAY; r.font.name = FONT_BODY
 
 # Save
-out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "OncoCel_ARC_Volume_Notification.docx")
+out = os.path.join(SCRIPT_DIR, "OncoCel_ARC_Volume_Notification.docx")
 doc.save(out)
 print(f"Saved: {out}")
