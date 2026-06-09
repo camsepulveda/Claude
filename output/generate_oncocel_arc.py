@@ -267,7 +267,7 @@ p = doc.add_paragraph(); p.space_after = Pt(1)
 r = p.add_run("CELLULAR THERAPY & TRANSPLANTATION"); r.font.size = Pt(7); r.font.color.rgb = LIGHT_GRAY; r.font.name = FONT_BODY
 
 p = doc.add_paragraph(); p.space_after = Pt(1)
-r = p.add_run("Carlos Mendez, COO  ·  cmendez@tctoncology.com"); r.font.size = Pt(8); r.font.color.rgb = MED_GRAY; r.font.name = FONT_BODY
+r = p.add_run("Carlos E. Méndez Sepúlveda, JD, MHSA, MPH  ·  Co-Founder & CEO"); r.font.size = Pt(8); r.font.color.rgb = MED_GRAY; r.font.name = FONT_BODY
 
 p = doc.add_paragraph(); p.space_after = Pt(1)
 r = p.add_run("Bone Marrow Transplant  ·  Cellular Therapy  ·  Research"); r.font.size = Pt(7.5); r.font.color.rgb = LIGHT_GRAY; r.font.name = FONT_BODY; r.italic = True
