@@ -151,86 +151,80 @@ body(doc, "ARC is the only FACT-accredited apheresis and cell processing provide
 callout(doc, "Purpose: Provide ARC advance notice of anticipated volume growth driven by OncoCel's ambulatory program and TCT Oncology's inpatient programs at CCCUPR and HAM, enabling capacity planning, contract scope review, and service continuity.")
 
 # ============================================================
-# 02 PROGRAM PHASES
+# 02 ONCOCEL AMBULATORY PROGRAM
 # ============================================================
-section(doc, "02", "Program Phases")
+section(doc, "02", "OncoCel Ambulatory Program")
+
+body(doc, "OncoCel's ambulatory center focuses exclusively on outpatient autologous HCT and research CAR-T. OncoCel does not perform allogeneic transplant or donor search — those services are provided by TCT Oncology at its inpatient hospital sites.", after=4)
 
 tbl(doc,
-    ["Phase", "Timeline", "Scope", "Volume Target"],
+    ["OncoCel Program", "Year 1", "Year 2"],
     [
-        ["Phase 1", "Year 1 (Aug 2026–2027)", "Autologous HCT", "10–15 auto-HCTs"],
-        ["Phase 2", "Year 2–3 (2028–2029)", "+ CAR-T + Donor Search", "20–30+ transplants/yr"],
-        ["Phase 3", "Year 3+ (2029+)", "+ Allogeneic HCT + Gene Therapy", "Full-spectrum program"],
+        ["Autologous HCT (Phase I)", "8–10", "15–20"],
+        ["Research CAR-T", "4–6", "8–10"],
+        ["Allogeneic HSCT", "0", "0"],
+        ["Donor search", "0", "0"],
+        ["Total OncoCel patients", "12–16", "23–30"],
+    ], hc="007C8A")
+
+# ============================================================
+# 03 ARC VOLUME INCREASE — ONCOCEL ONLY
+# ============================================================
+section(doc, "03", "ARC Volume Increase — OncoCel Ambulatory")
+
+body(doc, "The following table shows the incremental volume OncoCel will add to ARC's current baseline. These are net-new procedures above existing ARC workload.", bold=True, size=9, color=TEAL, after=6)
+
+tbl(doc,
+    ["ARC Service", "+Year 1 (new)", "+Year 2 (new)"],
+    [
+        ["Autologous HSC collections", "+8–10", "+15–20"],
+        ["Research CAR-T leukapheresis", "+4–6", "+8–10"],
+        ["Cryopreservation events", "+8–10", "+15–20"],
+        ["Product release testing", "+12–16", "+23–30"],
+        ["Chain-of-custody / identity", "+12–16", "+23–30"],
+        ["Total new ARC procedures (OncoCel)", "+12–16", "+23–30"],
     ], hc="007C8A")
 
 body(doc, "")
-body(doc, "OncoCel's ambulatory center handles outpatient autologous HCT and CAR-T. TCT Oncology provides inpatient services at CCCUPR (auto-HCT, CAR-T requiring admission) and at HAM (allogeneic HSCT). Patients needing allo-HSCT are referred to HAM through TCT Oncology. ARC supports collections across all sites.", size=8.5)
-
-# ============================================================
-# 03 PROJECTED ARC VOLUMES
-# ============================================================
-section(doc, "03", "Projected ARC Collection Volumes")
-
-body(doc, "All volumes below represent new programmatic activity. This is not a redistribution of existing ARC workload.", bold=True, size=9, color=TEAL, after=6)
-
-tbl(doc,
-    ["ARC Service", "Year 1", "Year 2", "Year 3", "Year 5"],
-    [
-        ["Autologous HSC collections (OncoCel + CCCUPR)", "12–18", "22–32", "30–42", "40–55"],
-        ["CAR-T leukapheresis (OncoCel + CCCUPR)", "4–8", "10–14", "16–22", "30–45"],
-        ["Allo donor collections (HAM — TCT inpatient)", "4–6", "8–12", "10–15", "15–22"],
-        ["Total apheresis procedures", "20–32", "40–58", "56–80", "85–122"],
-    ], hc="007C8A")
-
-body(doc, "")
-body(doc, "Supporting processing volume:", bold=True, size=9, color=BIOTECH_BLU, after=2)
-
-tbl(doc,
-    ["Processing Service", "Year 1", "Year 2", "Year 3", "Year 5"],
-    [
-        ["Cryopreservation events", "16–24", "30–44", "40–57", "55–77"],
-        ["Product release testing", "20–32", "40–58", "56–80", "85–122"],
-        ["Chain-of-custody / identity", "20–32", "40–58", "56–80", "85–122"],
-    ], hc="0C2340")
+body(doc, "Note: All numbers represent OncoCel ambulatory volume only. Inpatient volumes at CCCUPR and HAM (TCT Oncology) are reported separately by those programs.", size=8, color=MED_GRAY)
 
 # ============================================================
 # 04 CONTRACT SCOPE
 # ============================================================
 section(doc, "04", "Contract Scope — Items to Review")
 
-body(doc, "OncoCel requests ARC confirm coverage for the following services as the program scales:", after=4)
+body(doc, "OncoCel requests ARC confirm coverage for the following services:", after=4)
 
 tbl(doc,
     ["Service", "Status", "Action"],
     [
         ["Autologous HSC collection & processing", "Confirm", "Verify explicit coverage in current agreement"],
         ["HSC cryopreservation & long-term storage", "Confirm", "Verify capacity and pricing at projected volume"],
-        ["CAR-T leukapheresis & shipment logistics", "Likely gap", "Amend contract — new service category required"],
-        ["Allogeneic donor collections", "Plan ahead", "Amendment needed by Year 2 (2028)"],
+        ["Research CAR-T leukapheresis & shipment", "Likely gap", "Amend contract — new service category required"],
         ["Capacity guarantees & turnaround SLA", "Critical", "Must guarantee slots for emergent collections"],
-        ["Volume-based pricing", "Discuss", "As volume scales from 20 to 85+ procedures/year"],
+        ["Volume-based pricing", "Discuss", "As OncoCel + island-wide volume scales"],
     ], hc="007C8A")
 
 # ============================================================
-# 05 WHY VOLUME IS GROWING
+# 05 ISLAND-WIDE IMPACT
 # ============================================================
-section(doc, "05", "Why Volume Is Growing")
+section(doc, "05", "Island-Wide Volume Outlook")
 
-body(doc, "Puerto Rico currently has no on-island CAR-T program and limited transplant capacity. Most eligible patients travel to the US mainland or go untreated:", after=4)
+body(doc, "Beyond OncoCel's ambulatory program, the broader cellular therapy network — including TCT Oncology's inpatient programs at CCCUPR and HAM — will transform Puerto Rico's treatment landscape. The table below shows the expected island-wide volume increase as patients who currently fly to the mainland are retained on-island:", after=6)
 
 tbl(doc,
-    ["Metric", "Current State", "With OncoCel Program (Year 5)"],
+    ["Metric", "Current (Baseline)", "Projected (Year 2)", "Change"],
     [
-        ["Auto SCT on-island / year", "20–35", "62–83"],
-        ["Allo-HSCT on-island / year", "8–15", "25–38"],
-        ["CAR-T on-island / year", "0", "30–45"],
-        ["Total on-island cellular therapy", "28–50", "117–166"],
-        ["Patients traveling to mainland", "60–100 / yr", "18–31 / yr"],
-        ["ARC apheresis procedures (new)", "0", "85–122 / yr"],
+        ["Auto SCT on-island / year", "20–35", "50–70", "+30–35"],
+        ["Research CAR-T on-island / year", "0", "8–10", "+8–10"],
+        ["Allo-HSCT on-island / year (HAM)", "8–15", "16–24", "+8–9"],
+        ["Total on-island cellular therapy", "28–50", "74–104", "+46–54"],
+        ["Patients flying to mainland / year", "60–100", "30–55", "-30–45"],
+        ["Total ARC procedures island-wide", "Current baseline", "+35–50 above baseline", "Net new"],
     ], hc="0C2340")
 
 body(doc, "")
-callout(doc, "ARC is positioned as the sole on-island partner for this growth. No other FACT-accredited provider in Puerto Rico can support the apheresis and cell processing requirements of OncoCel's ambulatory program and TCT Oncology's inpatient programs at CCCUPR and HAM.")
+callout(doc, "ARC is the sole on-island FACT-accredited provider supporting this growth. As patients are retained in Puerto Rico instead of flying to the mainland, ARC's role becomes increasingly central to the island's cellular therapy infrastructure.")
 
 # ============================================================
 # 06 TIMELINE
@@ -240,12 +234,11 @@ section(doc, "06", "Timeline & Next Steps")
 tbl(doc,
     ["When", "What", "ARC Impact"],
     [
-        ["August 2026", "TCT inpatient program launches at CCCUPR; OncoCel ambulatory center active", "First collections anticipated Q4 2026"],
-        ["Q4 2026", "First autologous HSC collections (CCCUPR)", "12–18 collections in Year 1"],
-        ["Q1 2027", "First CAR-T leukapheresis (CCCUPR)", "Contract amendment needed"],
-        ["2028", "Allo-HSCT donor collections ramp (HAM — TCT inpatient)", "Donor volume increasing"],
-        ["2028–2029", "Program reaches 40–58 procedures / year", "Volume-based pricing discussion"],
-        ["2031", "Full program at 85–122 procedures / year", "Steady-state capacity planning"],
+        ["August 2026", "OncoCel ambulatory center active; TCT inpatient launches at CCCUPR", "First collections anticipated Q4 2026"],
+        ["Q4 2026", "First autologous HSC collections (OncoCel)", "+8–10 collections in Year 1"],
+        ["Q1 2027", "First research CAR-T leukapheresis (OncoCel)", "New service type — contract amendment needed"],
+        ["2028", "Year 2 ramp: 15–20 auto + 8–10 CAR-T (OncoCel)", "+23–30 OncoCel procedures above baseline"],
+        ["Ongoing", "Island-wide network scales (OncoCel + TCT)", "+35–50 total island-wide above baseline"],
     ], hc="007C8A")
 
 body(doc, "")
