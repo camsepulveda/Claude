@@ -14,6 +14,29 @@ Create notebooks, upload sources, get AI analysis, and generate deliverables (in
 
 **Requires authentication:** The user must run `notebooklm login` in a separate terminal before using this skill.
 
+## Slash Commands
+
+### `/adversarial-review` — Hostile Diff Review
+Reviews a git diff on the assumption that it is broken: attacks the change
+across correctness, contract, state, concurrency, data-integrity and security
+vectors, then tries to *disprove* each candidate defect before reporting it.
+Only findings with a concrete failure path are reported.
+
+```
+/adversarial-review                    # staged changes, else working tree, else branch vs base
+/adversarial-review branch             # current branch vs merge-base with the default branch
+/adversarial-review branch:develop     # ...vs a specific base
+/adversarial-review head               # the most recent commit
+/adversarial-review <commit>|<a>..<b>  # a commit or an explicit range
+/adversarial-review src/api            # limit to a path
+/adversarial-review branch --fix       # apply the CONFIRMED findings afterwards
+```
+
+Runs entirely on Claude Code and git — no external plugin or CLI required.
+The diff is gathered by `.claude/scripts/adversarial-review-diff.sh`, which
+can also be run on its own (`--help` for targets; `REVIEW_CONTEXT` sets hunk
+context, default 8 lines).
+
 ## Full Pipeline Workflow
 
 When the user requests a research pipeline (e.g., "find videos on X and send them to NotebookLM"):
