@@ -205,7 +205,7 @@ Variations observed:
 |------|-------|------------|---------|
 | Health Front | Two words, capitalized, in prose (see open question 1) | "HealthFront", "HF Group", "HF" | "Health Front will act as the physician's authorized representative" |
 | engagement | The unit of work | "project", "job", "joint venture" | "This engagement and fee are predicated on the following assumptions" |
-| fixed fee / professional services fee | How we price | "cost", "charge" | "Health Front Professional Services — Fixed Fee" |
+| fixed fee per service | How we price: each service quoted as a fixed fee in writing; once the engagement is approved, billed per service at the fee presented, never hourly | "cost", "charge", "hourly rate", "estimate" | "Each service is quoted as a fixed fee, in writing" |
 | pass-through costs | Third-party fees the client pays | "extras", "additional costs" | "Estimated Third-Party Pass-Through Costs (paid by Client)" |
 | credentialing and compliance | The paired service name | "paperwork", "licensing stuff" | "the development of a Credentialing and Compliance Program" |
 | authorized representative | Our legal posture before agencies | "agent", "helper" | "pursuant to IDFPR's Third Party Authorization" |

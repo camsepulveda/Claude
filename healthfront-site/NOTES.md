@@ -83,6 +83,11 @@ Producción by CPT (Recl., Pacientes, Servicios, Cargos, Pagos, Razón Facturado
 follow-up, studies, stress tests). Four sample reports were reviewed for vocabulary only. No client name, provider
 name, plan balance or figure from them appears on the page; the aging table and KPIs are fictional and labeled so.
 
+## Pricing language (owner's direction, 2026-11-01)
+Fixed fee per service, quoted in writing as presented; once the engagement is approved, each service is billed at the
+fee presented, never by the hour. Appears in the facts strip, the services note, the Launch deliverables, Approach
+step 2 and the cost FAQ. Agency and payer fees stay itemized separately.
+
 ## Copy decisions
 - Hero follows the brief's headline and subhead, tightened. CTAs: "Discuss your practice" / "Explore our approach".
 - "Health Front" (two words) throughout, matching the wordmark; "Health Front LLC" in legal lines. The brief wrote
