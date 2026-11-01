@@ -51,6 +51,13 @@ devices encode real structure: the four numbered stages are a real sequence; the
 - **Navy chapter**: the Approach section is a full-bleed navy band with paper text, so the page has a dark middle.
 - **"Where are you right now?"** chips under the hero re-light the readiness map for six situations, settle the
   compass, and pre-select the same situation in the contact form. All map content stays labeled illustrative.
+- **Compass rose background** in the hero: an inline SVG (three rings, 32 ticks, cardinal lines, a north notch like
+  the logo) at about 8% opacity, navy on paper and brass on dark, anchored right behind the map panel.
+- **Nine situations** in the hero and the form: finishing training, returning to the Island, adding physicians,
+  licensing in another state, established with pending items, making sense of billing reports, a special project or
+  contract, getting consultants to communicate, not sure. Each has its own stations, statuses, next actions and
+  dependency line in both languages.
+- **Services as tabs** (accordion on phones), each with an illustrative example story.
 - **Guided intake form**: situation chips, plain-language needs grouped Launch / Continuity, scale and timing, and a
   live "Your request, as we will read it" summary that is posted with the form as the `summary` field, with the
   page language as `language`. Validation requires a situation or at least one need plus contact details.
