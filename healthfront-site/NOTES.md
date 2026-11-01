@@ -75,6 +75,14 @@ paragraph. The form's needs groups mirror these.
   live "Your request, as we will read it" summary that is posted with the form as the `summary` field, with the
   page language as `language`. Validation requires a situation or at least one need plus contact details.
 
+## Report vocabulary (2026-11-01)
+The "Understanding my numbers" tab uses the column names of the billing reports practices in Puerto Rico actually
+receive from their biller's system: Facturación vs Cobro (Período, Recl., Cargos, Co-Pagos, Pagos, Ajustes, Balance,
+%), Envejecimiento Reclamaciones Planes Médicos (0-30, 31-60, 61-90, 91-120, >121, Total, claim counts), Análisis de
+Producción by CPT (Recl., Pacientes, Servicios, Cargos, Pagos, Razón Facturado) and an encounters report (new vs
+follow-up, studies, stress tests). Four sample reports were reviewed for vocabulary only. No client name, provider
+name, plan balance or figure from them appears on the page; the aging table and KPIs are fictional and labeled so.
+
 ## Copy decisions
 - Hero follows the brief's headline and subhead, tightened. CTAs: "Discuss your practice" / "Explore our approach".
 - "Health Front" (two words) throughout, matching the wordmark; "Health Front LLC" in legal lines. The brief wrote
