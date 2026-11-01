@@ -193,6 +193,24 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 .example .eyebrow{font-size:.66rem}
 .example p{font-size:.95rem;color:var(--ink-2);line-height:1.5}
 .example p b{color:var(--ink);font-weight:600}
+.strip{display:grid;gap:4px 6px;align-items:center;font-family:var(--mono);font-size:.68rem;letter-spacing:.03em;color:var(--muted);margin-top:.5rem;min-width:0}
+.strip .hd{text-transform:uppercase;font-size:.62rem;text-align:center;padding-bottom:2px;border-bottom:1px solid var(--rule)}
+.strip .rl{font-family:var(--body);font-size:.8rem;color:var(--ink-2);letter-spacing:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.strip .bar{height:10px;border-radius:2px;background:var(--rule-2);position:relative}
+.strip .bar.ok{background:var(--ok)} .strip .bar.wait{background:var(--wait)} .strip .bar.block{background:var(--block)}
+.strip .bar::after{content:attr(data-l);position:absolute;left:0;top:13px;font-family:var(--mono);font-size:.62rem;color:var(--ink-2);white-space:nowrap;letter-spacing:.02em}
+.strip .mk{text-align:center;color:var(--ink-2)} .strip .mk b{display:block;color:var(--brass);font-weight:600}
+.strip.rows>.bar,.strip.rows>.rl{margin-bottom:14px}
+.cols{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;align-items:end;height:64px;margin-top:.5rem}
+.cols .v{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:3px;height:100%}
+.cols .vb{width:100%;flex:none;border-radius:2px 2px 0 0;background:var(--ok)} .cols .vb.block{background:var(--block)} .cols .vb.wait{background:var(--wait)}
+.cols .vb.zero{height:2px;background:var(--block)}
+.cols .m{font-family:var(--mono);font-size:.62rem;color:var(--muted);text-transform:uppercase}
+.strip-cap{display:flex;gap:.5rem 1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:.5rem}
+.strip-cap>span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ok);margin-right:.35rem}
+.strip-cap>.w::before{background:var(--wait)} .strip-cap>.b::before{background:var(--block)} .strip-cap>.n::before{background:var(--rule-2)}
+.strip .bar.end::after{left:auto;right:0}
+.example .evt{font-size:.82rem;color:var(--ink-2);margin-top:.35rem}
 @media (max-width:900px){.panel{grid-template-columns:1fr;gap:1.5rem}}
 @media (max-width:640px){
   .tablist{grid-template-columns:1fr;border-bottom:0}
@@ -298,7 +316,11 @@ legend small{font-weight:400;color:var(--muted);font-size:.86rem}
 .need small{grid-column:2;font-weight:400;color:var(--muted);font-size:.8rem;line-height:1.35}
 .need:has(input:checked){border-color:var(--navy);background:var(--navy-tint)}
 .need:has(input:focus-visible){outline:3px solid var(--navy);outline-offset:2px}
-.need-group{display:grid;gap:.5rem}
+.need-group{display:grid;gap:.5rem} .need-group[hidden],.need[hidden]{display:none}
+.needs-hint{font-size:.9rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:baseline}
+.needs-hint .suggested{color:var(--brass);font-weight:600}
+.linkbtn{all:unset;cursor:pointer;color:var(--navy);font-weight:600;font-size:.9rem;text-decoration:underline;text-underline-offset:.15em}
+.linkbtn:focus-visible{outline:3px solid var(--navy);outline-offset:3px;border-radius:2px}
 .need-group .eyebrow{font-size:.68rem}
 .summary{background:var(--brass-bg);border:1px solid var(--rule);border-radius:6px;padding:1rem 1.1rem;display:grid;gap:.5rem}
 .summary .eyebrow{color:var(--brass)}
@@ -464,7 +486,17 @@ footer nav a:hover{color:var(--navy)}
             <li><span class="en">Licensure by endorsement in other U.S. jurisdictions, with FCVS coordination and direct-source verifications</span><span class="es">Licencia por endoso en otras jurisdicciones de EE. UU., con coordinación FCVS y verificaciones de fuente directa</span></li>
             <li><span class="en">NPI, DEA and ASSMCA registrations, malpractice coverage, government certificates, notarization handled in-house</span><span class="es">Registros NPI, DEA y ASSMCA, cubierta de impericia, certificados del gobierno y notarización interna</span></li>
           </ul>
-          <div class="example"><span class="eyebrow"><span class="en">Example · illustrative</span><span class="es">Ejemplo · ilustrativo</span></span><p><span class="en"><b>A hematologist finishing fellowship in Texas wants to start in San Juan in July.</b> In week one she receives a checklist of eleven documents, three of which she did not know existed. We file the license, registry and specialty certification in sequence, keep the Junta on a weekly call, and her first complete credential file is ready before her boards are even scored.</span><span class="es"><b>Una hematóloga que termina su fellowship en Texas quiere empezar en San Juan en julio.</b> En la primera semana recibe una lista de once documentos, tres de los cuales no sabía que existían. Radicamos licencia, registro y certificación de especialidad en secuencia, mantenemos a la Junta en llamada semanal, y su primer expediente completo está listo antes de que salgan las notas de sus boards.</span></p></div>
+          <div class="example"><span class="eyebrow"><span class="en">Example · illustrative · fictional</span><span class="es">Ejemplo · ilustrativo · ficticio</span></span>
+            <p><span class="en"><b>A hematologist finishing fellowship in Texas wants to start in San Juan in July.</b> Ten weeks, three filings in sequence, one file.</span><span class="es"><b>Una hematóloga que termina su fellowship en Texas quiere empezar en San Juan en julio.</b> Diez semanas, tres radicaciones en secuencia, un expediente.</span></p>
+            <div class="strip rows" style="grid-template-columns:118px repeat(10,1fr)" role="img" aria-label="Ten-week timeline: checklist in week one, license and registry filed weeks two to eight and issued, specialty certification weeks three to nine, credential file complete by week nine">
+              <span></span><span class="hd">W1</span><span class="hd">W2</span><span class="hd">W3</span><span class="hd">W4</span><span class="hd">W5</span><span class="hd">W6</span><span class="hd">W7</span><span class="hd">W8</span><span class="hd">W9</span><span class="hd">W10</span>
+              <span class="rl"><span class="en">Checklist</span><span class="es">Lista de documentos</span></span><span class="bar ok" style="grid-column:2/3" data-l="11 docs"></span><span style="grid-column:3/12"></span>
+              <span class="rl"><span class="en">License + registry</span><span class="es">Licencia + registro</span></span><span style="grid-column:2/3"></span><span class="bar wait" style="grid-column:3/10" data-l="Junta · weekly"></span><span class="bar ok end" style="grid-column:10/12" data-l="Issued"></span>
+              <span class="rl"><span class="en">Specialty cert.</span><span class="es">Cert. especialidad</span></span><span style="grid-column:2/4"></span><span class="bar wait" style="grid-column:4/11" data-l=""></span><span class="bar ok end" style="grid-column:11/12" data-l="OK"></span>
+              <span class="rl"><span class="en">Credential file</span><span class="es">Expediente</span></span><span class="bar block" style="grid-column:2/4" data-l="3 missing"></span><span class="bar ok end" style="grid-column:4/12" data-l="Complete · ready for payers"></span>
+            </div>
+            <p class="strip-cap"><span><span class="en">Done</span><span class="es">Hecho</span></span><span class="w"><span class="en">With the agency</span><span class="es">Con la agencia</span></span><span class="b"><span class="en">Needed action</span><span class="es">Requirió acción</span></span></p>
+          </div>
         </div>
         <div class="deliver"><span class="eyebrow"><span class="en">What you receive</span><span class="es">Lo que recibe</span></span>
           <ul><li><span class="en">Credentials gap analysis and document checklist</span><span class="es">Análisis de brechas y lista de documentos</span></li><li><span class="en">Filed applications with submission receipts</span><span class="es">Solicitudes radicadas con sus recibos</span></li><li><span class="en">Issued licenses and certificates, delivered and verified</span><span class="es">Licencias y certificados emitidos, entregados y verificados</span></li></ul></div>
@@ -478,7 +510,17 @@ footer nav a:hover{color:var(--navy)}
             <li><span class="en">Commercial payer credentialing and contracting across Puerto Rico’s major plans; hospital medical-staff applications and privileges</span><span class="es">Credencialización y contratación con los principales planes comerciales de Puerto Rico; solicitudes de facultad médica y privilegios</span></li>
             <li><span class="en">Coordination between your biller, accountant, hospital and medical group so nothing waits on a handoff</span><span class="es">Coordinación entre su facturador, contador, hospital y grupo médico para que nada espere por un traspaso</span></li>
           </ul>
-          <div class="example"><span class="eyebrow"><span class="en">Example · illustrative</span><span class="es">Ejemplo · ilustrativo</span></span><p><span class="en"><b>A cardiology group hires a second interventionalist and needs him billing by January.</b> We open Medicare, Medicaid and four plan applications the same week, in the order each one requires, and the hospital privileges file goes in with the malpractice certificate attached. The group gets one tracker; the plans get one phone number that answers.</span><span class="es"><b>Un grupo de cardiología contrata a un segundo intervencionista y necesita que facture en enero.</b> Abrimos Medicare, Medicaid y cuatro solicitudes de planes la misma semana, en el orden que cada uno exige, y el expediente de privilegios entra con el certificado de la póliza adjunto. El grupo recibe un rastreador; los planes, un teléfono que contesta.</span></p></div>
+          <div class="example"><span class="eyebrow"><span class="en">Example · illustrative · fictional</span><span class="es">Ejemplo · ilustrativo · ficticio</span></span>
+            <p><span class="en"><b>A cardiology group hires a second interventionalist and needs him billing by January.</b> Six applications opened the same week, each in the order it requires.</span><span class="es"><b>Un grupo de cardiología contrata a un segundo intervencionista y necesita que facture en enero.</b> Seis solicitudes abiertas la misma semana, cada una en el orden que exige.</span></p>
+            <div class="strip rows" style="grid-template-columns:118px repeat(5,1fr)" role="img" aria-label="September to January: Medicare done in November, Medicaid in December, four commercial plans by January with one still in committee, hospital privileges in November">
+              <span></span><span class="hd">Sep</span><span class="hd">Oct</span><span class="hd">Nov</span><span class="hd">Dec</span><span class="hd">Jan</span>
+              <span class="rl">Medicare PTAN</span><span class="bar wait" style="grid-column:2/4" data-l=""></span><span class="bar ok" style="grid-column:4/5" data-l="Active"></span><span style="grid-column:5/7"></span>
+              <span class="rl">Medicaid PEP</span><span class="bar wait" style="grid-column:2/5" data-l=""></span><span class="bar ok" style="grid-column:5/6" data-l="Active"></span><span></span>
+              <span class="rl"><span class="en">4 commercial plans</span><span class="es">4 planes comerciales</span></span><span class="bar wait" style="grid-column:2/6" data-l="3 contracted · 1 committee"></span><span class="bar ok end" style="grid-column:6/7" data-l="Billing"></span>
+              <span class="rl"><span class="en">Hospital privileges</span><span class="es">Privilegios</span></span><span class="bar block" style="grid-column:2/3" data-l="Letters"></span><span class="bar wait" style="grid-column:3/4" data-l=""></span><span class="bar ok" style="grid-column:4/5" data-l="Granted"></span><span style="grid-column:5/7"></span>
+            </div>
+            <p class="strip-cap"><span><span class="en">Done</span><span class="es">Hecho</span></span><span class="w"><span class="en">With payer or hospital</span><span class="es">Con el plan u hospital</span></span><span class="b"><span class="en">Needed action</span><span class="es">Requirió acción</span></span></p>
+          </div>
         </div>
         <div class="deliver"><span class="eyebrow"><span class="en">What you receive</span><span class="es">Lo que recibe</span></span>
           <ul><li><span class="en">A work plan with sequence and dependencies</span><span class="es">Un plan de trabajo con secuencia y dependencias</span></li><li><span class="en">Weekly follow-up log with each agency and payer</span><span class="es">Bitácora de seguimiento semanal con cada agencia y plan</span></li><li><span class="en">Acceptance letters and contracts, organized in one file</span><span class="es">Cartas de aceptación y contratos, organizados en un solo expediente</span></li></ul></div>
@@ -492,7 +534,19 @@ footer nav a:hover{color:var(--navy)}
             <li><span class="en">Representation on contracting changes, billing complications and hospital-faculty requests during the contracted year</span><span class="es">Representación en cambios de contratación, complicaciones de facturación y requerimientos de la facultad hospitalaria durante el año contratado</span></li>
             <li><span class="en">Payer performance report: which contracted plans pay, at what lag, and where enrollment errors drive denials, prepared with your biller’s data</span><span class="es">Informe de desempeño por plan: qué planes pagan, con qué rezago y dónde errores de inscripción causan denegaciones, con los datos de su facturador</span></li>
           </ul>
-          <div class="example"><span class="eyebrow"><span class="en">Example · illustrative</span><span class="es">Ejemplo · ilustrativo</span></span><p><span class="en"><b>An established practice notices one plan has not paid in ninety days.</b> The quarterly report shows the physician’s re-credentialing lapsed with that plan in March, and claims have been denying since. We refile, chase the retroactive date, and move the renewal onto the calendar so it never surprises anyone again.</span><span class="es"><b>Una práctica establecida nota que un plan lleva noventa días sin pagar.</b> El informe trimestral muestra que la recredencialización del médico con ese plan venció en marzo y las reclamaciones se deniegan desde entonces. Volvemos a radicar, perseguimos la fecha retroactiva y ponemos la renovación en el calendario para que no vuelva a sorprender a nadie.</span></p></div>
+          <div class="example"><span class="eyebrow"><span class="en">Example · illustrative · fictional</span><span class="es">Ejemplo · ilustrativo · ficticio</span></span>
+            <p><span class="en"><b>An established practice notices one plan has not paid in ninety days.</b> One plan’s payments, six months.</span><span class="es"><b>Una práctica establecida nota que un plan lleva noventa días sin pagar.</b> Los pagos de un plan, seis meses.</span></p>
+            <div class="cols" role="img" aria-label="Six months of payments from one plan: January and February paid, March re-credentialing lapsed, April and May denied, June refiled with retroactive date requested">
+              <div class="v"><span class="vb" style="height:70%"></span><span class="m">Jan</span></div>
+              <div class="v"><span class="vb" style="height:74%"></span><span class="m">Feb</span></div>
+              <div class="v"><span class="vb wait" style="height:52%"></span><span class="m">Mar</span></div>
+              <div class="v"><span class="vb zero"></span><span class="m">Apr</span></div>
+              <div class="v"><span class="vb zero"></span><span class="m">May</span></div>
+              <div class="v"><span class="vb wait" style="height:38%"></span><span class="m">Jun</span></div>
+            </div>
+            <p class="evt"><span class="en"><b style="color:var(--brass)">Mar</b> re-credentialing lapsed · <b style="color:var(--brass)">Apr–May</b> every claim denied · <b style="color:var(--brass)">Jun</b> refiled, retroactive date requested, renewal on the calendar.</span><span class="es"><b style="color:var(--brass)">Mar</b> venció la recredencialización · <b style="color:var(--brass)">Abr–May</b> toda reclamación denegada · <b style="color:var(--brass)">Jun</b> radicado de nuevo, fecha retroactiva solicitada, renovación en el calendario.</span></p>
+            <p class="strip-cap"><span><span class="en">Paid</span><span class="es">Pagado</span></span><span class="w"><span class="en">Partial or pending</span><span class="es">Parcial o pendiente</span></span><span class="b"><span class="en">Denied</span><span class="es">Denegado</span></span></p>
+          </div>
         </div>
         <div class="deliver"><span class="eyebrow"><span class="en">What you receive</span><span class="es">Lo que recibe</span></span>
           <ul><li><span class="en">A renewal calendar you can see</span><span class="es">Un calendario de renovaciones visible</span></li><li><span class="en">A quarterly payer performance report</span><span class="es">Un informe trimestral de desempeño por plan</span></li><li><span class="en">A named person who answers the agency when it calls</span><span class="es">Una persona con nombre que responde cuando la agencia llama</span></li></ul></div>
@@ -622,7 +676,9 @@ footer nav a:hover{color:var(--navy)}
       </fieldset>
 
       <fieldset>
-        <legend><span class="n">02</span><span class="en">What needs to move?</span><span class="es">¿Qué necesita avanzar?</span><small><span class="en">Pick everything that applies.</span><span class="es">Marque todo lo que aplique.</span></small></legend>
+        <legend><span class="n">02</span><span class="en">What needs to move?</span><span class="es">¿Qué necesita avanzar?</span></legend>
+        <p class="needs-hint" id="needs-hint"><span class="before"><span class="en">Pick your situation above and we suggest what usually needs to move.</span><span class="es">Elija su situación arriba y le sugerimos lo que normalmente necesita avanzar.</span></span><span class="after" hidden><span class="suggested"><span class="en">Suggested for your situation.</span><span class="es">Sugerido para su situación.</span></span> <span class="en">Adjust freely.</span><span class="es">Ajuste con libertad.</span></span><button type="button" class="linkbtn" id="needs-toggle" aria-expanded="false" aria-controls="needs-all"><span class="more"><span class="en">Show all options</span><span class="es">Ver todas las opciones</span></span><span class="less" hidden><span class="en">Show fewer</span><span class="es">Ver menos</span></span></button></p>
+        <div id="needs-all">
         <div class="need-group">
           <span class="eyebrow"><span class="en">Launch · getting licensed and paid</span><span class="es">Lanzamiento · licencia y cobro</span></span>
           <div class="needs">
@@ -639,8 +695,17 @@ footer nav a:hover{color:var(--navy)}
           <div class="needs">
             <label class="need"><input type="checkbox" name="needs" value="maintenance"><span><span class="en">Renewals and credential upkeep</span><span class="es">Renovaciones y mantenimiento de credenciales</span></span><small><span class="en">One current file, expirations tracked, a named person on the phone</span><span class="es">Un expediente al día, vencimientos vigilados, una persona con nombre al teléfono</span></small></label>
             <label class="need"><input type="checkbox" name="needs" value="payer-performance"><span><span class="en">Know which contracts are paying</span><span class="es">Saber qué contratos están pagando</span></span><small><span class="en">Quarterly payer performance report with your biller’s data</span><span class="es">Informe trimestral de desempeño por plan con los datos de su facturador</span></small></label>
+            <label class="need"><input type="checkbox" name="needs" value="coordination"><span><span class="en">One point of contact for my biller, accountant, hospital and plans</span><span class="es">Un solo punto de contacto para mi facturador, contador, hospital y planes</span></span><small><span class="en">One owner, one due date and one weekly page for every open item</span><span class="es">Un responsable, una fecha y una página semanal por cada asunto abierto</span></small></label>
             <label class="need"><input type="checkbox" name="needs" value="help-me-decide"><span><span class="en">Not sure. Help me figure out what I need.</span><span class="es">No estoy seguro. Ayúdenme a definir qué necesito.</span></span><small><span class="en">We will ask the right questions on the first call</span><span class="es">Haremos las preguntas correctas en la primera llamada</span></small></label>
           </div>
+        </div>
+        <div class="need-group">
+          <span class="eyebrow"><span class="en">Advisory · by engagement</span><span class="es">Asesoría · por encomienda</span></span>
+          <div class="needs">
+            <label class="need"><input type="checkbox" name="needs" value="advisory-project"><span><span class="en">Structure a special project or contract</span><span class="es">Estructurar un proyecto o contrato especial</span></span><small><span class="en">Decision memo, approvals, who signs what; your attorney reviews the draft</span><span class="es">Memorando de decisión, aprobaciones, quién firma qué; su abogado revisa el borrador</span></small></label>
+            <label class="need"><input type="checkbox" name="needs" value="advisory-ops"><span><span class="en">Practice operations or payment-model design</span><span class="es">Operaciones de la práctica o diseño de modelo de pago</span></span><small><span class="en">Scoped and priced per project, for groups that already work with us</span><span class="es">Con alcance y precio por proyecto, para grupos que ya trabajan con nosotros</span></small></label>
+          </div>
+        </div>
         </div>
       </fieldset>
 
@@ -769,6 +834,31 @@ footer nav a:hover{color:var(--navy)}
     if(text){ sumEl.textContent=text; sumEl.classList.remove('empty'); } else { sumEl.innerHTML='<span class="en">Choose your situation and what needs to move, and the request writes itself here.</span><span class="es">Elija su situación y lo que necesita avanzar, y la solicitud se redacta aquí sola.</span>'; sumEl.classList.add('empty'); }
     sumField.value=text; langField.value=l;
   }
+  // progressive disclosure: suggest needs per situation, hide the rest until asked
+  var REC={'new-graduate':['pr-license','registrations','medicare-medicaid','payer-contracts','privileges'],
+           'relocating':['pr-license','registrations','medicare-medicaid','payer-contracts','privileges'],
+           'group-hiring':['medicare-medicaid','payer-contracts','privileges','maintenance'],
+           'other-state':['other-state-license','registrations'],
+           'established':['maintenance','payer-performance'],
+           'billing-reports':['payer-performance','maintenance'],
+           'special-project':['advisory-project'],
+           'consultants':['coordination','maintenance'],
+           'unsure':['help-me-decide']};
+  var needsAll=document.getElementById('needs-all'), needsToggle=document.getElementById('needs-toggle'), hint=document.getElementById('needs-hint'), expanded=false, lastSit=null;
+  function applyDisclosure(){
+    var sit=form.querySelector('input[name="situation"]:checked'); var rec=sit?REC[sit.value]||[]:null;
+    hint.querySelector('.before').hidden=!!sit; hint.querySelector('.after').hidden=!sit;
+    needsToggle.querySelector('.more').hidden=expanded; needsToggle.querySelector('.less').hidden=!expanded; needsToggle.setAttribute('aria-expanded',String(expanded));
+    needsAll.querySelectorAll('.need').forEach(function(card){var v=card.querySelector('input').value; var show=expanded||!sit||rec.indexOf(v)>-1||v==='help-me-decide'||card.querySelector('input').checked; card.hidden=!show;});
+    needsAll.querySelectorAll('.need-group').forEach(function(g){g.hidden=!g.querySelector('.need:not([hidden])');});
+    if(!sit&&!expanded){needsAll.hidden=true;} else {needsAll.hidden=false;}
+  }
+  needsToggle.addEventListener('click',function(){expanded=!expanded;applyDisclosure();});
+  form.querySelectorAll('input[name="situation"]').forEach(function(r){r.addEventListener('change',function(){
+    if(r.value!==lastSit){ lastSit=r.value; var rec=REC[r.value]||[]; form.querySelectorAll('input[name="needs"]').forEach(function(c){c.checked=rec.indexOf(c.value)>-1;}); }
+    applyDisclosure(); build();
+  });});
+  applyDisclosure();
   form.addEventListener('change',build); fillSelects(); build();
   document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){fillSelects();build();});});
   // contact form: Netlify Forms via fetch, with a readable fallback

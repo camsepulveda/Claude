@@ -58,6 +58,12 @@ devices encode real structure: the four numbered stages are a real sequence; the
   contract, getting consultants to communicate, not sure. Each has its own stations, statuses, next actions and
   dependency line in both languages.
 - **Services as tabs** (accordion on phones), each with an illustrative example story.
+- **Form disclosure**: the needs list is hidden until a situation is chosen; then the needs that situation usually
+  implies are pre-ticked and shown with "help me decide", the rest behind "Show all options". Two needs added:
+  "one point of contact for my consultants" (Continuity) and an Advisory group (special project; operations or
+  payment-model design).
+- **Example strips**: each service example is a small HTML timeline (ten weeks; September to January) or a six-month
+  payment chart (the ninety-day case), fictional and labeled, using the validated status colors with text labels.
 - **Guided intake form**: situation chips, plain-language needs grouped Launch / Continuity, scale and timing, and a
   live "Your request, as we will read it" summary that is posted with the form as the `summary` field, with the
   page language as `language`. Validation requires a situation or at least one need plus contact details.
