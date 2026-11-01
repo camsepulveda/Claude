@@ -63,7 +63,7 @@ p{margin:0}
 .eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:500}
 .measure{max-width:62ch}
 .wrap{max-width:var(--max);margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-section{padding-block:clamp(3.5rem,8vw,6.5rem)}
+section{padding-block:clamp(2.5rem,7vw,5.5rem)}
 .band{background:var(--paper-2)}
 .rule-top{border-top:1px solid var(--rule)}
 .skip{position:absolute;left:-999px;top:8px;background:var(--navy);color:#fff;padding:.6rem 1rem;z-index:100}
@@ -168,7 +168,35 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 .friction p{color:var(--ink-2)}
 @media (max-width:600px){.friction li{grid-template-columns:1fr}}
 
-/* services */
+/* services: tabs */
+.tabs{margin-top:2.5rem;border-top:1px solid var(--rule)}
+.tablist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-bottom:1px solid var(--rule)}
+.tab{all:unset;cursor:pointer;display:grid;gap:.3rem;padding:1.1rem 1rem 1rem 0;border-bottom:3px solid transparent;margin-bottom:-1px;color:var(--ink-2);min-width:0}
+.tab .eyebrow{font-size:.66rem;color:var(--muted)}
+.tab .t{font-family:var(--display);font-size:1.25rem;line-height:1.2;color:var(--ink);font-weight:500;text-wrap:balance}
+.tab[aria-selected="true"]{border-bottom-color:var(--navy)} .tab[aria-selected="true"] .eyebrow{color:var(--brass)}
+.tab:hover .t{color:var(--navy)} .tab:focus-visible{outline:3px solid var(--navy);outline-offset:-3px}
+.panel{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:2rem 3rem;padding-top:2rem}
+.panel[hidden]{display:none}
+.panel .scope{font-size:1.15rem;color:var(--ink);line-height:1.5;margin-bottom:1rem}
+.panel ul.inc{margin:0;padding-left:1.1rem;color:var(--ink-2)} .panel ul.inc li{margin:.35rem 0}
+.panel .deliver{background:var(--paper-2);border-radius:4px;padding:1rem 1.1rem}
+.panel .deliver .eyebrow{display:block;margin-bottom:.5rem;color:var(--ink-2)}
+.panel .deliver ul{margin:0;padding-left:1.1rem;color:var(--ink)} .panel .deliver li{margin:.3rem 0}
+.example{border-left:3px solid var(--brass);padding:.2rem 0 .2rem 1rem;margin-top:1.25rem;display:grid;gap:.4rem}
+.example .eyebrow{font-size:.66rem}
+.example p{font-size:.95rem;color:var(--ink-2);line-height:1.5}
+.example p b{color:var(--ink);font-weight:600}
+@media (max-width:900px){.panel{grid-template-columns:1fr;gap:1.5rem}}
+@media (max-width:640px){
+  .tablist{grid-template-columns:1fr;border-bottom:0}
+  .tab{border-bottom:1px solid var(--rule);padding:.9rem 0;grid-template-columns:1fr auto;align-items:center}
+  .tab .eyebrow{grid-column:1} .tab .t{grid-column:1;font-size:1.1rem}
+  .tab::after{content:"+";grid-column:2;grid-row:1/3;font-family:var(--mono);color:var(--navy);font-size:1.2rem}
+  .tab[aria-selected="true"]::after{content:"−"} .tab[aria-selected="true"]{border-bottom-color:var(--rule)}
+  .panel{padding:1.25rem 0 1.5rem;border-bottom:1px solid var(--rule)}
+}
+/* services (legacy card styles kept for reference) */
 .services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;margin-top:3rem}
 @media (max-width:900px){.services{grid-template-columns:1fr}}
 .svc{border-top:3px solid var(--navy);} .svc .eyebrow{color:var(--brass)} .svc{padding-top:1.25rem;display:flex;flex-direction:column;gap:1rem}
@@ -256,11 +284,12 @@ legend small{font-weight:400;color:var(--muted);font-size:.86rem}
 .chip:has(input:checked){background:var(--navy);border-color:var(--navy);color:var(--paper)}
 .chip:has(input:focus-visible){outline:3px solid var(--navy);outline-offset:2px}
 .chip:hover{border-color:var(--navy)}
-.needs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+.needs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem}
+@media (max-width:1100px){.needs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.needs{grid-template-columns:1fr}}
-.need{display:grid;grid-template-columns:22px 1fr;gap:.2rem .7rem;align-items:start;padding:.75rem .85rem;border:1px solid var(--rule);border-radius:6px;background:var(--paper);cursor:pointer;font-weight:500;font-size:.95rem;line-height:1.3;transition:border-color .15s,background .15s}
+.need{display:grid;grid-template-columns:22px 1fr;gap:.15rem .6rem;align-items:start;padding:.6rem .7rem;border:1px solid var(--rule);border-radius:6px;background:var(--paper);cursor:pointer;font-weight:500;font-size:.95rem;line-height:1.3;transition:border-color .15s,background .15s}
 .need input{width:18px;height:18px;margin:.1rem 0 0;accent-color:var(--navy);grid-row:1/3}
-.need small{grid-column:2;font-weight:400;color:var(--muted);font-size:.84rem;line-height:1.4}
+.need small{grid-column:2;font-weight:400;color:var(--muted);font-size:.8rem;line-height:1.35}
 .need:has(input:checked){border-color:var(--navy);background:var(--navy-tint)}
 .need:has(input:focus-visible){outline:3px solid var(--navy);outline-offset:2px}
 .need-group{display:grid;gap:.5rem}
@@ -276,7 +305,7 @@ legend small{font-weight:400;color:var(--muted);font-size:.86rem}
 .contact .side p{color:var(--ink-2)}
 .contact .side .mail{font-family:var(--mono);font-size:.95rem;margin-top:1.25rem;display:grid;gap:.25rem}
 .contact .side .mail span{color:var(--muted);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
-form{display:grid;gap:1.1rem;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:clamp(1.25rem,3vw,2rem)}
+form{display:grid;gap:1rem;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:clamp(1.25rem,3vw,2rem)}
 .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem}
 @media (max-width:600px){.row{grid-template-columns:1fr}}
 label{display:grid;gap:.4rem;font-weight:600;font-size:.92rem}
@@ -373,7 +402,7 @@ footer nav a:hover{color:var(--navy)}
         <li class="block"><span class="lbl"><span class="en">Hospital privileges</span><span class="es">Privilegios</span></span><span class="node" aria-hidden="true"></span><span class="st"><span class="en">2 letters due</span><span class="es">Faltan 2 cartas</span></span></li>
         <li class="todo"><span class="lbl"><span class="en">Ready to bill</span><span class="es">Lista para facturar</span></span><span class="node" aria-hidden="true"></span><span class="st"><span class="en">Week 11</span><span class="es">Semana 11</span></span></li>
       </ol>
-      <p class="dep"><span class="en">Privileges depend on the license and the malpractice policy</span><span class="es">Los privilegios dependen de la licencia y de la póliza</span></p>
+      <p class="dep"><span class="en">Privileges wait on the license and the malpractice policy. Don’t worry: we handle both, in that order.</span><span class="es">Los privilegios esperan por la licencia y la póliza. No se preocupe: nos encargamos de ambas, en ese orden.</span></p>
       <div class="next">
         <span class="k"><span class="en">Next actions</span><span class="es">Próximas acciones</span></span>
         <ul id="next-list">
@@ -400,7 +429,6 @@ footer nav a:hover{color:var(--navy)}
     <ul class="friction">
       <li><strong><span class="en">Documents in five places</span><span class="es">Documentos en cinco lugares</span></strong><p><span class="en">Diplomas in a drawer, a malpractice certificate in an inbox, a DEA renewal on a phone. Every application asks for the same set, and every time someone rebuilds it.</span><span class="es">Diplomas en una gaveta, el certificado de la póliza en un correo, la renovación del DEA en el celular. Cada solicitud pide el mismo conjunto, y cada vez alguien lo vuelve a armar.</span></p></li>
       <li><strong><span class="en">Status nobody can state</span><span class="es">Un estatus que nadie puede precisar</span></strong><p><span class="en">“It’s with the plan” is not a status. Which plan, since when, who last called, and what did they ask for.</span><span class="es">«Está con el plan» no es un estatus. Cuál plan, desde cuándo, quién llamó por última vez y qué pidieron.</span></p></li>
-      <li><strong><span class="en">Renewals that arrive as emergencies</span><span class="es">Renovaciones que llegan como emergencias</span></strong><p><span class="en">Licenses, controlled-substance registrations, insurance certificates and good-standing letters expire on their own calendars, not yours.</span><span class="es">Licencias, registros de sustancias controladas, certificados de seguro y cartas de good standing vencen en su propio calendario, no en el suyo.</span></p></li>
       <li><strong><span class="en">Work that waits on three organizations</span><span class="es">Trabajo que depende de tres organizaciones</span></strong><p><span class="en">Privileges wait on a license. Enrollment waits on a group NPI. Billing waits on all of it. One out-of-sequence filing costs weeks.</span><span class="es">Los privilegios esperan por la licencia. La contratación espera por el NPI del grupo. La facturación espera por todo lo anterior. Una radicación fuera de secuencia cuesta semanas.</span></p></li>
     </ul>
   </div>
@@ -412,50 +440,58 @@ footer nav a:hover{color:var(--navy)}
     <span class="eyebrow"><span class="en">Services</span><span class="es">Servicios</span></span>
     <h2 style="margin-top:1rem;max-width:22ch"><span class="en">One core engagement. Then we keep it running.</span><span class="es">Una encomienda central. Después, la mantenemos en marcha.</span></h2>
     <p class="lede" style="margin-top:1rem"><span class="en"><strong>Launch</strong> takes a physician from license to opening practice; it runs on the first two services below. <strong>Continuity</strong> keeps credentials, contracts and payments in view after launch. Advisory work is available by engagement.</span><span class="es"><strong>Lanzamiento</strong> lleva a un médico de la licencia a la práctica abierta; corre sobre los dos primeros servicios. <strong>Continuidad</strong> mantiene a la vista credenciales, contratos y pagos después del lanzamiento. El trabajo de asesoría está disponible por encomienda.</span></p>
-    <div class="services">
-      <article class="svc">
-        <span class="eyebrow"><span class="en">Launch · 1 of 2</span><span class="es">Lanzamiento · 1 de 2</span></span>
-        <h3><span class="en">Bring a physician onboard</span><span class="es">Incorporar a un médico</span></h3>
-        <p class="scope"><span class="en">Licensing and the first complete credential file, for new graduates, physicians returning to the island, and physicians adding a jurisdiction.</span><span class="es">Licenciamiento y el primer expediente de credenciales completo, para recién graduados, médicos que regresan a la Isla y médicos que añaden una jurisdicción.</span></p>
-        <ul>
-          <li><span class="en">Puerto Rico medical license and registry, specialty certification, and telemedicine certification before the Junta de Licenciamiento y Disciplina Médica</span><span class="es">Licencia y registro de médico en Puerto Rico, certificación de especialidad y certificación de telemedicina ante la Junta de Licenciamiento y Disciplina Médica</span></li>
-          <li><span class="en">Licensure by endorsement in other U.S. jurisdictions, including FCVS coordination and direct-source verifications</span><span class="es">Licencia por endoso en otras jurisdicciones de EE. UU., incluyendo coordinación con FCVS y verificaciones de fuente directa</span></li>
-          <li><span class="en">NPI, DEA and ASSMCA registrations, malpractice coverage, and the Puerto Rico government certificates every application asks for</span><span class="es">Registros NPI, DEA y ASSMCA, cubierta de impericia médica y los certificados del gobierno de Puerto Rico que toda solicitud exige</span></li>
-          <li><span class="en">Notarization and legal formalities handled in-house</span><span class="es">Notarización y formalidades legales atendidas internamente</span></li>
-        </ul>
+    <div class="tabs" id="service-tabs">
+      <div class="tablist" role="tablist" aria-label="Services">
+        <button class="tab" role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1"><span class="eyebrow"><span class="en">Launch · 1 of 2</span><span class="es">Lanzamiento · 1 de 2</span></span><span class="t"><span class="en">Bring a physician onboard</span><span class="es">Incorporar a un médico</span></span></button>
+        <button class="tab" role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2" tabindex="-1"><span class="eyebrow"><span class="en">Launch · 2 of 2</span><span class="es">Lanzamiento · 2 de 2</span></span><span class="t"><span class="en">Coordinate enrollment and privileges</span><span class="es">Coordinar contratación y privilegios</span></span></button>
+        <button class="tab" role="tab" id="tab-3" aria-selected="false" aria-controls="panel-3" tabindex="-1"><span class="eyebrow"><span class="en">Continuity</span><span class="es">Continuidad</span></span><span class="t"><span class="en">Keep credentials in view, and know which contracts pay</span><span class="es">Credenciales a la vista, y saber qué contratos pagan</span></span></button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+        <div>
+          <p class="scope"><span class="en">Licensing and the first complete credential file, for new graduates, physicians returning to the island, and physicians adding a jurisdiction.</span><span class="es">Licenciamiento y el primer expediente de credenciales completo, para recién graduados, médicos que regresan a la Isla y médicos que añaden una jurisdicción.</span></p>
+          <ul class="inc">
+            <li><span class="en">Puerto Rico medical license and registry, specialty and telemedicine certification before the Junta de Licenciamiento y Disciplina Médica</span><span class="es">Licencia y registro médico de Puerto Rico, certificación de especialidad y de telemedicina ante la Junta de Licenciamiento y Disciplina Médica</span></li>
+            <li><span class="en">Licensure by endorsement in other U.S. jurisdictions, with FCVS coordination and direct-source verifications</span><span class="es">Licencia por endoso en otras jurisdicciones de EE. UU., con coordinación FCVS y verificaciones de fuente directa</span></li>
+            <li><span class="en">NPI, DEA and ASSMCA registrations, malpractice coverage, government certificates, notarization handled in-house</span><span class="es">Registros NPI, DEA y ASSMCA, cubierta de impericia, certificados del gobierno y notarización interna</span></li>
+          </ul>
+          <div class="example"><span class="eyebrow"><span class="en">Example · illustrative</span><span class="es">Ejemplo · ilustrativo</span></span><p><span class="en"><b>A hematologist finishing fellowship in Texas wants to start in San Juan in July.</b> In week one she receives a checklist of eleven documents, three of which she did not know existed. We file the license, registry and specialty certification in sequence, keep the Junta on a weekly call, and her first complete credential file is ready before her boards are even scored.</span><span class="es"><b>Una hematóloga que termina su fellowship en Texas quiere empezar en San Juan en julio.</b> En la primera semana recibe una lista de once documentos, tres de los cuales no sabía que existían. Radicamos licencia, registro y certificación de especialidad en secuencia, mantenemos a la Junta en llamada semanal, y su primer expediente completo está listo antes de que salgan las notas de sus boards.</span></p></div>
+        </div>
         <div class="deliver"><span class="eyebrow"><span class="en">What you receive</span><span class="es">Lo que recibe</span></span>
           <ul><li><span class="en">Credentials gap analysis and document checklist</span><span class="es">Análisis de brechas y lista de documentos</span></li><li><span class="en">Filed applications with submission receipts</span><span class="es">Solicitudes radicadas con sus recibos</span></li><li><span class="en">Issued licenses and certificates, delivered and verified</span><span class="es">Licencias y certificados emitidos, entregados y verificados</span></li></ul></div>
-      </article>
-      <article class="svc">
-        <span class="eyebrow"><span class="en">Launch · 2 of 2</span><span class="es">Lanzamiento · 2 de 2</span></span>
-        <h3><span class="en">Coordinate enrollment and privileges</span><span class="es">Coordinar contratación y privilegios</span></h3>
-        <p class="scope"><span class="en">The applications that stand between a licensed physician and a paid one, filed in the right order and followed every week.</span><span class="es">Las solicitudes que separan a un médico licenciado de uno que cobra, radicadas en el orden correcto y con seguimiento semanal.</span></p>
-        <ul>
-          <li><span class="en">Medicare PTAN and Medicaid PEP enrollment, individual and group</span><span class="es">Inscripción en Medicare (PTAN) y Medicaid (PEP), individual y grupal</span></li>
-          <li><span class="en">Commercial payer credentialing and contracting across Puerto Rico’s major plans</span><span class="es">Credencialización y contratación con los principales planes comerciales de Puerto Rico</span></li>
-          <li><span class="en">Hospital medical-staff applications and privileges</span><span class="es">Solicitudes de facultad médica y privilegios hospitalarios</span></li>
-          <li><span class="en">Coordination between your biller, accountant, hospital and medical group so nothing waits on a handoff</span><span class="es">Coordinación entre su facturador, contador, hospital y grupo médico para que nada espere por un traspaso</span></li>
-        </ul>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
+        <div>
+          <p class="scope"><span class="en">The applications that stand between a licensed physician and a paid one, filed in the right order and followed every week.</span><span class="es">Las solicitudes que separan a un médico licenciado de uno que cobra, radicadas en el orden correcto y con seguimiento semanal.</span></p>
+          <ul class="inc">
+            <li><span class="en">Medicare PTAN and Medicaid PEP enrollment, individual and group</span><span class="es">Inscripción en Medicare (PTAN) y Medicaid (PEP), individual y grupal</span></li>
+            <li><span class="en">Commercial payer credentialing and contracting across Puerto Rico’s major plans; hospital medical-staff applications and privileges</span><span class="es">Credencialización y contratación con los principales planes comerciales de Puerto Rico; solicitudes de facultad médica y privilegios</span></li>
+            <li><span class="en">Coordination between your biller, accountant, hospital and medical group so nothing waits on a handoff</span><span class="es">Coordinación entre su facturador, contador, hospital y grupo médico para que nada espere por un traspaso</span></li>
+          </ul>
+          <div class="example"><span class="eyebrow"><span class="en">Example · illustrative</span><span class="es">Ejemplo · ilustrativo</span></span><p><span class="en"><b>A cardiology group hires a second interventionalist and needs him billing by January.</b> We open Medicare, Medicaid and four plan applications the same week, in the order each one requires, and the hospital privileges file goes in with the malpractice certificate attached. The group gets one tracker; the plans get one phone number that answers.</span><span class="es"><b>Un grupo de cardiología contrata a un segundo intervencionista y necesita que facture en enero.</b> Abrimos Medicare, Medicaid y cuatro solicitudes de planes la misma semana, en el orden que cada uno exige, y el expediente de privilegios entra con el certificado de la póliza adjunto. El grupo recibe un rastreador; los planes, un teléfono que contesta.</span></p></div>
+        </div>
         <div class="deliver"><span class="eyebrow"><span class="en">What you receive</span><span class="es">Lo que recibe</span></span>
           <ul><li><span class="en">A work plan with sequence and dependencies</span><span class="es">Un plan de trabajo con secuencia y dependencias</span></li><li><span class="en">Weekly follow-up log with each agency and payer</span><span class="es">Bitácora de seguimiento semanal con cada agencia y plan</span></li><li><span class="en">Acceptance letters and contracts, organized in one file</span><span class="es">Cartas de aceptación y contratos, organizados en un solo expediente</span></li></ul></div>
-      </article>
-      <article class="svc">
-        <span class="eyebrow"><span class="en">Continuity</span><span class="es">Continuidad</span></span>
-        <h3><span class="en">Keep credentials in view, and know which contracts pay</span><span class="es">Credenciales a la vista, y saber qué contratos pagan</span></h3>
-        <p class="scope"><span class="en">Ongoing representation after launch, so renewals and payer issues are handled before they interrupt care or revenue, and the practice owner can see whether the plans we contracted are paying.</span><span class="es">Representación continua después del lanzamiento, para que renovaciones y asuntos con planes se atiendan antes de interrumpir el cuidado o los ingresos, y para que el dueño de la práctica vea si los planes que contratamos están pagando.</span></p>
-        <ul>
-          <li><span class="en">A single, current digital credential file for the physician and the corporation</span><span class="es">Un expediente digital único y al día para el médico y la corporación</span></li>
-          <li><span class="en">Expiration tracking for licenses, registrations, certificates and insurance</span><span class="es">Seguimiento de vencimientos de licencias, registros, certificados y seguros</span></li>
-          <li><span class="en">Representation on contracting changes, billing complications and hospital-faculty requests during the contracted year</span><span class="es">Representación en cambios de contratación, complicaciones de facturación y requerimientos de la facultad hospitalaria durante el año contratado</span></li>
-          <li><span class="en">Payer performance report: which contracted plans are paying, at what lag, and where enrollment or credentialing errors are driving denials, prepared with your biller’s data</span><span class="es">Informe de desempeño por plan: qué planes contratados están pagando, con qué rezago y dónde errores de inscripción o credencialización están causando denegaciones, preparado con los datos de su facturador</span></li>
-        </ul>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
+        <div>
+          <p class="scope"><span class="en">Ongoing representation after launch, so renewals and payer issues are handled before they interrupt care or revenue, and the practice owner can see whether the plans we contracted are paying.</span><span class="es">Representación continua después del lanzamiento, para que renovaciones y asuntos con planes se atiendan antes de interrumpir el cuidado o los ingresos, y para que el dueño de la práctica vea si los planes que contratamos están pagando.</span></p>
+          <ul class="inc">
+            <li><span class="en">One current digital credential file for the physician and the corporation, with every expiration tracked</span><span class="es">Un expediente digital único y al día para el médico y la corporación, con cada vencimiento vigilado</span></li>
+            <li><span class="en">Representation on contracting changes, billing complications and hospital-faculty requests during the contracted year</span><span class="es">Representación en cambios de contratación, complicaciones de facturación y requerimientos de la facultad hospitalaria durante el año contratado</span></li>
+            <li><span class="en">Payer performance report: which contracted plans pay, at what lag, and where enrollment errors drive denials, prepared with your biller’s data</span><span class="es">Informe de desempeño por plan: qué planes pagan, con qué rezago y dónde errores de inscripción causan denegaciones, con los datos de su facturador</span></li>
+          </ul>
+          <div class="example"><span class="eyebrow"><span class="en">Example · illustrative</span><span class="es">Ejemplo · ilustrativo</span></span><p><span class="en"><b>An established practice notices one plan has not paid in ninety days.</b> The quarterly report shows the physician’s re-credentialing lapsed with that plan in March, and claims have been denying since. We refile, chase the retroactive date, and move the renewal onto the calendar so it never surprises anyone again.</span><span class="es"><b>Una práctica establecida nota que un plan lleva noventa días sin pagar.</b> El informe trimestral muestra que la recredencialización del médico con ese plan venció en marzo y las reclamaciones se deniegan desde entonces. Volvemos a radicar, perseguimos la fecha retroactiva y ponemos la renovación en el calendario para que no vuelva a sorprender a nadie.</span></p></div>
+        </div>
         <div class="deliver"><span class="eyebrow"><span class="en">What you receive</span><span class="es">Lo que recibe</span></span>
           <ul><li><span class="en">A renewal calendar you can see</span><span class="es">Un calendario de renovaciones visible</span></li><li><span class="en">A quarterly payer performance report</span><span class="es">Un informe trimestral de desempeño por plan</span></li><li><span class="en">A named person who answers the agency when it calls</span><span class="es">Una persona con nombre que responde cuando la agencia llama</span></li></ul></div>
-      </article>
+      </div>
     </div>
     <p class="eyebrow" style="margin-top:2.5rem"><span class="en">Advisory · by engagement</span><span class="es">Asesoría · por encomienda</span></p>
     <p class="note" style="margin-top:.5rem"><span class="en"><strong>For medical groups and organizations that already work with us.</strong> Practice operations, partnership structures and payment-model design, scoped and priced per project.</span><span class="es"><strong>Para grupos médicos y organizaciones que ya trabajan con nosotros.</strong> Operaciones de la práctica, estructuras de alianza y diseño de modelos de pago, con alcance y precio por proyecto.</span></p>
-    <p class="note" style="margin-top:1rem"><span class="en">Scope and fees are fixed per engagement, with assumptions and exclusions stated in writing before work begins. Agency, payer and third-party fees are itemized separately.</span><span class="es">El alcance y los honorarios se fijan por encomienda, con supuestos y exclusiones por escrito antes de comenzar. Los cargos de agencias, planes y terceros se detallan por separado.</span></p>
+    <p class="note" style="margin-top:.75rem"><span class="en">Every engagement: fixed fee, written scope, assumptions and exclusions stated up front; agency and payer fees itemized separately.</span><span class="es">En toda encomienda: honorario fijo, alcance escrito, supuestos y exclusiones por adelantado; cargos de agencias y planes detallados aparte.</span></p>
   </div>
 </section>
 
@@ -487,11 +523,9 @@ footer nav a:hover{color:var(--navy)}
         <thead><tr><th><span class="en">Item</span><span class="es">Partida</span></th><th><span class="en">Status</span><span class="es">Estatus</span></th><th><span class="en">Next action</span><span class="es">Próxima acción</span></th><th><span class="en">Owner</span><span class="es">Responsable</span></th><th><span class="en">Due</span><span class="es">Fecha</span></th></tr></thead>
         <tbody>
           <tr><td><span class="en">PR medical license and registry</span><span class="es">Licencia y registro PR</span></td><td><span class="pill ok"><span class="en">Issued</span><span class="es">Emitida</span></span></td><td class="next"><span class="en">Certified copy filed to credential file</span><span class="es">Copia certificada archivada en el expediente</span></td><td class="owner">Health Front</td><td><span class="d"><span class="en">Done · Wk 3</span><span class="es">Hecho · Sem 3</span></span></td></tr>
-          <tr><td><span class="en">Malpractice policy</span><span class="es">Póliza de impericia</span></td><td><span class="pill ok"><span class="en">Bound</span><span class="es">Vigente</span></span></td><td class="next"><span class="en">Certificate sent to hospital and two payers</span><span class="es">Certificado enviado al hospital y dos planes</span></td><td class="owner">Health Front</td><td><span class="d"><span class="en">Done · Wk 4</span><span class="es">Hecho · Sem 4</span></span></td></tr>
-          <tr><td><span class="en">Medicare PTAN (individual)</span><span class="es">Medicare PTAN (individual)</span></td><td><span class="pill wait"><span class="en">Waiting on payer</span><span class="es">Espera del plan</span></span></td><td class="next"><span class="en">Weekly status call; application in review since Wk 5</span><span class="es">Llamada semanal; solicitud en revisión desde Sem 5</span></td><td class="owner"><span class="en">Health Front → Medicare contractor</span><span class="es">Health Front → contratista de Medicare</span></td><td><span class="d"><span class="en">Call · Thu</span><span class="es">Llamada · jue</span></span></td></tr>
+                    <tr><td><span class="en">Medicare PTAN (individual)</span><span class="es">Medicare PTAN (individual)</span></td><td><span class="pill wait"><span class="en">Waiting on payer</span><span class="es">Espera del plan</span></span></td><td class="next"><span class="en">Weekly status call; application in review since Wk 5</span><span class="es">Llamada semanal; solicitud en revisión desde Sem 5</span></td><td class="owner"><span class="en">Health Front → Medicare contractor</span><span class="es">Health Front → contratista de Medicare</span></td><td><span class="d"><span class="en">Call · Thu</span><span class="es">Llamada · jue</span></span></td></tr>
           <tr><td><span class="en">Hospital privileges · Hospital A</span><span class="es">Privilegios · Hospital A</span></td><td><span class="pill block"><span class="en">Needs action</span><span class="es">Requiere acción</span></span></td><td class="next"><span class="en">Two of three recommendation letters outstanding; requests sent, reminders scheduled</span><span class="es">Faltan dos de tres cartas de recomendación; solicitudes enviadas, recordatorios programados</span></td><td class="owner"><span class="en">Health Front → referring physicians</span><span class="es">Health Front → médicos recomendantes</span></td><td><span class="d"><span class="en">Letters · Wk 7</span><span class="es">Cartas · Sem 7</span></span></td></tr>
-          <tr><td><span class="en">Commercial plan B · credentialing</span><span class="es">Plan comercial B · credencialización</span></td><td><span class="pill wait"><span class="en">Waiting on payer</span><span class="es">Espera del plan</span></span></td><td class="next"><span class="en">Committee meets monthly; file confirmed complete on Wk 6</span><span class="es">El comité se reúne mensualmente; expediente confirmado completo en Sem 6</span></td><td class="owner"><span class="en">Plan B committee</span><span class="es">Comité del Plan B</span></td><td><span class="d"><span class="en">Decision · Wk 9</span><span class="es">Decisión · Sem 9</span></span></td></tr>
-          <tr><td><span class="en">Physician to-do</span><span class="es">Pendiente del médico</span></td><td><span class="pill block"><span class="en">Needs action</span><span class="es">Requiere acción</span></span></td><td class="next"><span class="en">Sign notarized affidavit for specialty certification (15 min, our office or yours)</span><span class="es">Firmar declaración jurada notarizada para certificación de especialidad (15 min, en nuestra oficina o la suya)</span></td><td class="owner"><span class="en">Dr. Rivera</span><span class="es">Dra. Rivera</span></td><td><span class="d"><span class="en">By Fri</span><span class="es">Antes del vie</span></span></td></tr>
+                    <tr><td><span class="en">Physician to-do</span><span class="es">Pendiente del médico</span></td><td><span class="pill block"><span class="en">Needs action</span><span class="es">Requiere acción</span></span></td><td class="next"><span class="en">Sign notarized affidavit for specialty certification (15 min, our office or yours)</span><span class="es">Firmar declaración jurada notarizada para certificación de especialidad (15 min, en nuestra oficina o la suya)</span></td><td class="owner"><span class="en">Dr. Rivera</span><span class="es">Dra. Rivera</span></td><td><span class="d"><span class="en">By Fri</span><span class="es">Antes del vie</span></span></td></tr>
         </tbody>
       </table>
       </div>
@@ -654,6 +688,11 @@ footer nav a:hover{color:var(--navy)}
   document.getElementById('yr').textContent=String(new Date().getFullYear());
   // close mobile menu after choosing a link
   var menu=document.querySelector('details.menu'); if(menu){menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.removeAttribute('open');});});}
+
+  // services tabs (accordion behaviour on phones comes from CSS; same markup)
+  var tabs=[].slice.call(document.querySelectorAll('#service-tabs .tab'));
+  function selectTab(i){tabs.forEach(function(t,j){var on=i===j;t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});}
+  tabs.forEach(function(t,i){t.addEventListener('click',function(){selectTab(i);});t.addEventListener('keydown',function(e){var n=null;if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%tabs.length;if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i-1+tabs.length)%tabs.length;if(e.key==='Home')n=0;if(e.key==='End')n=tabs.length-1;if(n!==null){e.preventDefault();selectTab(n);tabs[n].focus();}});});
 
   // where are you? → re-light the readiness map and pre-fill the intake
   var MAP={
