@@ -1,0 +1,78 @@
+# Health Front landing page — working notes
+
+Generated 2026-11-01 from the brief "Clarity to move healthcare forward". Source of truth for copy is `index.html`
+(English and Spanish inline, toggled by `html[lang]`). Brand voice reference: `.claude/brand-voice-guidelines-healthfront.md`.
+
+## What was inspected, and what could not be
+- The live page at healthfrontgroup.com could not be loaded from the build environment (outbound network is
+  restricted to connected services). What Netlify reports about it: one manually uploaded deploy from 2026-03-20,
+  a single ~8 KB HTML file, no redirects, headers or functions, forms not enabled, no favicon, no robots.txt, and the
+  homepage is the only URL that returns 200. Every other request in the logs is a WordPress vulnerability scanner.
+- Brand materials used: the Health Front logo (SVG and PNG), the 2026 Illinois licensure proposal, the 2023 corporate
+  presentation (mission, vision, values, founding year, service list), the 2024 CC Program deck, the 2023 and 2024
+  licensing proposals, and the credential intake form.
+
+## Positioning and design weaknesses in the prior state (from what is observable)
+1. No service architecture: a single page with no way to tell what Health Front does or who it is for.
+2. No proof or process: nothing a prospective client can picture.
+3. No conversion path: forms were never enabled on the Netlify site; no form, no scheduling action.
+4. No hygiene signals: missing favicon, robots.txt, security headers, canonical, Open Graph.
+5. Identity drift across materials: Health Front / HealthFront / HF Group / Health Front Group; healthfrontpr.com and
+   healthfrontgroup.com; three different titles for the same executive.
+
+## Creative concept
+**An executive briefing brought to life.** The page reads like a well-set briefing document: a left-weighted
+asymmetric grid, generous margins, serif display type (Newsreader) against a plain working sans (Public Sans) with a
+monospace utility face (IBM Plex Mono) for labels, status and dates. Warm paper neutrals; the logo's navy is the only
+brand hue. Semantic status colors (complete / waiting on third party / needs action) appear only inside information
+graphics and never as decoration.
+
+**Signature visual: the Readiness Map.** Five stations from PR license to "ready to bill", with a dashed dependency
+showing privileges waiting on license and malpractice, status under each node, and a two-line "next actions" strip
+naming an owner and a date. A compass mark sits top-right, echoing the north notch in the logo monogram and the
+tagline "Value is our North". Content is fictional and labeled illustrative, in both languages.
+
+Nothing on the page uses stock photography, gradients, decorative crosses or rounded card grids. Repeated structural
+devices encode real structure: the four numbered stages are a real sequence; the tracker is a real table.
+
+## Copy decisions
+- Hero follows the brief's headline and subhead, tightened. CTAs: "Discuss your practice" / "Explore our approach".
+- "Health Front" (two words) throughout, matching the wordmark; "Health Front LLC" in legal lines. The brief wrote
+  "Healthfront"; see confirmation 1.
+- Services are limited to what the source documents show Health Front has sold: PR licensing and registry, specialty
+  and telemedicine certification, out-of-state licensure by endorsement, NPI/DEA/ASSMCA/malpractice/government
+  certificates, notarization, Medicare PTAN and Medicaid PEP enrollment, commercial payer credentialing and
+  contracting, hospital privileges, coordination with biller/accountant/hospital/group, and ongoing credential
+  maintenance during a contracted year.
+- The four-stage approach is assembled from the 2026 proposal's workstreams and the 2024 deck's "How it works";
+  see confirmation 4 before calling it the established method.
+- Spanish is written natively in formal *usted*, per the brand guidelines' recommendation for Health Front.
+
+## Factual details that still need confirmation before public launch
+1. **Public name spelling.** Page uses "Health Front" to match the logo. The brief used "Healthfront". Pick one.
+2. **Email.** Page shows info@healthfrontpr.com (from the 2026 letterhead). Staff use @healthfrontgroup.com. Confirm
+   the inbox that should receive leads and update the three places it appears.
+3. **Phone number.** Omitted. The only number in the materials is a 2023 personal line. Add if a business line exists.
+4. **Engagement method.** The four stages, the five-business-day checklist and the biweekly status cadence come from
+   one 2026 proposal. Confirm they are standard on every engagement, or soften to "typically".
+5. **Two-business-day reply promise** in the contact section. Confirm the team can meet it.
+6. **Carlos's bio.** Verified: JD, MHSA, MPH; Managing Member and CEO of Health Front LLC; COO of TCT Oncology;
+   company founded 2019; based in Guaynabo. Not verified: the sentence about "years inside Puerto Rico's health system
+   watching physicians leave" is an interpretation of the 2024 deck's language and should be approved or rewritten.
+   Confirm he wants the TCT Oncology role on this page. No portrait was available; initials mark used.
+7. **"Licensed health services administrators"** appears in the 2024 deck. Confirm it is still true of the current team.
+8. **Hospital and payer names.** Deliberately not listed on the page. The 2024 deck names specific hospitals and plans;
+   add them only if current and if their logos may be used.
+9. **Scheduling action.** The brief asked for a scheduling link. None exists in the materials, so "Discuss your
+   practice" leads to the form. Provide a Calendly or similar URL to add a direct booking button.
+10. **Broader services** from the 2023 deck (revenue cycle, managed-care consulting, strategic planning, M&A, new
+    practice setup) are excluded until confirmed as currently offered.
+11. **Legal footer** says Health Front "does not provide legal or medical services". Taken from the 2026 proposal's
+    disclaimer; have counsel confirm the wording.
+
+## Deployment
+- Publish directory: `healthfront-site/`. `netlify.toml` sets security headers and long caching for `/assets/*`.
+- The contact form uses Netlify Forms (`data-netlify="true"`, honeypot field). Enable Forms on the Netlify site and
+  set a notification email after the first deploy, then submit one test message.
+- The site has not been deployed from this change. Deploying replaces the current production page; roll back is
+  available from the Netlify deploy history.
