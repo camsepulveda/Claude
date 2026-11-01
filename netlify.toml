@@ -1,6 +1,10 @@
-# Health Front — static site. Deploy the healthfront-site folder as the publish directory.
+# Netlify configuration for healthfrontgroup.com (Netlify project: healthfrontpr).
+# The site is the static folder healthfront-site/. Settings here override the Netlify UI,
+# so the deploy is correct whatever base/publish directories were typed there.
 [build]
-  publish = "."
+  base = "healthfront-site"
+  publish = "."        # relative to base → healthfront-site/
+  command = ""         # static files, nothing to build
 
 [[headers]]
   for = "/*"

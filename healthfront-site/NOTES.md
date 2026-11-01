@@ -84,7 +84,7 @@ devices encode real structure: the four numbered stages are a real sequence; the
     disclaimer; have counsel confirm the wording.
 
 ## Deployment
-- Publish directory: `healthfront-site/`. `netlify.toml` sets security headers and long caching for `/assets/*`.
+- Repo-root `netlify.toml` sets base and publish to `healthfront-site/` plus security headers and asset caching; it overrides the Netlify UI directories.
 - The contact form uses Netlify Forms (`data-netlify="true"`, honeypot field). Enable Forms on the Netlify site and
   set a notification email after the first deploy, then submit one test message.
 - The site has not been deployed from this change. Deploying replaces the current production page; roll back is
