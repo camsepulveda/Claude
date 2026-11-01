@@ -35,6 +35,14 @@ tagline "Value is our North". Content is fictional and labeled illustrative, in 
 Nothing on the page uses stock photography, gradients, decorative crosses or rounded card grids. Repeated structural
 devices encode real structure: the four numbered stages are a real sequence; the tracker is a real table.
 
+## Service architecture (decided 2026-11-01)
+- **Launch**: from license to opening practice. The core, fixed fee per physician. Services 1 and 2 on the page.
+- **Continuity**: credentials kept current, renewals tracked, and a quarterly payer performance report (which
+  contracted plans pay, at what lag, where enrollment errors drive denials). Recurring. Service 3 on the page.
+- **Advisory**: practice operations, partnership structures, payment-model design. By engagement, for existing
+  clients. One paragraph under the services and one FAQ answer; not in the navigation.
+- Recruitment is treated as a lead source for Launch (physicians relocating to the island), not a listed service.
+
 ## Copy decisions
 - Hero follows the brief's headline and subhead, tightened. CTAs: "Discuss your practice" / "Explore our approach".
 - "Health Front" (two words) throughout, matching the wordmark; "Health Front LLC" in legal lines. The brief wrote
@@ -67,7 +75,11 @@ devices encode real structure: the four numbered stages are a real sequence; the
    practice" leads to the form. Provide a Calendly or similar URL to add a direct booking button.
 10. **Broader services** from the 2023 deck (revenue cycle, managed-care consulting, strategic planning, M&A, new
     practice setup) are excluded until confirmed as currently offered.
-11. **Legal footer** says Health Front "does not provide legal or medical services". Taken from the 2026 proposal's
+11. **Payer performance report.** Added at the owner's direction as the Continuity upsell. Not yet delivered to a
+    client per the materials. Before launch confirm: (a) it can be produced from the biller's data in the next
+    engagement; (b) handling claims data means PHI, so a business associate agreement and a security posture are
+    required before the first report. If either is not ready, soften the bullet to "available on request".
+12. **Legal footer** says Health Front "does not provide legal or medical services". Taken from the 2026 proposal's
     disclaimer; have counsel confirm the wording.
 
 ## Deployment
