@@ -22,10 +22,10 @@
    one signature information graphic (the readiness map), paper-warm neutrals, logo navy as the only brand hue. */
 :root{
   --paper:#F4F0E8; --paper-2:#EAE4D8; --paper-3:#DFD7C8;
-  --ink:#16202B; --ink-2:#3E4954; --muted:#66707A;
+  --ink:#16202B; --ink-2:#3E4954; --muted:#58626C;
   --navy:#0F2E54; --navy-2:#1B4475; --navy-tint:#E3E9F1;
   --rule:#D4CBBB; --rule-2:#BFB4A1;
-  --ok:#2C6B5B; --wait:#8E6516; --block:#8F3A2D; --ok-bg:#DCEAE4; --wait-bg:#F1E6CF; --block-bg:#F1DBD6;
+  --ok:#166A4E; --wait:#A07000; --block:#B22D2D; --ok-bg:#DCEAE4; --wait-bg:#F3E7C9; --block-bg:#F3DBD6;
   --display:"Newsreader",Georgia,"Times New Roman",serif;
   --body:"Public Sans",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
@@ -34,12 +34,12 @@
 @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
   --paper:#0F1720; --paper-2:#152030; --paper-3:#1D2A3B; --ink:#ECE6DA; --ink-2:#C8CDD3; --muted:#9AA5B1;
   --navy:#A9C1E3; --navy-2:#C4D6EF; --navy-tint:#1A2A40; --rule:#2A3747; --rule-2:#3A4A5E;
-  --ok:#8FD1BD; --wait:#E3B766; --block:#E8998A; --ok-bg:#163229; --wait-bg:#3A2D12; --block-bg:#3B1F19;
+  --ok:#5FCB9E; --wait:#F5C542; --block:#FF8B8B; --ok-bg:#163229; --wait-bg:#3A2D12; --block-bg:#3B1F19;
   --logo-filter:brightness(0) invert(1); color-scheme:dark } }
 :root[data-theme="dark"]{
   --paper:#0F1720; --paper-2:#152030; --paper-3:#1D2A3B; --ink:#ECE6DA; --ink-2:#C8CDD3; --muted:#9AA5B1;
   --navy:#A9C1E3; --navy-2:#C4D6EF; --navy-tint:#1A2A40; --rule:#2A3747; --rule-2:#3A4A5E;
-  --ok:#8FD1BD; --wait:#E3B766; --block:#E8998A; --ok-bg:#163229; --wait-bg:#3A2D12; --block-bg:#3B1F19;
+  --ok:#5FCB9E; --wait:#F5C542; --block:#FF8B8B; --ok-bg:#163229; --wait-bg:#3A2D12; --block-bg:#3B1F19;
   --logo-filter:brightness(0) invert(1); color-scheme:dark }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -70,10 +70,10 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
 .brand img{height:54px;width:auto;filter:var(--logo-filter)}
 .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1.5rem;align-items:center}
-.nav li a{font-size:.95rem;font-weight:500;color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;padding-block:.2rem}
+.nav li a{display:inline-block;font-size:.95rem;font-weight:500;color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;padding-block:.65rem}
 .nav li a:hover{border-bottom-color:var(--navy)}
 .lang{display:inline-flex;border:1px solid var(--rule-2);border-radius:999px;padding:2px;font-family:var(--mono);font-size:.72rem}
-.lang button{all:unset;cursor:pointer;padding:.3rem .65rem;border-radius:999px;color:var(--ink-2);letter-spacing:.06em}
+.lang button{all:unset;cursor:pointer;padding:.6rem .8rem;border-radius:999px;color:var(--ink-2);letter-spacing:.06em;line-height:1}
 .lang button[aria-pressed="true"]{background:var(--navy);color:var(--paper)}
 .lang button:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
 .btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.98rem;padding:.8rem 1.25rem;border-radius:4px;text-decoration:none;border:1.5px solid var(--navy);transition:background .15s,color .15s,transform .15s}
@@ -93,7 +93,7 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 
 /* hero */
 .hero{padding-block:clamp(3rem,7vw,6rem) clamp(3rem,6vw,5rem)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(2rem,5vw,5rem);align-items:start}
+.hero-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(2rem,5vw,5rem);align-items:start}
 .hero .eyebrow{display:block;margin-bottom:1.25rem}
 .hero h1{margin-bottom:1.25rem}
 .hero .lede{margin-bottom:2rem}
@@ -101,25 +101,46 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 .north{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:2.25rem}
 .north i{display:inline-block;width:10px;height:10px;border-top:2px solid var(--navy);border-right:2px solid var(--navy);transform:rotate(-45deg);margin-bottom:-2px}
 @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+@media (max-width:600px){.hero .lede{font-size:1.08rem} .lede-more{display:none}}
 
-/* signature visual: readiness map */
-.map{background:var(--paper-2);border:1px solid var(--rule);border-radius:6px;padding:1rem 1rem .75rem;position:relative}
-.map svg{display:block;width:100%;height:auto}
-.map .cap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:.6rem}
+/* signature visual: readiness map (HTML, reflows to a vertical rail on phones) */
+.map{background:var(--paper-2);border:1px solid var(--rule);border-radius:6px;padding:1.1rem 1.1rem .9rem;display:grid;gap:1rem;margin:0}
+.map .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.map-head{display:flex;justify-content:space-between;align-items:start;gap:1rem}
+.map-head .k{display:block;line-height:1.5}
+.compass{flex:none;width:26px;height:26px;border:1.5px solid var(--navy);border-radius:50%;display:grid;place-items:center;color:var(--navy)}
+.compass::before{content:"";width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:9px solid currentColor;margin-top:-3px}
+.stations{list-style:none;margin:.25rem 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:relative;gap:0 .25rem}
+.stations::before{content:"";position:absolute;left:10%;right:10%;top:calc(1.9rem + 10px);border-top:1.5px solid var(--rule-2)}
+.stations li{display:grid;justify-items:center;text-align:center;gap:.35rem;position:relative;min-width:0}
+.stations .lbl{font-size:.82rem;line-height:1.2;font-weight:500;color:var(--ink);height:1.9rem;display:flex;align-items:end;text-wrap:balance}
+.stations .node{width:20px;height:20px;border-radius:50%;background:var(--paper);border:1.5px solid var(--rule-2);display:grid;place-items:center;position:relative;z-index:1}
+.stations .node::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--rule-2)}
+.stations li.ok .node{border-color:var(--ok)} .stations li.ok .node::after{background:var(--ok)}
+.stations li.wait .node{border-color:var(--wait)} .stations li.wait .node::after{background:var(--wait)}
+.stations li.block .node{border-color:var(--block)} .stations li.block .node::after{background:var(--block)}
+.stations li.todo .node::after{background:transparent}
+.stations .st{font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);line-height:1.3}
+.stations li.todo .st{color:var(--muted)}
+.dep{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-top:1px dashed var(--rule-2);padding-top:.5rem;margin:0}
+.next{display:grid;gap:.4rem}
+.next ul{list-style:none;margin:0;padding:0;display:grid;gap:.3rem}
+.next li{display:grid;grid-template-columns:10px 1fr;gap:.6rem;align-items:start;font-size:.86rem;line-height:1.4;color:var(--ink)}
+.next li::before{content:"";width:8px;height:8px;border-radius:50%;margin-top:.45em;background:var(--rule-2)}
+.next li.block::before{background:var(--block)} .next li.wait::before{background:var(--wait)} .next li.ok::before{background:var(--ok)}
+.map figcaption{display:flex;justify-content:space-between;gap:.5rem 1.25rem;flex-wrap:wrap;border-top:1px solid var(--rule);padding-top:.7rem}
+.map figcaption,.map .legend{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .map .legend{display:flex;gap:1rem;flex-wrap:wrap}
-.map .legend span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:.4rem;background:var(--ok)}
-.map .legend .w::before{background:var(--wait)} .map .legend .b::before{background:var(--block)}
-.map text{font-family:var(--body);font-size:12.5px;fill:var(--ink)}
-.map text.k{font-family:var(--mono);font-size:10.5px;fill:var(--muted);letter-spacing:.06em}
-.map text.st{font-family:var(--mono);font-size:10px;letter-spacing:.04em}
-.map .ln{stroke:var(--rule-2);stroke-width:1.5;fill:none}
-.map .ln.dep{stroke-dasharray:4 4}
-.map .node{fill:var(--paper);stroke:var(--rule-2);stroke-width:1.2}
-.map .node.ok{stroke:var(--ok)} .map .node.wait{stroke:var(--wait)} .map .node.block{stroke:var(--block)}
-.map .dot{stroke:none} .map .dot.ok{fill:var(--ok)} .map .dot.wait{fill:var(--wait)} .map .dot.block{fill:var(--block)}
-.map .st.ok{fill:var(--ok)} .map .st.wait{fill:var(--wait)} .map .st.block{fill:var(--block)}
-.map .compass{fill:none;stroke:var(--navy);stroke-width:1.2}
-.map .needle{fill:var(--navy)}
+.map .legend>span{display:inline-flex;align-items:center;gap:.4rem}
+.map .legend>span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none}
+.map .legend>span.w::before{background:var(--wait)} .map .legend>span.b::before{background:var(--block)}
+@media (max-width:600px){
+  .stations{grid-template-columns:1fr;gap:.85rem;padding-left:4px}
+  .stations::before{left:13px;right:auto;top:10px;bottom:10px;border-top:0;border-left:1.5px solid var(--rule-2)}
+  .stations li{grid-template-columns:20px 1fr;justify-items:start;text-align:left;column-gap:.9rem;row-gap:.1rem}
+  .stations .node{grid-row:1/3}
+  .stations .lbl{height:auto;display:block}
+}
 
 /* reality */
 .two{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,5vw,5rem);align-items:start}
@@ -165,17 +186,17 @@ tr:last-child td{border-bottom:0}
 td.owner,td.next{color:var(--ink-2)}
 td .d{font-family:var(--mono);font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums}
 .pill{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;padding:.2rem .55rem;border-radius:999px;white-space:nowrap}
-.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
-.pill.ok{color:var(--ok);background:var(--ok-bg)} .pill.wait{color:var(--wait);background:var(--wait-bg)} .pill.block{color:var(--block);background:var(--block-bg)}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;flex:none}
+.pill{color:var(--ink)} .pill.ok{background:var(--ok-bg)} .pill.ok::before{background:var(--ok)} .pill.wait{background:var(--wait-bg)} .pill.wait::before{background:var(--wait)} .pill.block{background:var(--block-bg)} .pill.block::before{background:var(--block)}
 .distinction{margin-top:2.5rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
 @media (max-width:800px){.distinction{grid-template-columns:1fr}}
 .distinction div{border-top:1px solid var(--rule-2);padding-top:1rem}
 .distinction h3{font-size:1.2rem;margin-bottom:.5rem}
 .distinction p{color:var(--ink-2)}
 .facts{display:flex;flex-wrap:wrap;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--rule)}
-.facts div{display:grid;gap:.2rem}
+.facts>div{display:grid;gap:.2rem}
 .facts b{font-family:var(--display);font-weight:500;font-size:1.6rem;line-height:1.1}
-.facts span{font-size:.9rem;color:var(--muted)}
+.facts>div>span{font-size:.9rem;color:var(--muted)}
 
 /* about */
 .about{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(2rem,5vw,5rem);align-items:start}
@@ -223,7 +244,7 @@ textarea{min-height:120px;resize:vertical}
 footer{border-top:1px solid var(--rule);padding-block:2.5rem;font-size:.9rem;color:var(--muted)}
 footer .f{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem 2rem;align-items:center}
 footer img{height:40px;width:auto;filter:var(--logo-filter);opacity:.9}
-footer nav a{color:var(--muted);margin-right:1.25rem;text-decoration:none}
+footer nav a{display:inline-block;color:var(--muted);margin-right:1.25rem;padding-block:.7rem;text-decoration:none}
 footer nav a:hover{color:var(--navy)}
 </style>
 </head>
@@ -269,8 +290,8 @@ footer nav a:hover{color:var(--navy)}
       <span class="eyebrow"><span class="en">Healthcare strategy · Regulatory advisory · Operations</span><span class="es">Estrategia de salud · Asesoría regulatoria · Operaciones</span></span>
       <h1><span class="en">Clarity to move healthcare forward.</span><span class="es">Claridad para que la salud avance.</span></h1>
       <p class="lede">
-        <span class="en">From license to opening practice: one engagement that carries a physician through licensing, credentialing, payer contracting and hospital privileges to the first reimbursed visit, with a single point of accountability. For practices in Puerto Rico that need a clear path from pending to progress.</span>
-        <span class="es">De la licencia a la práctica abierta: una sola encomienda que lleva a un médico por el licenciamiento, la credencialización, la contratación con planes y los privilegios hospitalarios hasta la primera visita pagada, con un solo punto de responsabilidad. Para prácticas en Puerto Rico que necesitan un camino claro de «pendiente» a «en progreso».</span>
+        <span class="en">From license to opening practice: one engagement that carries a physician through licensing, credentialing, payer contracting and hospital privileges to the first reimbursed visit, with a single point of accountability.<span class="lede-more"> For practices in Puerto Rico that need a clear path from pending to progress.</span></span>
+        <span class="es">De la licencia a la práctica abierta: una sola encomienda que lleva a un médico por el licenciamiento, la credencialización, la contratación con planes y los privilegios hospitalarios hasta la primera visita pagada, con un solo punto de responsabilidad.<span class="lede-more"> Para prácticas en Puerto Rico que necesitan un camino claro de «pendiente» a «en progreso».</span></span>
       </p>
       <div class="actions">
         <a class="btn btn-primary" href="#contact"><span class="en">Discuss your practice</span><span class="es">Hablemos de su práctica</span></a>
@@ -280,63 +301,27 @@ footer nav a:hover{color:var(--navy)}
     </div>
 
     <figure class="map" aria-labelledby="map-title" aria-describedby="map-desc">
-      <svg viewBox="0 0 560 330" role="img">
-        <title id="map-title"><span class="en">Readiness map for one physician onboarding</span></title>
-        <desc id="map-desc">Five stations from licensing to ready to bill, with dependencies and current status. Illustrative, fictional content.</desc>
-        <!-- compass north mark -->
-        <g class="compass" transform="translate(522,26)"><circle r="12"/><path class="needle" d="M0 -9 L3.5 0 L0 -2.5 L-3.5 0 Z"/></g>
-        <text class="k" x="16" y="30">READINESS MAP</text>
-        <text class="k" x="16" y="46"><tspan class="en">DR. A. RIVERA · CARDIOLOGY · FICTIONAL EXAMPLE</tspan><tspan class="es">DRA. A. RIVERA · CARDIOLOGÍA · EJEMPLO FICTICIO</tspan></text>
-
-        <!-- main path -->
-        <path class="ln" d="M60 120 H500"/>
-        <!-- dependency: license and malpractice feed privileges -->
-        <path class="ln dep" d="M60 140 V210 H330 V140"/>
-        <path class="ln dep" d="M170 140 V210"/>
-
-        <!-- station 1: license -->
-        <g transform="translate(60,120)">
-          <circle class="node ok" r="14"/><circle class="dot ok" r="5"/>
-          <text x="0" y="-26" text-anchor="middle"><tspan class="en">PR license</tspan><tspan class="es">Licencia PR</tspan></text>
-          <text class="st ok" x="0" y="40" text-anchor="middle"><tspan class="en">ISSUED</tspan><tspan class="es">EMITIDA</tspan></text>
-        </g>
-        <!-- station 2: credential file -->
-        <g transform="translate(170,120)">
-          <circle class="node ok" r="14"/><circle class="dot ok" r="5"/>
-          <text x="0" y="-26" text-anchor="middle"><tspan class="en">Credential file</tspan><tspan class="es">Expediente</tspan></text>
-          <text class="st ok" x="0" y="40" text-anchor="middle"><tspan class="en">COMPLETE</tspan><tspan class="es">COMPLETO</tspan></text>
-        </g>
-        <!-- station 3: payer enrollment -->
-        <g transform="translate(280,120)">
-          <circle class="node wait" r="14"/><circle class="dot wait" r="5"/>
-          <text x="0" y="-26" text-anchor="middle"><tspan class="en">Payer enrollment</tspan><tspan class="es">Planes médicos</tspan></text>
-          <text class="st wait" x="0" y="40" text-anchor="middle"><tspan class="en">IN REVIEW · PAYER</tspan><tspan class="es">EN REVISIÓN · PLAN</tspan></text>
-        </g>
-        <!-- station 4: privileges -->
-        <g transform="translate(390,120)">
-          <circle class="node block" r="14"/><circle class="dot block" r="5"/>
-          <text x="0" y="-26" text-anchor="middle"><tspan class="en">Hospital privileges</tspan><tspan class="es">Privilegios</tspan></text>
-          <text class="st block" x="0" y="40" text-anchor="middle"><tspan class="en">NEEDS: 2 LETTERS</tspan><tspan class="es">FALTAN: 2 CARTAS</tspan></text>
-        </g>
-        <!-- station 5: ready -->
-        <g transform="translate(500,120)">
-          <circle class="node" r="14"/>
-          <text x="0" y="-26" text-anchor="middle"><tspan class="en">Ready to bill</tspan><tspan class="es">Lista para facturar</tspan></text>
-          <text class="st" x="0" y="40" text-anchor="middle" style="fill:var(--muted)"><tspan class="en">TARGET · WEEK 11</tspan><tspan class="es">META · SEMANA 11</tspan></text>
-        </g>
-
-        <!-- dependency label -->
-        <text class="k" x="195" y="232"><tspan class="en">DEPENDS ON LICENSE + MALPRACTICE</tspan><tspan class="es">DEPENDE DE LICENCIA + PÓLIZA</tspan></text>
-
-        <!-- next actions strip -->
-        <g transform="translate(16,262)">
-          <text class="k" y="0"><tspan class="en">NEXT ACTIONS</tspan><tspan class="es">PRÓXIMAS ACCIONES</tspan></text>
-          <circle class="dot block" cx="6" cy="22" r="4"/><text x="18" y="26"><tspan class="en">Request 2 recommendation letters · owner: Health Front · by Thu</tspan><tspan class="es">Solicitar 2 cartas de recomendación · responsable: Health Front · jueves</tspan></text>
-          <circle class="dot wait" cx="6" cy="46" r="4"/><text x="18" y="50"><tspan class="en">Weekly follow-up with payer on application · owner: Health Front</tspan><tspan class="es">Seguimiento semanal con el plan · responsable: Health Front</tspan></text>
-        </g>
-      </svg>
-      <figcaption class="cap">
-        <span class="en">Illustrative example · fictional physician and dates</span><span class="es">Ejemplo ilustrativo · médico y fechas ficticios</span>
+      <div class="map-head">
+        <div><span class="k" id="map-title"><span class="en">Readiness map</span><span class="es">Mapa de preparación</span></span><span class="k" id="map-desc"><span class="en">Dr. A. Rivera · Cardiology · fictional example</span><span class="es">Dra. A. Rivera · Cardiología · ejemplo ficticio</span></span></div>
+        <span class="compass" aria-hidden="true"></span>
+      </div>
+      <ol class="stations">
+        <li class="ok"><span class="lbl"><span class="en">PR license</span><span class="es">Licencia PR</span></span><span class="node" aria-hidden="true"></span><span class="st"><span class="en">Issued</span><span class="es">Emitida</span></span></li>
+        <li class="ok"><span class="lbl"><span class="en">Credential file</span><span class="es">Expediente</span></span><span class="node" aria-hidden="true"></span><span class="st"><span class="en">Complete</span><span class="es">Completo</span></span></li>
+        <li class="wait"><span class="lbl"><span class="en">Payer enrollment</span><span class="es">Planes médicos</span></span><span class="node" aria-hidden="true"></span><span class="st"><span class="en">In review</span><span class="es">En revisión</span></span></li>
+        <li class="block"><span class="lbl"><span class="en">Hospital privileges</span><span class="es">Privilegios</span></span><span class="node" aria-hidden="true"></span><span class="st"><span class="en">2 letters due</span><span class="es">Faltan 2 cartas</span></span></li>
+        <li class="todo"><span class="lbl"><span class="en">Ready to bill</span><span class="es">Lista para facturar</span></span><span class="node" aria-hidden="true"></span><span class="st"><span class="en">Week 11</span><span class="es">Semana 11</span></span></li>
+      </ol>
+      <p class="dep"><span class="en">Privileges depend on the license and the malpractice policy</span><span class="es">Los privilegios dependen de la licencia y de la póliza</span></p>
+      <div class="next">
+        <span class="k"><span class="en">Next actions</span><span class="es">Próximas acciones</span></span>
+        <ul>
+          <li class="block"><span class="en">Request two recommendation letters · owner: Health Front · by Thursday</span><span class="es">Solicitar dos cartas de recomendación · responsable: Health Front · jueves</span></li>
+          <li class="wait"><span class="en">Weekly follow-up with the payer on the application · owner: Health Front</span><span class="es">Seguimiento semanal con el plan sobre la solicitud · responsable: Health Front</span></li>
+        </ul>
+      </div>
+      <figcaption>
+        <span><span class="en">Illustrative · fictional physician and dates</span><span class="es">Ilustrativo · médico y fechas ficticios</span></span>
         <span class="legend"><span><span class="en">Complete</span><span class="es">Completo</span></span><span class="w"><span class="en">Waiting on third party</span><span class="es">Espera de un tercero</span></span><span class="b"><span class="en">Needs action</span><span class="es">Requiere acción</span></span></span>
       </figcaption>
     </figure>
@@ -406,7 +391,8 @@ footer nav a:hover{color:var(--navy)}
           <ul><li><span class="en">A renewal calendar you can see</span><span class="es">Un calendario de renovaciones visible</span></li><li><span class="en">A quarterly payer performance report</span><span class="es">Un informe trimestral de desempeño por plan</span></li><li><span class="en">A named person who answers the agency when it calls</span><span class="es">Una persona con nombre que responde cuando la agencia llama</span></li></ul></div>
       </article>
     </div>
-    <p class="note"><span class="en"><strong>Advisory, by engagement.</strong> For medical groups and organizations that already work with us: practice operations, partnership structures and payment-model design, scoped and priced per project.</span><span class="es"><strong>Asesoría, por encomienda.</strong> Para grupos médicos y organizaciones que ya trabajan con nosotros: operaciones de la práctica, estructuras de alianza y diseño de modelos de pago, con alcance y precio por proyecto.</span></p>
+    <p class="eyebrow" style="margin-top:2.5rem"><span class="en">Advisory · by engagement</span><span class="es">Asesoría · por encomienda</span></p>
+    <p class="note" style="margin-top:.5rem"><span class="en"><strong>For medical groups and organizations that already work with us.</strong> Practice operations, partnership structures and payment-model design, scoped and priced per project.</span><span class="es"><strong>Para grupos médicos y organizaciones que ya trabajan con nosotros.</strong> Operaciones de la práctica, estructuras de alianza y diseño de modelos de pago, con alcance y precio por proyecto.</span></p>
     <p class="note" style="margin-top:1rem"><span class="en">Scope and fees are fixed per engagement, with assumptions and exclusions stated in writing before work begins. Agency, payer and third-party fees are itemized separately.</span><span class="es">El alcance y los honorarios se fijan por encomienda, con supuestos y exclusiones por escrito antes de comenzar. Los cargos de agencias, planes y terceros se detallan por separado.</span></p>
   </div>
 </section>
@@ -456,8 +442,9 @@ footer nav a:hover{color:var(--navy)}
 
     <div class="facts">
       <div><b>2019</b><span><span class="en">Founded in Puerto Rico</span><span class="es">Fundada en Puerto Rico</span></span></div>
-      <div><b>Guaynabo</b><span><span class="en">Based in Puerto Rico</span><span class="es">Con base en Puerto Rico</span></span></div>
-      <div><b><span class="en">Licensed</span><span class="es">Licenciados</span></b><span><span class="en">Health services administrators</span><span class="es">Administradores de servicios de salud</span></span></div>
+      <div><b>Guaynabo</b><span><span class="en">Where we are based</span><span class="es">Nuestra sede</span></span></div>
+      <div><b><span class="en">Fixed fee</span><span class="es">Honorario fijo</span></b><span><span class="en">Per engagement, in writing</span><span class="es">Por encomienda, por escrito</span></span></div>
+      <div><b><span class="en">Weekly</span><span class="es">Semanal</span></b><span><span class="en">Follow-up with every agency and payer</span><span class="es">Seguimiento con cada agencia y plan</span></span></div>
     </div>
   </div>
 </section>
