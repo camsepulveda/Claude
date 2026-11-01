@@ -505,7 +505,7 @@ footer nav a:hover{color:var(--navy)}
       <span class="eyebrow"><span class="en">Start a conversation</span><span class="es">Inicie una conversación</span></span>
       <h2 style="margin-top:1rem"><span class="en">Tell us what is pending.</span><span class="es">Cuéntenos qué está pendiente.</span></h2>
       <p style="margin-top:1rem"><span class="en">A short description is enough. We reply within two business days with the questions we would ask on a first call, and whether the work fits what we do.</span><span class="es">Una descripción breve basta. Respondemos en dos días laborables con las preguntas que haríamos en una primera llamada y si el trabajo encaja con lo que hacemos.</span></p>
-      <div class="mail"><span><span class="en">Email</span><span class="es">Correo</span></span><a href="mailto:info@healthfrontpr.com">info@healthfrontpr.com</a></div>
+      <div class="mail"><span><span class="en">Email</span><span class="es">Correo</span></span><a href="mailto:cmendez@healthfrontgroup.com">cmendez@healthfrontgroup.com</a></div>
       <div class="mail"><span><span class="en">Office</span><span class="es">Oficina</span></span><span style="color:var(--ink-2)">Guaynabo, Puerto Rico</span></div>
     </div>
     <form id="contact-form" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
@@ -520,7 +520,7 @@ footer nav a:hover{color:var(--navy)}
       <p class="fine"><span class="en">Please do not include patient information or attach sensitive documents here. We will set up a secure channel for credentials after the first conversation.</span><span class="es">Por favor no incluya información de pacientes ni documentos sensitivos aquí. Estableceremos un canal seguro para credenciales después de la primera conversación.</span></p>
       <div class="form-actions">
         <button class="btn btn-primary" type="submit" id="f-submit"><span class="en">Send</span><span class="es">Enviar</span></button>
-        <span class="fine"><span class="en">Or write to info@healthfrontpr.com</span><span class="es">O escriba a info@healthfrontpr.com</span></span>
+        <span class="fine"><span class="en">Or write to cmendez@healthfrontgroup.com</span><span class="es">O escriba a cmendez@healthfrontgroup.com</span></span>
       </div>
       <p class="status" id="f-status" hidden role="status" aria-live="polite"></p>
     </form>
@@ -551,8 +551,8 @@ footer nav a:hover{color:var(--navy)}
 
   // contact form: Netlify Forms via fetch, with a readable fallback
   var form=document.getElementById('contact-form'), status=document.getElementById('f-status'), btn=document.getElementById('f-submit');
-  var T={en:{sent:'Thank you. Your message was received. We reply within two business days.',err:'The message could not be sent. Please email info@healthfrontpr.com directly.',req:'Please complete every field so we can reply properly.',busy:'Sending…'},
-         es:{sent:'Gracias. Recibimos su mensaje. Respondemos en dos días laborables.',err:'No se pudo enviar el mensaje. Por favor escriba directamente a info@healthfrontpr.com.',req:'Por favor complete todos los campos para poder responderle.',busy:'Enviando…'}};
+  var T={en:{sent:'Thank you. Your message was received. We reply within two business days.',err:'The message could not be sent. Please email cmendez@healthfrontgroup.com directly.',req:'Please complete every field so we can reply properly.',busy:'Sending…'},
+         es:{sent:'Gracias. Recibimos su mensaje. Respondemos en dos días laborables.',err:'No se pudo enviar el mensaje. Por favor escriba directamente a cmendez@healthfrontgroup.com.',req:'Por favor complete todos los campos para poder responderle.',busy:'Enviando…'}};
   function say(kind,msg){status.hidden=false;status.className='status '+kind;status.textContent=msg;}
   if(form){form.addEventListener('submit',function(e){
     e.preventDefault(); var L=T[root.getAttribute('lang')==='es'?'es':'en'];
