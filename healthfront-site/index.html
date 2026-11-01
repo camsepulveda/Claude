@@ -175,13 +175,18 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 @media (max-width:600px){.friction li{grid-template-columns:1fr}}
 
 /* services: tabs */
-.tabs{margin-top:2.5rem;border-top:1px solid var(--rule)}
-.tablist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-bottom:1px solid var(--rule)}
-.tab{all:unset;cursor:pointer;display:grid;gap:.3rem;padding:1.1rem 1rem 1rem 0;border-bottom:3px solid transparent;margin-bottom:-1px;color:var(--ink-2);min-width:0}
+.tabs{margin-top:2rem}
+.tablist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
+.tab{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:.35rem;padding:1rem 1.1rem;border:1.5px solid var(--rule-2);border-radius:8px;background:var(--paper);color:var(--ink-2);min-width:0;transition:background .15s,border-color .15s,transform .15s}
 .tab .eyebrow{font-size:.66rem;color:var(--muted)}
-.tab .t{font-family:var(--display);font-size:1.25rem;line-height:1.2;color:var(--ink);font-weight:500;text-wrap:balance}
-.tab[aria-selected="true"]{border-bottom-color:var(--navy)} .tab[aria-selected="true"] .eyebrow{color:var(--brass)}
-.tab:hover .t{color:var(--navy)} .tab:focus-visible{outline:3px solid var(--navy);outline-offset:-3px}
+.tab .t{font-family:var(--display);font-size:1.2rem;line-height:1.2;color:var(--ink);font-weight:500;text-wrap:balance}
+.tab .cue{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-top:.25rem;display:inline-flex;align-items:center;gap:.35rem}
+.tab .cue::after{content:"→";transition:transform .15s}
+.tab:hover{border-color:var(--navy);background:var(--navy-tint);transform:translateY(-1px)} .tab:hover .cue::after{transform:translateX(3px)}
+.tab[aria-selected="true"]{background:var(--navy);border-color:var(--navy)} .tab[aria-selected="true"] .t,.tab[aria-selected="true"] .cue{color:var(--paper)} .tab[aria-selected="true"] .eyebrow{color:var(--band-accent)}
+.tab[aria-selected="true"] .cue .see{display:none} .tab:not([aria-selected="true"]) .cue .show{display:none} .tab[aria-selected="true"] .cue::after{content:"↓"}
+.tab:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.tabs-help{color:var(--muted);font-size:.95rem;margin-top:1.25rem}
 .panel{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:2rem 3rem;padding-top:2rem}
 .panel[hidden]{display:none}
 .panel .scope{font-size:1.15rem;color:var(--ink);line-height:1.5;margin-bottom:1rem}
@@ -213,11 +218,8 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 .example .evt{font-size:.82rem;color:var(--ink-2);margin-top:.35rem}
 @media (max-width:900px){.panel{grid-template-columns:1fr;gap:1.5rem}}
 @media (max-width:640px){
-  .tablist{grid-template-columns:1fr;border-bottom:0}
-  .tab{border-bottom:1px solid var(--rule);padding:.9rem 0;grid-template-columns:1fr auto;align-items:center}
-  .tab .eyebrow{grid-column:1} .tab .t{grid-column:1;font-size:1.1rem}
-  .tab::after{content:"+";grid-column:2;grid-row:1/3;font-family:var(--mono);color:var(--navy);font-size:1.2rem}
-  .tab[aria-selected="true"]::after{content:"−"} .tab[aria-selected="true"]{border-bottom-color:var(--rule)}
+  .tablist{grid-template-columns:1fr;gap:.5rem}
+  .tab{padding:.85rem 1rem} .tab .t{font-size:1.1rem}
   .panel{padding:1.25rem 0 1.5rem;border-bottom:1px solid var(--rule)}
 }
 /* services (legacy card styles kept for reference) */
@@ -471,11 +473,12 @@ footer nav a:hover{color:var(--navy)}
     <span class="eyebrow"><span class="en">Services</span><span class="es">Servicios</span></span>
     <h2 style="margin-top:1rem;max-width:22ch"><span class="en">One core engagement. Then we keep it running.</span><span class="es">Una encomienda central. Después, la mantenemos en marcha.</span></h2>
     <p class="lede" style="margin-top:1rem"><span class="en"><strong>Launch</strong> takes a physician from license to opening practice; it runs on the first two services below. <strong>Continuity</strong> keeps credentials, contracts and payments in view after launch. Advisory work is available by engagement.</span><span class="es"><strong>Lanzamiento</strong> lleva a un médico de la licencia a la práctica abierta; corre sobre los dos primeros servicios. <strong>Continuidad</strong> mantiene a la vista credenciales, contratos y pagos después del lanzamiento. El trabajo de asesoría está disponible por encomienda.</span></p>
+    <p class="tabs-help"><span class="en">Choose a service to see what is included, what you receive, and a worked example.</span><span class="es">Elija un servicio para ver qué incluye, qué recibe y un ejemplo.</span></p>
     <div class="tabs" id="service-tabs">
       <div class="tablist" role="tablist" aria-label="Services">
-        <button class="tab" role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1"><span class="eyebrow"><span class="en">Launch · 1 of 2</span><span class="es">Lanzamiento · 1 de 2</span></span><span class="t"><span class="en">Bring a physician onboard</span><span class="es">Incorporar a un médico</span></span></button>
-        <button class="tab" role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2" tabindex="-1"><span class="eyebrow"><span class="en">Launch · 2 of 2</span><span class="es">Lanzamiento · 2 de 2</span></span><span class="t"><span class="en">Coordinate enrollment and privileges</span><span class="es">Coordinar contratación y privilegios</span></span></button>
-        <button class="tab" role="tab" id="tab-3" aria-selected="false" aria-controls="panel-3" tabindex="-1"><span class="eyebrow"><span class="en">Continuity</span><span class="es">Continuidad</span></span><span class="t"><span class="en">Keep credentials in view, and know which contracts pay</span><span class="es">Credenciales a la vista, y saber qué contratos pagan</span></span></button>
+        <button class="tab" role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1"><span class="eyebrow"><span class="en">Launch · 1 of 2</span><span class="es">Lanzamiento · 1 de 2</span></span><span class="t"><span class="en">Bring a physician onboard</span><span class="es">Incorporar a un médico</span></span><span class="cue"><span class="see"><span class="en">See details</span><span class="es">Ver detalles</span></span><span class="show"><span class="en">Showing</span><span class="es">Mostrando</span></span></span></button>
+        <button class="tab" role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2" tabindex="-1"><span class="eyebrow"><span class="en">Launch · 2 of 2</span><span class="es">Lanzamiento · 2 de 2</span></span><span class="t"><span class="en">Coordinate enrollment and privileges</span><span class="es">Coordinar contratación y privilegios</span></span><span class="cue"><span class="see"><span class="en">See details</span><span class="es">Ver detalles</span></span><span class="show"><span class="en">Showing</span><span class="es">Mostrando</span></span></span></button>
+        <button class="tab" role="tab" id="tab-3" aria-selected="false" aria-controls="panel-3" tabindex="-1"><span class="eyebrow"><span class="en">Continuity</span><span class="es">Continuidad</span></span><span class="t"><span class="en">Keep credentials in view, and know which contracts pay</span><span class="es">Credenciales a la vista, y saber qué contratos pagan</span></span><span class="cue"><span class="see"><span class="en">See details</span><span class="es">Ver detalles</span></span><span class="show"><span class="en">Showing</span><span class="es">Mostrando</span></span></span></button>
       </div>
 
       <div class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
