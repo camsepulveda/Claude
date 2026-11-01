@@ -45,6 +45,16 @@ devices encode real structure: the four numbered stages are a real sequence; the
   clients. One paragraph under the services and one FAQ answer; not in the navigation.
 - Recruitment is treated as a lead source for Launch (physicians relocating to the island), not a listed service.
 
+## Color and interaction (added 2026-11-01, second review)
+- **Brass accent** (`--brass`, #8A5E12 light / #E0B65A dark) on eyebrows, the compass, the tagline line and step
+  numbers only. It is the "north" color; it never fills a surface or a button.
+- **Navy chapter**: the Approach section is a full-bleed navy band with paper text, so the page has a dark middle.
+- **"Where are you right now?"** chips under the hero re-light the readiness map for six situations, settle the
+  compass, and pre-select the same situation in the contact form. All map content stays labeled illustrative.
+- **Guided intake form**: situation chips, plain-language needs grouped Launch / Continuity, scale and timing, and a
+  live "Your request, as we will read it" summary that is posted with the form as the `summary` field, with the
+  page language as `language`. Validation requires a situation or at least one need plus contact details.
+
 ## Copy decisions
 - Hero follows the brief's headline and subhead, tightened. CTAs: "Discuss your practice" / "Explore our approach".
 - "Health Front" (two words) throughout, matching the wordmark; "Health Front LLC" in legal lines. The brief wrote

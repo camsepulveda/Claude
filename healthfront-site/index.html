@@ -29,17 +29,23 @@
   --display:"Newsreader",Georgia,"Times New Roman",serif;
   --body:"Public Sans",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --brass:#8A5E12; --brass-bg:#F3E9D3;
+  --band-bg:#0F2E54; --band-fg:#F4F0E8; --band-muted:#B9C6D8; --band-rule:#2E4A72; --band-accent:#E0B65A;
   --logo-filter:none; --max:1180px; --gutter:max(20px,env(safe-area-inset-left,0px));
 }
 @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
   --paper:#0F1720; --paper-2:#152030; --paper-3:#1D2A3B; --ink:#ECE6DA; --ink-2:#C8CDD3; --muted:#9AA5B1;
   --navy:#A9C1E3; --navy-2:#C4D6EF; --navy-tint:#1A2A40; --rule:#2A3747; --rule-2:#3A4A5E;
   --ok:#5FCB9E; --wait:#F5C542; --block:#FF8B8B; --ok-bg:#163229; --wait-bg:#3A2D12; --block-bg:#3B1F19;
+  --brass:#E0B65A; --brass-bg:#2E2512;
+  --band-bg:#0B1A2E; --band-fg:#ECE6DA; --band-muted:#9FB0C6; --band-rule:#22395A; --band-accent:#E0B65A;
   --logo-filter:brightness(0) invert(1); color-scheme:dark } }
 :root[data-theme="dark"]{
   --paper:#0F1720; --paper-2:#152030; --paper-3:#1D2A3B; --ink:#ECE6DA; --ink-2:#C8CDD3; --muted:#9AA5B1;
   --navy:#A9C1E3; --navy-2:#C4D6EF; --navy-tint:#1A2A40; --rule:#2A3747; --rule-2:#3A4A5E;
   --ok:#5FCB9E; --wait:#F5C542; --block:#FF8B8B; --ok-bg:#163229; --wait-bg:#3A2D12; --block-bg:#3B1F19;
+  --brass:#E0B65A; --brass-bg:#2E2512;
+  --band-bg:#0B1A2E; --band-fg:#ECE6DA; --band-muted:#9FB0C6; --band-rule:#22395A; --band-accent:#E0B65A;
   --logo-filter:brightness(0) invert(1); color-scheme:dark }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -54,7 +60,7 @@ h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.1;letter-spaci
 h1{font-size:clamp(2.4rem,5.2vw,4.1rem)} h2{font-size:clamp(1.75rem,3.2vw,2.5rem)} h3{font-size:1.35rem;line-height:1.25}
 p{margin:0}
 .lede{font-size:1.2rem;line-height:1.5;color:var(--ink-2);max-width:34em}
-.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);font-weight:500}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:500}
 .measure{max-width:62ch}
 .wrap{max-width:var(--max);margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 section{padding-block:clamp(3.5rem,8vw,6.5rem)}
@@ -99,16 +105,26 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 .hero .lede{margin-bottom:2rem}
 .actions{display:flex;flex-wrap:wrap;gap:.75rem 1rem;align-items:center}
 .north{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:2.25rem}
-.north i{display:inline-block;width:10px;height:10px;border-top:2px solid var(--navy);border-right:2px solid var(--navy);transform:rotate(-45deg);margin-bottom:-2px}
+.north{color:var(--brass)} .north i{display:inline-block;width:10px;height:10px;border-top:2px solid var(--brass);border-right:2px solid var(--brass);transform:rotate(-45deg);margin-bottom:-2px}
 @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
 @media (max-width:600px){.hero .lede{font-size:1.08rem} .lede-more{display:none}}
 
+/* hero: where are you? */
+.where{margin-top:2rem;display:grid;gap:.6rem}
+.where .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
+.where .chips .chip{font-size:.86rem;padding:.45rem .8rem}
+.map-cta{display:none;font-size:.9rem;font-weight:600;margin-top:.25rem}
+.map.personal .map-cta{display:inline-block}
+.map .node,.next li::before,.stations .st{transition:border-color .4s,background-color .4s,color .4s}
+@keyframes settle{0%{transform:rotate(-140deg)}60%{transform:rotate(18deg)}80%{transform:rotate(-6deg)}100%{transform:rotate(0)}}
+.compass.spin{animation:settle .9s cubic-bezier(.2,.7,.2,1) both}
+@media (prefers-reduced-motion:reduce){.compass.spin{animation:none}}
 /* signature visual: readiness map (HTML, reflows to a vertical rail on phones) */
 .map{background:var(--paper-2);border:1px solid var(--rule);border-radius:6px;padding:1.1rem 1.1rem .9rem;display:grid;gap:1rem;margin:0}
 .map .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .map-head{display:flex;justify-content:space-between;align-items:start;gap:1rem}
 .map-head .k{display:block;line-height:1.5}
-.compass{flex:none;width:26px;height:26px;border:1.5px solid var(--navy);border-radius:50%;display:grid;place-items:center;color:var(--navy)}
+.compass{flex:none;width:26px;height:26px;border:1.5px solid var(--brass);border-radius:50%;display:grid;place-items:center;color:var(--brass)}
 .compass::before{content:"";width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:9px solid currentColor;margin-top:-3px}
 .stations{list-style:none;margin:.25rem 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:relative;gap:0 .25rem}
 .stations::before{content:"";position:absolute;left:10%;right:10%;top:calc(1.9rem + 10px);border-top:1.5px solid var(--rule-2)}
@@ -148,13 +164,14 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 .friction{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--rule)}
 .friction li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:1rem 2rem;padding:1.25rem 0;border-bottom:1px solid var(--rule)}
 .friction strong{font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.25}
+.friction li::before{content:"";display:none}
 .friction p{color:var(--ink-2)}
 @media (max-width:600px){.friction li{grid-template-columns:1fr}}
 
 /* services */
 .services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;margin-top:3rem}
 @media (max-width:900px){.services{grid-template-columns:1fr}}
-.svc{border-top:3px solid var(--navy);padding-top:1.25rem;display:flex;flex-direction:column;gap:1rem}
+.svc{border-top:3px solid var(--navy);} .svc .eyebrow{color:var(--brass)} .svc{padding-top:1.25rem;display:flex;flex-direction:column;gap:1rem}
 .svc h3{margin-bottom:.25rem}
 .svc .scope{color:var(--ink-2)}
 .svc ul{margin:0;padding-left:1.1rem;color:var(--ink-2)}
@@ -164,7 +181,15 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 .svc .deliver ul{padding-left:1.1rem;color:var(--ink)}
 .note{font-size:.95rem;color:var(--muted);max-width:60ch;margin-top:2rem}
 
-/* approach */
+/* approach: the dark chapter */
+.band-navy{background:var(--band-bg);color:var(--band-fg)}
+.band-navy h2,.band-navy h3{color:var(--band-fg)}
+.band-navy .eyebrow{color:var(--band-accent)}
+.band-navy .steps li{border-top-color:var(--band-rule)}
+.band-navy .steps li::before{color:var(--band-accent)}
+.band-navy .steps p{color:var(--band-muted)}
+.band-navy .steps .get{border-left-color:var(--band-accent);color:var(--band-fg)}
+.band-navy .steps .get b{color:var(--band-muted)}
 .steps{counter-reset:step;list-style:none;margin:3rem 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem}
 @media (max-width:1000px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.steps{grid-template-columns:1fr}}
@@ -220,6 +245,31 @@ td .d{font-family:var(--mono);font-size:.82rem;color:var(--muted);font-variant-n
 .faq .a{padding:0 0 1.4rem;color:var(--ink-2);max-width:66ch}
 .faq .a p+p{margin-top:.6rem}
 
+/* contact: guided intake */
+fieldset{border:0;padding:0;margin:0;display:grid;gap:.75rem;min-width:0}
+legend{font-weight:600;font-size:.95rem;padding:0;margin-bottom:.25rem;display:flex;gap:.6rem;align-items:baseline}
+legend .n{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--brass)}
+legend small{font-weight:400;color:var(--muted);font-size:.86rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{position:relative;display:inline-flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border:1px solid var(--rule-2);border-radius:999px;font-size:.92rem;font-weight:500;cursor:pointer;background:var(--paper);color:var(--ink);transition:background .15s,border-color .15s}
+.chip input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.chip:has(input:checked){background:var(--navy);border-color:var(--navy);color:var(--paper)}
+.chip:has(input:focus-visible){outline:3px solid var(--navy);outline-offset:2px}
+.chip:hover{border-color:var(--navy)}
+.needs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+@media (max-width:640px){.needs{grid-template-columns:1fr}}
+.need{display:grid;grid-template-columns:22px 1fr;gap:.2rem .7rem;align-items:start;padding:.75rem .85rem;border:1px solid var(--rule);border-radius:6px;background:var(--paper);cursor:pointer;font-weight:500;font-size:.95rem;line-height:1.3;transition:border-color .15s,background .15s}
+.need input{width:18px;height:18px;margin:.1rem 0 0;accent-color:var(--navy);grid-row:1/3}
+.need small{grid-column:2;font-weight:400;color:var(--muted);font-size:.84rem;line-height:1.4}
+.need:has(input:checked){border-color:var(--navy);background:var(--navy-tint)}
+.need:has(input:focus-visible){outline:3px solid var(--navy);outline-offset:2px}
+.need-group{display:grid;gap:.5rem}
+.need-group .eyebrow{font-size:.68rem}
+.summary{background:var(--brass-bg);border:1px solid var(--rule);border-radius:6px;padding:1rem 1.1rem;display:grid;gap:.5rem}
+.summary .eyebrow{color:var(--brass)}
+.summary p{font-size:.95rem;color:var(--ink);line-height:1.5}
+.summary p.empty{color:var(--muted);font-style:italic}
+.summary .edit{font-size:.85rem;color:var(--muted)}
 /* contact */
 .contact{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,5vw,5rem);align-items:start}
 @media (max-width:900px){.contact{grid-template-columns:1fr}}
@@ -297,6 +347,17 @@ footer nav a:hover{color:var(--navy)}
         <a class="btn btn-primary" href="#contact"><span class="en">Discuss your practice</span><span class="es">Hablemos de su práctica</span></a>
         <a class="btn btn-ghost" href="#approach"><span class="en">Explore our approach</span><span class="es">Conozca nuestro método</span></a>
       </div>
+      <div class="where" id="where">
+        <span class="k"><span class="en">Where are you right now? See your map.</span><span class="es">¿En qué punto está? Vea su mapa.</span></span>
+        <div class="chips" role="group" aria-label="Your situation">
+          <label class="chip"><input type="radio" name="hero-situation" value="new-graduate"><span class="en">Finishing training</span><span class="es">Terminando adiestramiento</span></label>
+          <label class="chip"><input type="radio" name="hero-situation" value="relocating"><span class="en">Returning to the Island</span><span class="es">Regresando a la Isla</span></label>
+          <label class="chip"><input type="radio" name="hero-situation" value="group-hiring"><span class="en">Adding physicians to my group</span><span class="es">Incorporando médicos</span></label>
+          <label class="chip"><input type="radio" name="hero-situation" value="other-state"><span class="en">Licensing in another state</span><span class="es">Licencia en otro estado</span></label>
+          <label class="chip"><input type="radio" name="hero-situation" value="established"><span class="en">Established, things pending</span><span class="es">Establecido, con pendientes</span></label>
+          <label class="chip"><input type="radio" name="hero-situation" value="unsure"><span class="en">Not sure</span><span class="es">No estoy seguro</span></label>
+        </div>
+      </div>
       <p class="north"><i aria-hidden="true"></i><span class="en">Value is our North</span><span class="es">Value is our North</span></p>
     </div>
 
@@ -305,7 +366,7 @@ footer nav a:hover{color:var(--navy)}
         <div><span class="k" id="map-title"><span class="en">Readiness map</span><span class="es">Mapa de preparación</span></span><span class="k" id="map-desc"><span class="en">Dr. A. Rivera · Cardiology · fictional example</span><span class="es">Dra. A. Rivera · Cardiología · ejemplo ficticio</span></span></div>
         <span class="compass" aria-hidden="true"></span>
       </div>
-      <ol class="stations">
+      <ol class="stations" id="stations">
         <li class="ok"><span class="lbl"><span class="en">PR license</span><span class="es">Licencia PR</span></span><span class="node" aria-hidden="true"></span><span class="st"><span class="en">Issued</span><span class="es">Emitida</span></span></li>
         <li class="ok"><span class="lbl"><span class="en">Credential file</span><span class="es">Expediente</span></span><span class="node" aria-hidden="true"></span><span class="st"><span class="en">Complete</span><span class="es">Completo</span></span></li>
         <li class="wait"><span class="lbl"><span class="en">Payer enrollment</span><span class="es">Planes médicos</span></span><span class="node" aria-hidden="true"></span><span class="st"><span class="en">In review</span><span class="es">En revisión</span></span></li>
@@ -315,13 +376,14 @@ footer nav a:hover{color:var(--navy)}
       <p class="dep"><span class="en">Privileges depend on the license and the malpractice policy</span><span class="es">Los privilegios dependen de la licencia y de la póliza</span></p>
       <div class="next">
         <span class="k"><span class="en">Next actions</span><span class="es">Próximas acciones</span></span>
-        <ul>
+        <ul id="next-list">
           <li class="block"><span class="en">Request two recommendation letters · owner: Health Front · by Thursday</span><span class="es">Solicitar dos cartas de recomendación · responsable: Health Front · jueves</span></li>
           <li class="wait"><span class="en">Weekly follow-up with the payer on the application · owner: Health Front</span><span class="es">Seguimiento semanal con el plan sobre la solicitud · responsable: Health Front</span></li>
         </ul>
       </div>
+      <a class="map-cta" href="#contact" id="map-cta"><span class="en">Start this plan with us →</span><span class="es">Empiece este plan con nosotros →</span></a>
       <figcaption>
-        <span><span class="en">Illustrative · fictional physician and dates</span><span class="es">Ilustrativo · médico y fechas ficticios</span></span>
+        <span id="map-note"><span class="en">Illustrative · fictional physician and dates</span><span class="es">Ilustrativo · médico y fechas ficticios</span></span>
         <span class="legend"><span><span class="en">Complete</span><span class="es">Completo</span></span><span class="w"><span class="en">Waiting on third party</span><span class="es">Espera de un tercero</span></span><span class="b"><span class="en">Needs action</span><span class="es">Requiere acción</span></span></span>
       </figcaption>
     </figure>
@@ -398,7 +460,7 @@ footer nav a:hover{color:var(--navy)}
 </section>
 
 <!-- 4 · Approach -->
-<section class="band" id="approach">
+<section class="band-navy" id="approach">
   <div class="wrap">
     <span class="eyebrow"><span class="en">How an engagement runs</span><span class="es">Cómo funciona una encomienda</span></span>
     <h2 style="margin-top:1rem;max-width:24ch"><span class="en">Four stages. At each one, you receive something you can read.</span><span class="es">Cuatro etapas. En cada una recibe algo que puede leer.</span></h2>
@@ -491,22 +553,79 @@ footer nav a:hover{color:var(--navy)}
     <div class="side">
       <span class="eyebrow"><span class="en">Start a conversation</span><span class="es">Inicie una conversación</span></span>
       <h2 style="margin-top:1rem"><span class="en">Tell us what is pending.</span><span class="es">Cuéntenos qué está pendiente.</span></h2>
-      <p style="margin-top:1rem"><span class="en">A short description is enough. We reply within two business days with the questions we would ask on a first call, and whether the work fits what we do.</span><span class="es">Una descripción breve basta. Respondemos en dos días laborables con las preguntas que haríamos en una primera llamada y si el trabajo encaja con lo que hacemos.</span></p>
+      <p style="margin-top:1rem"><span class="en">You do not need to know our service names. Tell us where you are and what is stuck, and the form writes the request for you. We reply within two business days with the questions we would ask on a first call, and whether the work fits what we do.</span><span class="es">No necesita conocer los nombres de nuestros servicios. Díganos en qué punto está y qué se ha trabado, y el formulario redacta la solicitud por usted. Respondemos en dos días laborables con las preguntas que haríamos en una primera llamada y si el trabajo encaja con lo que hacemos.</span></p>
       <div class="mail"><span><span class="en">Email</span><span class="es">Correo</span></span><a href="mailto:cmendez@healthfrontgroup.com">cmendez@healthfrontgroup.com</a></div>
       <div class="mail"><span><span class="en">Office</span><span class="es">Oficina</span></span><span style="color:var(--ink-2)">Guaynabo, Puerto Rico</span></div>
     </div>
     <form id="contact-form" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
       <input type="hidden" name="form-name" value="contact">
+      <input type="hidden" name="summary" id="f-summary-field" value="">
+      <input type="hidden" name="language" id="f-lang-field" value="en">
       <p class="hp" aria-hidden="true"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-      <div class="row">
-        <label for="f-name"><span class="en">Name</span><span class="es">Nombre</span><input id="f-name" name="name" type="text" autocomplete="name" required></label>
-        <label for="f-email"><span class="en">Work email</span><span class="es">Correo de trabajo</span><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required></label>
+
+      <fieldset>
+        <legend><span class="n">01</span><span class="en">Where are you right now?</span><span class="es">¿En qué punto está ahora?</span></legend>
+        <div class="chips" id="situation">
+          <label class="chip"><input type="radio" name="situation" value="new-graduate"><span class="en">Finishing training, starting in Puerto Rico</span><span class="es">Terminando adiestramiento, empezando en Puerto Rico</span></label>
+          <label class="chip"><input type="radio" name="situation" value="relocating"><span class="en">Returning or relocating to the Island</span><span class="es">Regresando o trasladándome a la Isla</span></label>
+          <label class="chip"><input type="radio" name="situation" value="group-hiring"><span class="en">Adding physicians to my group</span><span class="es">Incorporando médicos a mi grupo</span></label>
+          <label class="chip"><input type="radio" name="situation" value="other-state"><span class="en">Adding a license in another state</span><span class="es">Añadiendo una licencia en otro estado</span></label>
+          <label class="chip"><input type="radio" name="situation" value="established"><span class="en">Established practice with pending items</span><span class="es">Práctica establecida con asuntos pendientes</span></label>
+          <label class="chip"><input type="radio" name="situation" value="unsure"><span class="en">Not sure yet</span><span class="es">Aún no lo sé</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="n">02</span><span class="en">What needs to move?</span><span class="es">¿Qué necesita avanzar?</span><small><span class="en">Pick everything that applies.</span><span class="es">Marque todo lo que aplique.</span></small></legend>
+        <div class="need-group">
+          <span class="eyebrow"><span class="en">Launch · getting licensed and paid</span><span class="es">Lanzamiento · licencia y cobro</span></span>
+          <div class="needs">
+            <label class="need"><input type="checkbox" name="needs" value="pr-license"><span><span class="en">Puerto Rico medical license and registry</span><span class="es">Licencia y registro médico de Puerto Rico</span></span><small><span class="en">Junta de Licenciamiento, specialty certification, telemedicine certification</span><span class="es">Junta de Licenciamiento, certificación de especialidad, telemedicina</span></small></label>
+            <label class="need"><input type="checkbox" name="needs" value="other-state-license"><span><span class="en">A license in another U.S. state</span><span class="es">Una licencia en otro estado de EE. UU.</span></span><small><span class="en">Licensure by endorsement, FCVS, verifications</span><span class="es">Licencia por endoso, FCVS, verificaciones</span></small></label>
+            <label class="need"><input type="checkbox" name="needs" value="registrations"><span><span class="en">NPI, DEA, ASSMCA, malpractice and certificates</span><span class="es">NPI, DEA, ASSMCA, póliza y certificados</span></span><small><span class="en">The registrations every application asks for</span><span class="es">Los registros que toda solicitud exige</span></small></label>
+            <label class="need"><input type="checkbox" name="needs" value="medicare-medicaid"><span><span class="en">Medicare and Medicaid enrollment</span><span class="es">Inscripción en Medicare y Medicaid</span></span><small><span class="en">PTAN and PEP, individual and group</span><span class="es">PTAN y PEP, individual y grupal</span></small></label>
+            <label class="need"><input type="checkbox" name="needs" value="payer-contracts"><span><span class="en">Contracts with commercial health plans</span><span class="es">Contratos con planes médicos comerciales</span></span><small><span class="en">Credentialing and contracting with Puerto Rico’s plans</span><span class="es">Credencialización y contratación con los planes de Puerto Rico</span></small></label>
+            <label class="need"><input type="checkbox" name="needs" value="privileges"><span><span class="en">Hospital privileges</span><span class="es">Privilegios hospitalarios</span></span><small><span class="en">Medical-staff applications and faculty processing</span><span class="es">Solicitudes de facultad médica y su trámite</span></small></label>
+          </div>
+        </div>
+        <div class="need-group">
+          <span class="eyebrow"><span class="en">Continuity · after launch</span><span class="es">Continuidad · después del lanzamiento</span></span>
+          <div class="needs">
+            <label class="need"><input type="checkbox" name="needs" value="maintenance"><span><span class="en">Renewals and credential upkeep</span><span class="es">Renovaciones y mantenimiento de credenciales</span></span><small><span class="en">One current file, expirations tracked, a named person on the phone</span><span class="es">Un expediente al día, vencimientos vigilados, una persona con nombre al teléfono</span></small></label>
+            <label class="need"><input type="checkbox" name="needs" value="payer-performance"><span><span class="en">Know which contracts are paying</span><span class="es">Saber qué contratos están pagando</span></span><small><span class="en">Quarterly payer performance report with your biller’s data</span><span class="es">Informe trimestral de desempeño por plan con los datos de su facturador</span></small></label>
+            <label class="need"><input type="checkbox" name="needs" value="help-me-decide"><span><span class="en">Not sure. Help me figure out what I need.</span><span class="es">No estoy seguro. Ayúdenme a definir qué necesito.</span></span><small><span class="en">We will ask the right questions on the first call</span><span class="es">Haremos las preguntas correctas en la primera llamada</span></small></label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="n">03</span><span class="en">Scale and timing</span><span class="es">Escala y tiempo</span></legend>
+        <div class="row">
+          <label for="f-count"><span class="en">How many physicians?</span><span class="es">¿Cuántos médicos?</span>
+            <select id="f-count" name="physicians"><option value="1">1</option><option value="2-3">2–3</option><option value="4-10">4–10</option><option value="10+">10+</option></select></label>
+          <label for="f-when"><span class="en">When do you need to be billing?</span><span class="es">¿Para cuándo necesita estar facturando?</span>
+            <select id="f-when" name="timeline"><option value="" data-en="No date yet" data-es="Sin fecha aún"></option><option value="3mo" data-en="Within 3 months" data-es="En menos de 3 meses"></option><option value="3-6mo" data-en="In 3 to 6 months" data-es="En 3 a 6 meses"></option><option value="6mo+" data-en="More than 6 months out" data-es="En más de 6 meses"></option><option value="already-late" data-en="We are already behind" data-es="Ya vamos tarde"></option></select></label>
+        </div>
+      </fieldset>
+
+      <div class="summary" aria-live="polite">
+        <span class="eyebrow"><span class="en">Your request, as we will read it</span><span class="es">Su solicitud, tal como la leeremos</span></span>
+        <p id="f-summary" class="empty"><span class="en">Choose your situation and what needs to move, and the request writes itself here.</span><span class="es">Elija su situación y lo que necesita avanzar, y la solicitud se redacta aquí sola.</span></p>
       </div>
-      <label for="f-org"><span class="en">Organization or practice</span><span class="es">Organización o práctica</span><input id="f-org" name="organization" type="text" autocomplete="organization" required></label>
-      <label for="f-msg"><span class="en">What would you like help with?</span><span class="es">¿En qué le gustaría que le ayudemos?</span><small><span class="en">For example: “Two cardiologists joining in January, need PR licenses, Medicare and three plans.”</span><span class="es">Por ejemplo: «Dos cardiólogos se integran en enero; necesitan licencia PR, Medicare y tres planes».</span></small><textarea id="f-msg" name="message" required></textarea></label>
+
+      <fieldset>
+        <legend><span class="n">04</span><span class="en">How do we reach you?</span><span class="es">¿Cómo le contactamos?</span></legend>
+        <div class="row">
+          <label for="f-name"><span class="en">Name</span><span class="es">Nombre</span><input id="f-name" name="name" type="text" autocomplete="name" required></label>
+          <label for="f-email"><span class="en">Work email</span><span class="es">Correo de trabajo</span><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required></label>
+        </div>
+        <label for="f-org"><span class="en">Organization or practice</span><span class="es">Organización o práctica</span><input id="f-org" name="organization" type="text" autocomplete="organization" required></label>
+        <label for="f-msg"><span class="en">Anything else we should know?</span><span class="es">¿Algo más que debamos saber?</span><small><span class="en">Optional. Specialty, hospital, plans you already hold, deadlines.</span><span class="es">Opcional. Especialidad, hospital, planes que ya tiene, fechas límite.</span></small><textarea id="f-msg" name="message" style="min-height:90px"></textarea></label>
+      </fieldset>
+
       <p class="fine"><span class="en">Please do not include patient information or attach sensitive documents here. We will set up a secure channel for credentials after the first conversation.</span><span class="es">Por favor no incluya información de pacientes ni documentos sensitivos aquí. Estableceremos un canal seguro para credenciales después de la primera conversación.</span></p>
       <div class="form-actions">
-        <button class="btn btn-primary" type="submit" id="f-submit"><span class="en">Send</span><span class="es">Enviar</span></button>
+        <button class="btn btn-primary" type="submit" id="f-submit"><span class="en">Send request</span><span class="es">Enviar solicitud</span></button>
         <span class="fine"><span class="en">Or write to cmendez@healthfrontgroup.com</span><span class="es">O escriba a cmendez@healthfrontgroup.com</span></span>
       </div>
       <p class="status" id="f-status" hidden role="status" aria-live="polite"></p>
@@ -536,14 +655,72 @@ footer nav a:hover{color:var(--navy)}
   // close mobile menu after choosing a link
   var menu=document.querySelector('details.menu'); if(menu){menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.removeAttribute('open');});});}
 
-  // contact form: Netlify Forms via fetch, with a readable fallback
+  // where are you? → re-light the readiness map and pre-fill the intake
+  var MAP={
+    'new-graduate':{en:{sub:'Your map · finishing training · illustrative',st:['PR license|wait|In review','Credential file|block|3 documents missing','Payer enrollment|todo|Not started','Hospital privileges|todo|Not started','Ready to bill|todo|Week 14'],nx:['block|Gather diplomas, transcripts and exam scores into one file · owner: Health Front with you','wait|Weekly follow-up with the Junta on your license · owner: Health Front']},
+                    es:{sub:'Su mapa · terminando adiestramiento · ilustrativo',st:['Licencia PR|wait|En revisión','Expediente|block|Faltan 3 documentos','Planes médicos|todo|Sin iniciar','Privilegios|todo|Sin iniciar','Lista para facturar|todo|Semana 14'],nx:['block|Reunir diplomas, transcripciones y notas de exámenes en un solo expediente · responsable: Health Front con usted','wait|Seguimiento semanal con la Junta sobre su licencia · responsable: Health Front']}},
+    'relocating':{en:{sub:'Your map · returning to Puerto Rico · illustrative',st:['PR license|wait|Endorsement filed','Credential file|ok|Complete','Payer enrollment|todo|After license','Hospital privileges|wait|Application open','Ready to bill|todo|Week 12'],nx:['wait|Weekly follow-up with the Junta on the endorsement · owner: Health Front','block|Sign the hospital’s authorization forms · owner: you, 15 minutes']},
+                  es:{sub:'Su mapa · regresando a Puerto Rico · ilustrativo',st:['Licencia PR|wait|Endoso radicado','Expediente|ok|Completo','Planes médicos|todo|Tras la licencia','Privilegios|wait|Solicitud abierta','Lista para facturar|todo|Semana 12'],nx:['wait|Seguimiento semanal con la Junta sobre el endoso · responsable: Health Front','block|Firmar las autorizaciones del hospital · responsable: usted, 15 minutos']}},
+    'group-hiring':{en:{sub:'Your map · new physician joining your group · illustrative',st:['PR license|ok|Issued','Credential file|ok|Complete','Payer enrollment|wait|3 plans in review','Hospital privileges|block|2 letters due','Ready to bill|todo|Week 9'],nx:['block|Request two recommendation letters · owner: Health Front · by Thursday','wait|Weekly status call with each plan · owner: Health Front']},
+                    es:{sub:'Su mapa · nuevo médico en su grupo · ilustrativo',st:['Licencia PR|ok|Emitida','Expediente|ok|Completo','Planes médicos|wait|3 planes en revisión','Privilegios|block|Faltan 2 cartas','Lista para facturar|todo|Semana 9'],nx:['block|Solicitar dos cartas de recomendación · responsable: Health Front · jueves','wait|Llamada semanal de estatus con cada plan · responsable: Health Front']}},
+    'other-state':{en:{sub:'Your map · license in another state · illustrative',st:['New state license|wait|Application filed','FCVS profile|ok|Verified','Fingerprints|block|Card requested','Deficiency watch|wait|Weekly check','License issued|todo|Week 10'],nx:['block|Schedule fingerprinting in Puerto Rico · owner: Health Front · this week','wait|Monitor the board portal and answer deficiencies within 72 hours · owner: Health Front']},
+                   es:{sub:'Su mapa · licencia en otro estado · ilustrativo',st:['Licencia nuevo estado|wait|Solicitud radicada','Perfil FCVS|ok|Verificado','Huellas|block|Tarjeta solicitada','Vigilancia de deficiencias|wait|Revisión semanal','Licencia emitida|todo|Semana 10'],nx:['block|Coordinar toma de huellas en Puerto Rico · responsable: Health Front · esta semana','wait|Monitorear el portal de la junta y contestar deficiencias en 72 horas · responsable: Health Front']}},
+    'established':{en:{sub:'Your map · established practice · illustrative',st:['Licenses|ok|Current','Credential file|block|2 renewals due','Payer contracts|wait|1 plan re-credentialing','Hospital privileges|ok|Current','Payer report|todo|Next quarter'],nx:['block|Renew the DEA and the malpractice certificate before they lapse · owner: Health Front','wait|Pull paid-claims data from your biller for the payer report · owner: Health Front']},
+                   es:{sub:'Su mapa · práctica establecida · ilustrativo',st:['Licencias|ok|Vigentes','Expediente|block|2 renovaciones por vencer','Contratos con planes|wait|1 plan en recredencialización','Privilegios|ok|Vigentes','Informe por plan|todo|Próximo trimestre'],nx:['block|Renovar el DEA y el certificado de la póliza antes de que venzan · responsable: Health Front','wait|Obtener los datos de reclamaciones pagadas de su facturador · responsable: Health Front']}},
+    'unsure':{en:{sub:'Your map · we draw it together on the first call',st:['Licenses|todo|We check','Credential file|todo|We check','Payer enrollment|todo|We check','Hospital privileges|todo|We check','Ready to bill|todo|We set the target'],nx:['wait|A 20-minute call to map where you stand · owner: Health Front','ok|A written checklist within five business days · owner: Health Front']},
+              es:{sub:'Su mapa · lo dibujamos juntos en la primera llamada',st:['Licencias|todo|Revisamos','Expediente|todo|Revisamos','Planes médicos|todo|Revisamos','Privilegios|todo|Revisamos','Lista para facturar|todo|Fijamos la meta'],nx:['wait|Una llamada de 20 minutos para ubicar en qué punto está · responsable: Health Front','ok|Una lista de documentos por escrito en cinco días laborables · responsable: Health Front']}}
+  };
+  var mapEl=document.querySelector('.map'), stationsEl=document.getElementById('stations'), nextEl=document.getElementById('next-list'), subEl=document.getElementById('map-desc'), noteEl=document.getElementById('map-note'), compass=document.querySelector('.compass');
+  var defaultStations=stationsEl?stationsEl.innerHTML:'', defaultNext=nextEl?nextEl.innerHTML:'', defaultSub=subEl?subEl.innerHTML:'', currentSituation=null;
+  function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function paintMap(){
+    if(!stationsEl) return;
+    if(!currentSituation){stationsEl.innerHTML=defaultStations;nextEl.innerHTML=defaultNext;subEl.innerHTML=defaultSub;mapEl.classList.remove('personal');return;}
+    var d=MAP[currentSituation][root.getAttribute('lang')==='es'?'es':'en'];
+    stationsEl.innerHTML=d.st.map(function(r){var a=r.split('|');return '<li class="'+a[1]+'"><span class="lbl">'+esc(a[0])+'</span><span class="node" aria-hidden="true"></span><span class="st">'+esc(a[2])+'</span></li>';}).join('');
+    nextEl.innerHTML=d.nx.map(function(r){var a=r.split('|');return '<li class="'+a[0]+'">'+esc(a[1])+'</li>';}).join('');
+    subEl.textContent=d.sub; mapEl.classList.add('personal');
+  }
+  document.querySelectorAll('input[name="hero-situation"]').forEach(function(r){r.addEventListener('change',function(){
+    currentSituation=r.value; paintMap();
+    if(compass){compass.classList.remove('spin');void compass.offsetWidth;compass.classList.add('spin');}
+    var f=document.querySelector('#contact-form input[name="situation"][value="'+r.value+'"]'); if(f){f.checked=true; f.dispatchEvent(new Event('change',{bubbles:true}));}
+  });});
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',paintMap);});
+  // keep the form's own situation chips in sync when chosen there first
+  document.querySelectorAll('#contact-form input[name="situation"]').forEach(function(r){r.addEventListener('change',function(){var h=document.querySelector('input[name="hero-situation"][value="'+r.value+'"]'); if(h&&!h.checked){h.checked=true;currentSituation=r.value;paintMap();}});});
+
+  // guided intake: compile the selections into a readable request
   var form=document.getElementById('contact-form'), status=document.getElementById('f-status'), btn=document.getElementById('f-submit');
-  var T={en:{sent:'Thank you. Your message was received. We reply within two business days.',err:'The message could not be sent. Please email cmendez@healthfrontgroup.com directly.',req:'Please complete every field so we can reply properly.',busy:'Sending…'},
-         es:{sent:'Gracias. Recibimos su mensaje. Respondemos en dos días laborables.',err:'No se pudo enviar el mensaje. Por favor escriba directamente a cmendez@healthfrontgroup.com.',req:'Por favor complete todos los campos para poder responderle.',busy:'Enviando…'}};
+  var sumEl=document.getElementById('f-summary'), sumField=document.getElementById('f-summary-field'), langField=document.getElementById('f-lang-field');
+  function L(){return root.getAttribute('lang')==='es'?'es':'en';}
+  function txt(el){var t=el.querySelector('.'+L()); return (t?t.textContent:el.textContent).trim();}
+  function fillSelects(){ document.querySelectorAll('#contact-form option[data-en]').forEach(function(o){o.textContent=o.getAttribute('data-'+L());}); }
+  var S={en:{sit:{'new-graduate':'I am finishing training and starting to practice in Puerto Rico','relocating':'I am returning or relocating my practice to Puerto Rico','group-hiring':'We are adding physicians to our group','other-state':'I need a license in another U.S. state','established':'We are an established practice with pending items','unsure':'I am not sure where to start'},
+             needs:'What needs to move: ',count:' Physicians involved: ',when:' Target to be billing: ',none:'',one:'.'},
+         es:{sit:{'new-graduate':'Estoy terminando mi adiestramiento y empezando a practicar en Puerto Rico','relocating':'Estoy regresando o trasladando mi práctica a Puerto Rico','group-hiring':'Estamos incorporando médicos a nuestro grupo','other-state':'Necesito una licencia en otro estado de EE. UU.','established':'Somos una práctica establecida con asuntos pendientes','unsure':'No sé por dónde empezar'},
+             needs:'Lo que necesita avanzar: ',count:' Médicos involucrados: ',when:' Meta para estar facturando: ',none:'',one:'.'}};
+  function build(){
+    var l=L(), d=S[l], parts=[];
+    var sit=form.querySelector('input[name="situation"]:checked'); if(sit) parts.push(d.sit[sit.value]+'.');
+    var needs=[].slice.call(form.querySelectorAll('input[name="needs"]:checked')).map(function(c){return txt(c.parentNode.querySelector('span'));});
+    if(needs.length) parts.push(d.needs+needs.join('; ')+'.');
+    var cnt=document.getElementById('f-count'); var when=document.getElementById('f-when');
+    if(sit||needs.length){ parts.push(d.count.trim()+' '+cnt.options[cnt.selectedIndex].text+'.'); if(when.value) parts.push(d.when.trim()+' '+when.options[when.selectedIndex].text+'.'); }
+    var text=parts.join(' ');
+    if(text){ sumEl.textContent=text; sumEl.classList.remove('empty'); } else { sumEl.innerHTML='<span class="en">Choose your situation and what needs to move, and the request writes itself here.</span><span class="es">Elija su situación y lo que necesita avanzar, y la solicitud se redacta aquí sola.</span>'; sumEl.classList.add('empty'); }
+    sumField.value=text; langField.value=l;
+  }
+  form.addEventListener('change',build); fillSelects(); build();
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){fillSelects();build();});});
+  // contact form: Netlify Forms via fetch, with a readable fallback
+  var T={en:{sent:'Thank you. Your message was received. We reply within two business days.',err:'The message could not be sent. Please email cmendez@healthfrontgroup.com directly.',req:'Please tell us your situation or pick at least one item, and complete your contact details.',busy:'Sending…'},
+         es:{sent:'Gracias. Recibimos su mensaje. Respondemos en dos días laborables.',err:'No se pudo enviar el mensaje. Por favor escriba directamente a cmendez@healthfrontgroup.com.',req:'Por favor indique su situación o marque al menos un asunto, y complete sus datos de contacto.',busy:'Enviando…'}};
   function say(kind,msg){status.hidden=false;status.className='status '+kind;status.textContent=msg;}
   if(form){form.addEventListener('submit',function(e){
     e.preventDefault(); var L=T[root.getAttribute('lang')==='es'?'es':'en'];
-    if(!form.checkValidity()){say('err',L.req);var bad=form.querySelector(':invalid');if(bad)bad.focus();return;}
+    var picked=form.querySelector('input[name="situation"]:checked')||form.querySelector('input[name="needs"]:checked');
+    if(!form.checkValidity()||!picked){say('err',L.req);var bad=form.querySelector(':invalid')||form.querySelector('.chip input');if(bad)bad.focus();return;}
     if(window.HF_PREVIEW){say('ok',L.sent+' (preview: nothing was sent)');form.reset();return;}
     btn.disabled=true; var old=btn.textContent; btn.textContent=L.busy;
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
