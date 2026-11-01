@@ -75,6 +75,14 @@ paragraph. The form's needs groups mirror these.
   live "Your request, as we will read it" summary that is posted with the form as the `summary` field, with the
   page language as `language`. Validation requires a situation or at least one need plus contact details.
 
+## Third review pass (2026-11-01)
+- Readiness map re-examined: kept. Added a tier line (which service the situation belongs to), a "things you sign /
+  items we carry" pair per situation, and a draw-in animation when a situation is chosen (disabled under
+  reduced-motion). Footnote switches to "typical situation, fictional dates" on personal maps.
+- "In practice" opens on **Before**: six fictional scraps (email, WhatsApp, sticky note, spreadsheet, voicemail,
+  hospital email) from one week, then flips to the tracker as **With Health Front**. Four scraps on phones.
+- Whole-page render at 1366px, 400px and dark: no overflow, no script errors.
+
 ## Report vocabulary (2026-11-01)
 The "Understanding my numbers" tab uses the column names of the billing reports practices in Puerto Rico actually
 receive from their biller's system: Facturación vs Cobro (Período, Recl., Cargos, Co-Pagos, Pagos, Ajustes, Balance,
