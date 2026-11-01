@@ -37,7 +37,14 @@ tagline "Value is our North". Content is fictional and labeled illustrative, in 
 Nothing on the page uses stock photography, gradients, decorative crosses or rounded card grids. Repeated structural
 devices encode real structure: the four numbered stages are a real sequence; the tracker is a real table.
 
-## Service architecture (decided 2026-11-01)
+## Service architecture (revised 2026-11-01, second pass)
+Three tabs: **Launch 1 · From license to opening practice** (licensing, credential file, Medicare/Medicaid, commercial
+plans, privileges, coordination), **Launch 2 · Understanding my numbers** (payer performance dashboard from the biller's
+data, refreshed monthly, quarterly report, fixes ranked by dollars), **Continuity · Keep your team on the same page**
+(one point of contact, weekly one-page status, renewals and credential upkeep, representation). Advisory stays a
+paragraph. The form's needs groups mirror these.
+
+## Service architecture (decided 2026-11-01, first pass, superseded above)
 - **Launch**: from license to opening practice. The core, fixed fee per physician. Services 1 and 2 on the page.
 - **Continuity**: credentials kept current, renewals tracked, and a quarterly payer performance report (which
   contracted plans pay, at what lag, where enrollment errors drive denials). Recurring. Service 3 on the page.
