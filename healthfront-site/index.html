@@ -85,6 +85,10 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 .lang button{all:unset;cursor:pointer;padding:.6rem .8rem;border-radius:999px;color:var(--ink-2);letter-spacing:.06em;line-height:1}
 .lang button[aria-pressed="true"]{background:var(--navy);color:var(--paper)}
 .lang button:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.theme{all:unset;cursor:pointer;width:38px;height:38px;border:1px solid var(--rule-2);border-radius:50%;display:grid;place-items:center;color:var(--ink-2);font-size:1rem;line-height:1}
+.theme:hover{border-color:var(--navy);color:var(--navy)} .theme:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.theme .sun,.theme .moon{display:none} html:not([data-theme="dark"]) .theme .moon{display:block} html[data-theme="dark"] .theme .sun{display:block}
+@media (prefers-color-scheme:dark){html:not([data-theme]) .theme .moon{display:none} html:not([data-theme]) .theme .sun{display:block}}
 .btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.98rem;padding:.8rem 1.25rem;border-radius:4px;text-decoration:none;border:1.5px solid var(--navy);transition:background .15s,color .15s,transform .15s}
 .btn-primary{background:var(--navy);color:var(--paper)}
 .btn-primary:hover{background:var(--navy-2);border-color:var(--navy-2);color:var(--paper)}
@@ -424,6 +428,7 @@ footer nav a:hover{color:var(--navy)}
         <button type="button" data-lang="en" aria-pressed="true">EN</button>
         <button type="button" data-lang="es" aria-pressed="false">ES</button>
       </div>
+      <button type="button" class="theme" id="theme-toggle" aria-label="Switch between light and dark appearance" title="Light / dark"><span class="moon" aria-hidden="true">☾</span><span class="sun" aria-hidden="true">☀</span></button>
       <a class="btn btn-primary cta-top" href="#contact"><span class="en">Discuss your practice</span><span class="es">Hablemos de su práctica</span></a>
       <details class="menu">
         <summary aria-label="Menu"><span class="en">Menu</span><span class="es">Menú</span></summary>
@@ -856,6 +861,14 @@ footer nav a:hover{color:var(--navy)}
   var saved=null; try{saved=localStorage.getItem(KEY);}catch(e){}
   setLang(saved || ((navigator.language||'').toLowerCase().indexOf('es')===0?'es':'en'), false);
   document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang,true);});});
+  // appearance: follows the system until the visitor chooses
+  var TKEY='hf-theme'; try{var savedTheme=localStorage.getItem(TKEY); if(savedTheme==='light'||savedTheme==='dark') root.setAttribute('data-theme',savedTheme);}catch(e){}
+  var tbtn=document.getElementById('theme-toggle');
+  if(tbtn){tbtn.addEventListener('click',function(){
+    var systemDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var current=root.getAttribute('data-theme')||(systemDark?'dark':'light'); var next=current==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next); try{localStorage.setItem(TKEY,next);}catch(e){}
+  });}
   document.getElementById('yr').textContent=String(new Date().getFullYear());
   // close mobile menu after choosing a link
   var menu=document.querySelector('details.menu'); if(menu){menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.removeAttribute('open');});});}
