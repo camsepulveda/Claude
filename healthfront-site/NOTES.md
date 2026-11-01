@@ -37,7 +37,14 @@ tagline "Value is our North". Content is fictional and labeled illustrative, in 
 Nothing on the page uses stock photography, gradients, decorative crosses or rounded card grids. Repeated structural
 devices encode real structure: the four numbered stages are a real sequence; the tracker is a real table.
 
-## Service architecture (decided 2026-11-01)
+## Service architecture (revised 2026-11-01, second pass)
+Three tabs: **Launch 1 · From license to opening practice** (licensing, credential file, Medicare/Medicaid, commercial
+plans, privileges, coordination), **Launch 2 · Understanding my numbers** (payer performance dashboard from the biller's
+data, refreshed monthly, quarterly report, fixes ranked by dollars), **Continuity · Keep your team on the same page**
+(one point of contact, weekly one-page status, renewals and credential upkeep, representation). Advisory stays a
+paragraph. The form's needs groups mirror these.
+
+## Service architecture (decided 2026-11-01, first pass, superseded above)
 - **Launch**: from license to opening practice. The core, fixed fee per physician. Services 1 and 2 on the page.
 - **Continuity**: credentials kept current, renewals tracked, and a quarterly payer performance report (which
   contracted plans pay, at what lag, where enrollment errors drive denials). Recurring. Service 3 on the page.
@@ -68,6 +75,27 @@ devices encode real structure: the four numbered stages are a real sequence; the
   live "Your request, as we will read it" summary that is posted with the form as the `summary` field, with the
   page language as `language`. Validation requires a situation or at least one need plus contact details.
 
+## Third review pass (2026-11-01)
+- Readiness map re-examined: kept. Added a tier line (which service the situation belongs to), a "things you sign /
+  items we carry" pair per situation, and a draw-in animation when a situation is chosen (disabled under
+  reduced-motion). Footnote switches to "typical situation, fictional dates" on personal maps.
+- "In practice" opens on **Before**: six fictional scraps (email, WhatsApp, sticky note, spreadsheet, voicemail,
+  hospital email) from one week, then flips to the tracker as **With Health Front**. Four scraps on phones.
+- Whole-page render at 1366px, 400px and dark: no overflow, no script errors.
+
+## Report vocabulary (2026-11-01)
+The "Understanding my numbers" tab uses the column names of the billing reports practices in Puerto Rico actually
+receive from their biller's system: Facturación vs Cobro (Período, Recl., Cargos, Co-Pagos, Pagos, Ajustes, Balance,
+%), Envejecimiento Reclamaciones Planes Médicos (0-30, 31-60, 61-90, 91-120, >121, Total, claim counts), Análisis de
+Producción by CPT (Recl., Pacientes, Servicios, Cargos, Pagos, Razón Facturado) and an encounters report (new vs
+follow-up, studies, stress tests). Four sample reports were reviewed for vocabulary only. No client name, provider
+name, plan balance or figure from them appears on the page; the aging table and KPIs are fictional and labeled so.
+
+## Pricing language (owner's direction, 2026-11-01)
+Fixed fee per service, quoted in writing as presented; once the engagement is approved, each service is billed at the
+fee presented, never by the hour. Appears in the facts strip, the services note, the Launch deliverables, Approach
+step 2 and the cost FAQ. Agency and payer fees stay itemized separately.
+
 ## Copy decisions
 - Hero follows the brief's headline and subhead, tightened. CTAs: "Discuss your practice" / "Explore our approach".
 - "Health Front" (two words) throughout, matching the wordmark; "Health Front LLC" in legal lines. The brief wrote
@@ -83,9 +111,10 @@ devices encode real structure: the four numbered stages are a real sequence; the
 
 ## Factual details that still need confirmation before public launch
 1. **Public name spelling.** Page uses "Health Front" to match the logo. The brief used "Healthfront". Pick one.
-2. **Email.** Page shows cmendez@healthfrontgroup.com as a temporary measure (owner's decision, 2026-11-01) while
-   the admin inbox is set up. Replace with the shared address when ready; it appears in the contact block, the form
-   fallback line and the form error message, in both languages. Set the same address as the Netlify Forms notification.
+2. **Email.** No address is shown on the page (owner's decision, 2026-11-01), so no inbox is exposed to scanners.
+   Leads arrive through Netlify Forms; set the notification recipient in Netlify (Forms, Form notifications) to the
+   inbox that should receive them. When a shared address exists (for example a Google Workspace group such as
+   hello@healthfrontgroup.com forwarding to the owner), add it to the contact block if you want one shown.
 3. **Phone number.** Omitted. The only number in the materials is a 2023 personal line. Add if a business line exists.
 4. **Engagement method.** The four stages, the five-business-day checklist and the biweekly status cadence come from
    one 2026 proposal. Confirm they are standard on every engagement, or soften to "typically".
