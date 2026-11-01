@@ -678,7 +678,7 @@ footer nav a:hover{color:var(--navy)}
       <span class="eyebrow"><span class="en">Start a conversation</span><span class="es">Inicie una conversación</span></span>
       <h2 style="margin-top:1rem"><span class="en">Tell us what is pending.</span><span class="es">Cuéntenos qué está pendiente.</span></h2>
       <p style="margin-top:1rem"><span class="en">You do not need to know our service names. Tell us where you are and what is stuck, and the form writes the request for you. We reply within two business days with the questions we would ask on a first call, and whether the work fits what we do.</span><span class="es">No necesita conocer los nombres de nuestros servicios. Díganos en qué punto está y qué se ha trabado, y el formulario redacta la solicitud por usted. Respondemos en dos días laborables con las preguntas que haríamos en una primera llamada y si el trabajo encaja con lo que hacemos.</span></p>
-      <div class="mail"><span><span class="en">Email</span><span class="es">Correo</span></span><a href="mailto:cmendez@healthfrontgroup.com">cmendez@healthfrontgroup.com</a></div>
+      <div class="mail"><span><span class="en">How we reply</span><span class="es">Cómo respondemos</span></span><span style="color:var(--ink-2);font-family:var(--body)"><span class="en">By email from our office, within two business days</span><span class="es">Por correo desde nuestra oficina, en dos días laborables</span></span></div>
       <div class="mail"><span><span class="en">Office</span><span class="es">Oficina</span></span><span style="color:var(--ink-2)">Guaynabo, Puerto Rico</span></div>
     </div>
     <form id="contact-form" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
@@ -769,7 +769,7 @@ footer nav a:hover{color:var(--navy)}
       <p class="fine"><span class="en">Please do not include patient information or attach sensitive documents here. We will set up a secure channel for credentials after the first conversation.</span><span class="es">Por favor no incluya información de pacientes ni documentos sensitivos aquí. Estableceremos un canal seguro para credenciales después de la primera conversación.</span></p>
       <div class="form-actions">
         <button class="btn btn-primary" type="submit" id="f-submit"><span class="en">Send request</span><span class="es">Enviar solicitud</span></button>
-        <span class="fine"><span class="en">Or write to cmendez@healthfrontgroup.com</span><span class="es">O escriba a cmendez@healthfrontgroup.com</span></span>
+        <span class="fine"><span class="en">No account, no attachments, no obligation.</span><span class="es">Sin cuenta, sin anejos, sin compromiso.</span></span>
       </div>
       <p class="status" id="f-status" hidden role="status" aria-live="polite"></p>
     </form>
@@ -894,8 +894,8 @@ footer nav a:hover{color:var(--navy)}
   form.addEventListener('change',build); fillSelects(); build();
   document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){fillSelects();build();});});
   // contact form: Netlify Forms via fetch, with a readable fallback
-  var T={en:{sent:'Thank you. Your message was received. We reply within two business days.',err:'The message could not be sent. Please email cmendez@healthfrontgroup.com directly.',req:'Please tell us your situation or pick at least one item, and complete your contact details.',busy:'Sending…'},
-         es:{sent:'Gracias. Recibimos su mensaje. Respondemos en dos días laborables.',err:'No se pudo enviar el mensaje. Por favor escriba directamente a cmendez@healthfrontgroup.com.',req:'Por favor indique su situación o marque al menos un asunto, y complete sus datos de contacto.',busy:'Enviando…'}};
+  var T={en:{sent:'Thank you. Your message was received. We reply within two business days.',err:'The message could not be sent. Please try again in a few minutes.',req:'Please tell us your situation or pick at least one item, and complete your contact details.',busy:'Sending…'},
+         es:{sent:'Gracias. Recibimos su mensaje. Respondemos en dos días laborables.',err:'No se pudo enviar el mensaje. Por favor intente de nuevo en unos minutos.',req:'Por favor indique su situación o marque al menos un asunto, y complete sus datos de contacto.',busy:'Enviando…'}};
   function say(kind,msg){status.hidden=false;status.className='status '+kind;status.textContent=msg;}
   if(form){form.addEventListener('submit',function(e){
     e.preventDefault(); var L=T[root.getAttribute('lang')==='es'?'es':'en'];
