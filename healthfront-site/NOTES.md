@@ -25,9 +25,11 @@ Generated 2026-11-01 from the brief "Clarity to move healthcare forward". Source
 asymmetric grid, generous margins, serif display type (Newsreader) against a plain working sans (Public Sans) with a
 monospace utility face (IBM Plex Mono) for labels, status and dates. Warm paper neutrals; the logo's navy is the only
 brand hue. Semantic status colors (complete / waiting on third party / needs action) appear only inside information
-graphics and never as decoration.
+graphics and never as decoration. They were validated with the dataviz palette checker for colorblind and
+normal-vision separation in both themes (light #166A4E / #A07000 / #B22D2D, dark #5FCB9E / #F5C542 / #FF8B8B);
+status text is set in ink, never in the status color, so small labels keep AA contrast.
 
-**Signature visual: the Readiness Map.** Five stations from PR license to "ready to bill", with a dashed dependency
+**Signature visual: the Readiness Map.** Built in HTML so it reflows to a vertical rail on phones. Five stations from PR license to "ready to bill", with a dashed dependency
 showing privileges waiting on license and malpractice, status under each node, and a two-line "next actions" strip
 naming an owner and a date. A compass mark sits top-right, echoing the north notch in the logo monogram and the
 tagline "Value is our North". Content is fictional and labeled illustrative, in both languages.
