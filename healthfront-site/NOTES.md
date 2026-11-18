@@ -142,3 +142,12 @@ step 2 and the cost FAQ. Agency and payer fees stay itemized separately.
   set a notification email after the first deploy, then submit one test message.
 - The site has not been deployed from this change. Deploying replaces the current production page; roll back is
   available from the Netlify deploy history.
+
+## Client sign-in (2026-11-18)
+
+The site links to the credentialing platform for the pilot group at `https://hf-credentialing-staging.netlify.app` (owner's choice; the
+hf-pci-physicians project at pci.healthfrontgroup.com and hf-credentialing were the alternatives). The link appears
+four times: header button (desktop), mobile menu, "Already a client" row in Contact, footer nav. To move the pilot to
+another address, replace that URL in all four places. The platform sits behind a Netlify site password, so a pilot
+physician sees Netlify's generic password page before the platform; a branded sign-in page is the platform's job.
+
