@@ -79,7 +79,7 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
 .brand img{height:54px;width:auto;filter:var(--logo-filter)}
 .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1.5rem;align-items:center}
-.nav li a{display:inline-block;font-size:.95rem;font-weight:500;color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;padding-block:.65rem}
+.nav li a{display:inline-block;white-space:nowrap;font-size:.95rem;font-weight:500;color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;padding-block:.65rem}
 .nav li a:hover{border-bottom-color:var(--navy)}
 .lang{display:inline-flex;border:1px solid var(--rule-2);border-radius:999px;padding:2px;font-family:var(--mono);font-size:.72rem}
 .lang button{all:unset;cursor:pointer;padding:.6rem .8rem;border-radius:999px;color:var(--ink-2);letter-spacing:.06em;line-height:1}
@@ -89,13 +89,13 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 .theme:hover{border-color:var(--navy);color:var(--navy)} .theme:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
 .theme .sun,.theme .moon{display:none} html:not([data-theme="dark"]) .theme .moon{display:block} html[data-theme="dark"] .theme .sun{display:block}
 @media (prefers-color-scheme:dark){html:not([data-theme]) .theme .moon{display:none} html:not([data-theme]) .theme .sun{display:block}}
-.btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.98rem;padding:.8rem 1.25rem;border-radius:4px;text-decoration:none;border:1.5px solid var(--navy);transition:background .15s,color .15s,transform .15s}
+.btn{display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap;font-weight:600;font-size:.98rem;padding:.8rem 1.25rem;border-radius:4px;text-decoration:none;border:1.5px solid var(--navy);transition:background .15s,color .15s,transform .15s}
 .btn-primary{background:var(--navy);color:var(--paper)}
 .btn-primary:hover{background:var(--navy-2);border-color:var(--navy-2);color:var(--paper)}
 .btn-ghost{color:var(--navy);background:transparent}
 .btn-ghost:hover{background:var(--navy-tint)}
 .menu{display:none}
-@media (max-width:900px){
+@media (max-width:1140px){
   .nav ul.links{display:none}
   .menu{display:block;position:relative}
   .menu summary{list-style:none;cursor:pointer;font-weight:600;font-size:.95rem;padding:.5rem .75rem;border:1px solid var(--rule-2);border-radius:4px}
