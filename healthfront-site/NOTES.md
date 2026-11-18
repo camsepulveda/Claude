@@ -151,3 +151,17 @@ four times: header button (desktop), mobile menu, "Already a client" row in Cont
 another address, replace that URL in all four places. The platform sits behind a Netlify site password, so a pilot
 physician sees Netlify's generic password page before the platform; a branded sign-in page is the platform's job.
 
+## Contact everywhere (2026-11-18)
+
+Owner's ask: contact must be reachable from anywhere on the page, not only the bottom form, and not only by email.
+Three pieces, all bilingual:
+
+- **Contact dock.** A "Talk to us / Hablemos" pill, fixed bottom-right (full-width bar on phones). It appears once the
+  reader scrolls past the hero and hides when the Contact section is on screen. It opens a sheet with every channel
+  that exists today: Send a request (jumps to the form), Email us (mailto, with a Copy button) and Client sign-in.
+  Add a phone or WhatsApp row here when a number is confirmed; the row markup is in `#dock-sheet`.
+- **"Ask about this service" links** in each service panel. They tick the matching needs in the form, open the list
+  and scroll to it (Launch 1: licence, registrations, Medicare/Medicaid, plans, privileges; Launch 2: payer
+  performance; Continuity: coordination, maintenance).
+- **Ask band** after "In practice": one line, Send a request + Email us.
+
