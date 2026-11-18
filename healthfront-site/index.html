@@ -79,7 +79,7 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
 .brand img{height:54px;width:auto;filter:var(--logo-filter)}
 .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1.5rem;align-items:center}
-.nav li a{display:inline-block;font-size:.95rem;font-weight:500;color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;padding-block:.65rem}
+.nav li a{display:inline-block;white-space:nowrap;font-size:.95rem;font-weight:500;color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;padding-block:.65rem}
 .nav li a:hover{border-bottom-color:var(--navy)}
 .lang{display:inline-flex;border:1px solid var(--rule-2);border-radius:999px;padding:2px;font-family:var(--mono);font-size:.72rem}
 .lang button{all:unset;cursor:pointer;padding:.6rem .8rem;border-radius:999px;color:var(--ink-2);letter-spacing:.06em;line-height:1}
@@ -89,13 +89,13 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 .theme:hover{border-color:var(--navy);color:var(--navy)} .theme:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
 .theme .sun,.theme .moon{display:none} html:not([data-theme="dark"]) .theme .moon{display:block} html[data-theme="dark"] .theme .sun{display:block}
 @media (prefers-color-scheme:dark){html:not([data-theme]) .theme .moon{display:none} html:not([data-theme]) .theme .sun{display:block}}
-.btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.98rem;padding:.8rem 1.25rem;border-radius:4px;text-decoration:none;border:1.5px solid var(--navy);transition:background .15s,color .15s,transform .15s}
+.btn{display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap;font-weight:600;font-size:.98rem;padding:.8rem 1.25rem;border-radius:4px;text-decoration:none;border:1.5px solid var(--navy);transition:background .15s,color .15s,transform .15s}
 .btn-primary{background:var(--navy);color:var(--paper)}
 .btn-primary:hover{background:var(--navy-2);border-color:var(--navy-2);color:var(--paper)}
 .btn-ghost{color:var(--navy);background:transparent}
 .btn-ghost:hover{background:var(--navy-tint)}
 .menu{display:none}
-@media (max-width:900px){
+@media (max-width:1140px){
   .nav ul.links{display:none}
   .menu{display:block;position:relative}
   .menu summary{list-style:none;cursor:pointer;font-weight:600;font-size:.95rem;padding:.5rem .75rem;border:1px solid var(--rule-2);border-radius:4px}
@@ -429,6 +429,7 @@ footer nav a:hover{color:var(--navy)}
         <button type="button" data-lang="es" aria-pressed="false">ES</button>
       </div>
       <button type="button" class="theme" id="theme-toggle" aria-label="Switch between light and dark appearance" title="Light / dark"><span class="moon" aria-hidden="true">☾</span><span class="sun" aria-hidden="true">☀</span></button>
+      <a class="btn btn-ghost cta-top portal" href="https://hf-credentialing-staging.netlify.app" rel="noopener"><span class="en">Client sign-in</span><span class="es">Acceso de clientes</span></a>
       <a class="btn btn-primary cta-top" href="#contact"><span class="en">Discuss your practice</span><span class="es">Hablemos de su práctica</span></a>
       <details class="menu">
         <summary aria-label="Menu"><span class="en">Menu</span><span class="es">Menú</span></summary>
@@ -439,6 +440,7 @@ footer nav a:hover{color:var(--navy)}
           <li><a href="#about"><span class="en">About</span><span class="es">Quiénes somos</span></a></li>
           <li><a href="#faq"><span class="en">Questions</span><span class="es">Preguntas</span></a></li>
           <li><a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a></li>
+          <li><a class="portal" href="https://hf-credentialing-staging.netlify.app" rel="noopener"><span class="en">Client sign-in</span><span class="es">Acceso de clientes</span> →</a></li>
         </ul>
       </details>
     </div>
@@ -748,6 +750,7 @@ footer nav a:hover{color:var(--navy)}
       <div class="mail"><span><span class="en">Email</span><span class="es">Correo</span></span><a href="mailto:servicio@healthfrontgroup.com">servicio@healthfrontgroup.com</a></div>
       <div class="mail"><span><span class="en">How we reply</span><span class="es">Cómo respondemos</span></span><span style="color:var(--ink-2);font-family:var(--body)"><span class="en">By email, within 24 hours</span><span class="es">Por correo, en 24 horas</span></span></div>
       <div class="mail"><span><span class="en">Office</span><span class="es">Oficina</span></span><span style="color:var(--ink-2)">Guaynabo, Puerto Rico</span></div>
+      <div class="mail"><span><span class="en">Already a client</span><span class="es">Ya es cliente</span></span><a class="portal" href="https://hf-credentialing-staging.netlify.app" rel="noopener"><span class="en">Sign in to the credentialing platform →</span><span class="es">Entre a la plataforma de credenciales →</span></a></div>
     </div>
     <form id="contact-form" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
       <input type="hidden" name="form-name" value="contact">
@@ -848,7 +851,7 @@ footer nav a:hover{color:var(--navy)}
 <footer>
   <div class="wrap f">
     <img src="assets/health-front-logo.svg" alt="Health Front" width="2065" height="1151">
-    <nav aria-label="Footer"><a href="#services"><span class="en">Services</span><span class="es">Servicios</span></a><a href="#approach"><span class="en">Approach</span><span class="es">Método</span></a><a href="#about"><span class="en">About</span><span class="es">Quiénes somos</span></a><a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a></nav>
+    <nav aria-label="Footer"><a href="#services"><span class="en">Services</span><span class="es">Servicios</span></a><a href="#approach"><span class="en">Approach</span><span class="es">Método</span></a><a href="#about"><span class="en">About</span><span class="es">Quiénes somos</span></a><a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a><a class="portal" href="https://hf-credentialing-staging.netlify.app" rel="noopener"><span class="en">Client sign-in</span><span class="es">Acceso de clientes</span></a></nav>
     <p>© <span id="yr">2026</span> Health Front LLC · Guaynabo, Puerto Rico · <span class="en">Health Front is an administrative representative and does not provide legal or medical services.</span><span class="es">Health Front es un representante administrativo y no ofrece servicios legales ni médicos.</span></p>
   </div>
 </footer>
