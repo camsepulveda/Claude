@@ -111,10 +111,9 @@ step 2 and the cost FAQ. Agency and payer fees stay itemized separately.
 
 ## Factual details that still need confirmation before public launch
 1. **Public name spelling.** Page uses "Health Front" to match the logo. The brief used "Healthfront". Pick one.
-2. **Email.** No address is shown on the page (owner's decision, 2026-11-01), so no inbox is exposed to scanners.
-   Leads arrive through Netlify Forms; set the notification recipient in Netlify (Forms, Form notifications) to the
-   inbox that should receive them. When a shared address exists (for example a Google Workspace group such as
-   hello@healthfrontgroup.com forwarding to the owner), add it to the contact block if you want one shown.
+2. **Email.** servicio@healthfrontgroup.com is the public contact address (owner's direction, 2026-11-18). It appears
+   in the contact block, the line beside the Send button and the form's error message, in both languages. Set the
+   same address as the Netlify Forms notification recipient so form submissions and direct emails land together.
 3. **Phone number.** Omitted. The only number in the materials is a 2023 personal line. Add if a business line exists.
 4. **Engagement method.** The four stages, the five-business-day checklist and the biweekly status cadence come from
    one 2026 proposal. Confirm they are standard on every engagement, or soften to "typically".
