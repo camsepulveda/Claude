@@ -442,6 +442,14 @@ footer nav a:hover{color:var(--navy)}
 .ask-band h3{font-family:var(--display);font-weight:500;font-size:clamp(1.3rem,2.4vw,1.75rem);margin:.4rem 0 0;max-width:28ch}
 .ask-band .acts{display:flex;gap:.75rem;flex-wrap:wrap}
 @media (prefers-reduced-motion:reduce){.dock{transition:none} .dock .pill .dot{animation:none}}
+/* platform demo strip */
+.demo{margin-top:2.5rem;border:1px solid var(--rule-2);border-left:4px solid var(--brass);border-radius:6px;padding:1.4rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.25rem 2.5rem;flex-wrap:wrap;background:var(--paper-2)}
+.demo .eyebrow{display:block;margin-bottom:.5rem}
+.demo h3{font-family:var(--display);font-weight:500;font-size:clamp(1.25rem,2.2vw,1.6rem);margin:0;max-width:28ch}
+.demo p{color:var(--ink-2);margin:.5rem 0 0;max-width:46em}
+.demo .acts{display:grid;gap:.4rem;justify-items:start}
+.demo .fine{font-size:.82rem;color:var(--muted);font-family:var(--mono)}
+@media (max-width:640px){.demo{padding:1.2rem 1.1rem} .demo .acts,.demo .acts .btn{width:100%} .demo .btn{justify-content:center}}
 </style>
 </head>
 <body>
@@ -475,6 +483,7 @@ footer nav a:hover{color:var(--navy)}
           <li><a href="#faq"><span class="en">Questions</span><span class="es">Preguntas</span></a></li>
           <li><a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a></li>
           <li><a class="portal" href="https://pci.healthfrontgroup.com" rel="noopener"><span class="en">Client sign-in</span><span class="es">Acceso de clientes</span> →</a></li>
+          <li><a href="https://demo.healthfrontgroup.com" rel="noopener"><span class="en">See the demo</span><span class="es">Ver demo</span> →</a></li>
         </ul>
       </details>
     </div>
@@ -727,6 +736,17 @@ footer nav a:hover{color:var(--navy)}
 
       </div>
     </div>
+    <div class="demo" id="demo">
+      <div>
+        <span class="eyebrow"><span class="en">Platform demo</span><span class="es">Demo de la plataforma</span></span>
+        <h3><span class="en">Try the credentialing platform yourself.</span><span class="es">Pruebe usted mismo la plataforma de credenciales.</span></h3>
+        <p><span class="en">A fictional medical group with six physicians, live. Enter as a physician to see your file and upload a document, or as a reviewer to see the whole group’s expirations and queue. Nothing you do there is real; it resets every night.</span><span class="es">Un grupo médico ficticio con seis médicos, en vivo. Entre como médico para ver su expediente y subir un documento, o como revisor para ver los vencimientos y la cola de todo el grupo. Nada de lo que haga allí es real; se reinicia cada noche.</span></p>
+      </div>
+      <div class="acts">
+        <a class="btn btn-primary" href="https://demo.healthfrontgroup.com" rel="noopener"><span class="en">See the demo →</span><span class="es">Ver demo →</span></a>
+        <span class="fine"><span class="en">Name and email to enter · no account needed</span><span class="es">Nombre y correo para entrar · sin crear cuenta</span></span>
+      </div>
+    </div>
     <div class="distinction">
       <div><h3><span class="en">Coordination, not approval</span><span class="es">Coordinación, no aprobación</span></h3><p><span class="en">Licensing boards, payers and hospital committees make the decisions and set the clock. Health Front cannot shorten their review. What we control is that nothing waits on us: files are complete, sequenced correctly, followed weekly, and deficiencies are answered fast.</span><span class="es">Las juntas, los planes y los comités hospitalarios toman las decisiones y controlan el tiempo. Health Front no puede acortar su revisión. Lo que sí controlamos es que nada espere por nosotros: expedientes completos, en la secuencia correcta, con seguimiento semanal y deficiencias contestadas rápido.</span></p></div>
       <div><h3><span class="en">Not legal counsel</span><span class="es">No somos asesoría legal</span></h3><p><span class="en">Health Front acts as your authorized administrative representative. We do not provide legal representation. Where a matter requires an attorney, we coordinate with yours.</span><span class="es">Health Front actúa como su representante administrativo autorizado. No ofrecemos representación legal. Cuando un asunto requiere abogado, coordinamos con el suyo.</span></p></div>
@@ -801,6 +821,7 @@ footer nav a:hover{color:var(--navy)}
       <div class="mail"><span><span class="en">How we reply</span><span class="es">Cómo respondemos</span></span><span style="color:var(--ink-2);font-family:var(--body)"><span class="en">By email, within 24 hours</span><span class="es">Por correo, en 24 horas</span></span></div>
       <div class="mail"><span><span class="en">Office</span><span class="es">Oficina</span></span><span style="color:var(--ink-2)">Guaynabo, Puerto Rico</span></div>
       <div class="mail"><span><span class="en">Already a client</span><span class="es">Ya es cliente</span></span><a class="portal" href="https://pci.healthfrontgroup.com" rel="noopener"><span class="en">Sign in to the credentialing platform →</span><span class="es">Entre a la plataforma de credenciales →</span></a></div>
+      <div class="mail"><span><span class="en">Not a client yet</span><span class="es">Aún no es cliente</span></span><a href="https://demo.healthfrontgroup.com" rel="noopener"><span class="en">See the platform demo →</span><span class="es">Vea el demo de la plataforma →</span></a></div>
     </div>
     <form id="contact-form" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
       <input type="hidden" name="form-name" value="contact">
@@ -901,7 +922,7 @@ footer nav a:hover{color:var(--navy)}
 <footer>
   <div class="wrap f">
     <img src="assets/health-front-logo.svg" alt="Health Front" width="2065" height="1151">
-    <nav aria-label="Footer"><a href="#services"><span class="en">Services</span><span class="es">Servicios</span></a><a href="#approach"><span class="en">Approach</span><span class="es">Método</span></a><a href="#about"><span class="en">About</span><span class="es">Quiénes somos</span></a><a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a><a class="portal" href="https://pci.healthfrontgroup.com" rel="noopener"><span class="en">Client sign-in</span><span class="es">Acceso de clientes</span></a></nav>
+    <nav aria-label="Footer"><a href="#services"><span class="en">Services</span><span class="es">Servicios</span></a><a href="#approach"><span class="en">Approach</span><span class="es">Método</span></a><a href="#about"><span class="en">About</span><span class="es">Quiénes somos</span></a><a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a><a class="portal" href="https://pci.healthfrontgroup.com" rel="noopener"><span class="en">Client sign-in</span><span class="es">Acceso de clientes</span></a><a href="https://demo.healthfrontgroup.com" rel="noopener"><span class="en">Demo</span><span class="es">Demo</span></a></nav>
     <p>© <span id="yr">2026</span> Health Front LLC · Guaynabo, Puerto Rico · <span class="en">Health Front is an administrative representative and does not provide legal or medical services.</span><span class="es">Health Front es un representante administrativo y no ofrece servicios legales ni médicos.</span></p>
   </div>
 </footer>
@@ -911,6 +932,7 @@ footer nav a:hover{color:var(--navy)}
     <div class="hd"><h3><span class="en">How would you like to reach us?</span><span class="es">¿Cómo prefiere comunicarse?</span></h3><button type="button" class="x" id="dock-close" aria-label="Close">×</button></div>
     <a class="row" href="#contact" id="dock-form"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20h4l10-10-4-4L4 16v4z"/><path d="m12.5 7.5 4 4"/></svg></span><span><b><span class="en">Send a request</span><span class="es">Enviar una solicitud</span></b><small><span class="en">Two minutes. The form writes it for you.</span><span class="es">Dos minutos. El formulario lo redacta por usted.</span></small></span><span class="go">→</span></a>
     <a class="row" href="mailto:servicio@healthfrontgroup.com"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><b><span class="en">Email us</span><span class="es">Escríbanos</span></b><small class="addr">servicio@healthfrontgroup.com</small></span><button type="button" class="copy" id="dock-copy" data-copy="servicio@healthfrontgroup.com"><span class="en">Copy</span><span class="es">Copiar</span></button></a>
+    <a class="row sub" href="https://demo.healthfrontgroup.com" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/><path d="m9.5 10.5 2 2 3.5-4"/></svg></span><span><b><span class="en">See the platform demo</span><span class="es">Ver demo de la plataforma</span></b></span><span class="go">→</span></a>
     <a class="row sub" href="https://pci.healthfrontgroup.com" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="12" r="3.5"/><path d="M11.5 12H20m-3 0v3m-3-3v2"/></svg></span><span><b><span class="en">Already a client? Sign in</span><span class="es">¿Ya es cliente? Entre</span></b></span><span class="go">→</span></a>
     <p class="ft"><span class="en">We reply within 24 hours.</span><span class="es">Respondemos en 24 horas.</span></p>
   </div>
