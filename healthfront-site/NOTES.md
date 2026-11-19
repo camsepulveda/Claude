@@ -145,9 +145,10 @@ step 2 and the cost FAQ. Agency and payer fees stay itemized separately.
 
 ## Client sign-in (2026-11-18)
 
-The site links to the credentialing platform for the pilot group at `https://hf-credentialing-staging.netlify.app` (owner's choice; the
-hf-pci-physicians project at pci.healthfrontgroup.com and hf-credentialing were the alternatives). The link appears
-four times: header button (desktop), mobile menu, "Already a client" row in Contact, footer nav. To move the pilot to
+The site links to the physician credentialing portal at `https://pci.healthfrontgroup.com` (project hf-pci-physicians).
+It first pointed at hf-credentialing-staging; switched 2026-11-19 because the pilot instructions send physicians to pci.
+Reviewers use pci-admin.healthfrontgroup.com, which is not linked from the public site on purpose. The link appears
+five times (the contact dock included): header button (desktop), mobile menu, "Already a client" row in Contact, footer nav. To move the pilot to
 another address, replace that URL in all four places. The platform sits behind a Netlify site password, so a pilot
 physician sees Netlify's generic password page before the platform; a branded sign-in page is the platform's job.
 
