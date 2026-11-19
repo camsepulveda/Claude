@@ -145,9 +145,9 @@ step 2 and the cost FAQ. Agency and payer fees stay itemized separately.
 
 ## Client sign-in (2026-11-18)
 
-The site links to the credentialing platform for the pilot group at `https://hf-credentialing-staging.netlify.app` (owner's choice; the
-hf-pci-physicians project at pci.healthfrontgroup.com and hf-credentialing were the alternatives). The link appears
-four times: header button (desktop), mobile menu, "Already a client" row in Contact, footer nav. To move the pilot to
+The site links to the physician portal at `https://pci.healthfrontgroup.com` (project hf-pci-physicians; owner's
+direction 2026-11-19, after a day on hf-credentialing-staging). The reviewer monitor at pci-admin is not linked on purpose. The link appears
+five times (the contact dock included): header button (desktop), mobile menu, "Already a client" row in Contact, footer nav. To move the pilot to
 another address, replace that URL in all four places. The platform sits behind a Netlify site password, so a pilot
 physician sees Netlify's generic password page before the platform; a branded sign-in page is the platform's job.
 
@@ -165,3 +165,8 @@ Three pieces, all bilingual:
   performance; Continuity: coordination, maintenance).
 - **Ask band** after "In practice": one line, Send a request + Email us.
 
+## Contact addresses (2026-11-19)
+
+servicio@healthfrontgroup.com is the public address on this site, for people who are not yet clients. The portal shows
+credenciales@healthfrontgroup.com and a phone number for people already inside it. Keep the two separate on purpose;
+whoever reads servicio@ forwards credential questions.
