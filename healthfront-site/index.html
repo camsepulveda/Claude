@@ -408,6 +408,40 @@ footer .f{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem 2re
 footer img{height:40px;width:auto;filter:var(--logo-filter);opacity:.9}
 footer nav a{display:inline-block;color:var(--muted);margin-right:1.25rem;padding-block:.7rem;text-decoration:none}
 footer nav a:hover{color:var(--navy)}
+
+/* contact dock, ask links, ask band */
+.dock{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:30;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .25s,transform .25s}
+.dock.on{opacity:1;transform:none;pointer-events:auto}
+.dock.near{opacity:0;pointer-events:none}
+.dock .pill{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:var(--paper);font-weight:600;font-size:.95rem;padding:.8rem 1.1rem .8rem .95rem;border-radius:999px;box-shadow:0 10px 30px rgba(15,46,84,.28);border:1.5px solid var(--navy)}
+.dock .pill:hover{background:var(--navy-2);border-color:var(--navy-2)} .dock .pill:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+.dock .pill .dot{width:9px;height:9px;border-radius:50%;background:var(--brass);box-shadow:0 0 0 0 rgba(224,182,90,.6);animation:dockpulse 2.4s ease-out infinite}
+@keyframes dockpulse{0%{box-shadow:0 0 0 0 rgba(224,182,90,.55)}70%{box-shadow:0 0 0 9px rgba(224,182,90,0)}100%{box-shadow:0 0 0 0 rgba(224,182,90,0)}}
+.dock .pill[aria-expanded="true"] .dot{animation:none}
+.dock .sheet{position:absolute;right:0;bottom:calc(100% + .7rem);width:min(380px,calc(100vw - 2rem));background:var(--paper);color:var(--ink);border:1px solid var(--rule);border-radius:12px;box-shadow:0 18px 50px rgba(0,0,0,.22);padding:1.1rem 1.1rem 1rem;display:grid;gap:.6rem}
+.dock .sheet[hidden]{display:none}
+.dock .sheet .hd{display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
+.dock .sheet h3{font-family:var(--display);font-weight:500;font-size:1.2rem;margin:0}
+.dock .sheet .x{all:unset;cursor:pointer;font-size:1.3rem;line-height:1;color:var(--muted);padding:.2rem .4rem;border-radius:4px} .dock .sheet .x:hover{color:var(--ink)} .dock .sheet .x:focus-visible{outline:3px solid var(--navy)}
+.dock .row{display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:.75rem;padding:.7rem .75rem;border:1px solid var(--rule);border-radius:8px;text-decoration:none;color:var(--ink);background:var(--paper)}
+.dock .row:hover,.dock .row:focus-visible{border-color:var(--navy);background:var(--navy-tint);outline:none}
+.dock .row .ic{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--brass-bg);color:var(--brass)}
+.dock .row b{display:block;font-weight:600;font-size:.95rem} .dock .row small{display:block;color:var(--muted);font-size:.8rem;margin-top:.1rem} .dock .row small.addr{word-break:break-all}
+.dock .row .go{color:var(--navy);font-weight:600}
+.dock .copy{all:unset;cursor:pointer;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);border:1px solid var(--rule-2);border-radius:999px;padding:.4rem .7rem} .dock .copy:hover{border-color:var(--navy)} .dock .copy:focus-visible{outline:3px solid var(--navy)}
+.dock .row.sub{background:transparent}
+.dock .ft{font-size:.82rem;color:var(--muted);margin:.2rem 0 0}
+@media (max-width:640px){
+  .dock{left:1rem;right:1rem} .dock .pill{width:100%;justify-content:center;box-sizing:border-box}
+  .dock .sheet{width:100%} footer{padding-bottom:5.5rem}
+}
+.ask{display:inline-flex;align-items:center;gap:.4rem;margin-top:.9rem;font-weight:600;font-size:.92rem;color:var(--navy);text-decoration:none;border-bottom:1.5px solid var(--brass);padding-bottom:.1rem}
+.ask:hover{color:var(--navy-2);border-bottom-color:var(--navy-2)}
+.ask-band{background:var(--paper-2);border-top:3px solid var(--brass);padding-block:0}
+.ask-band .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.5rem 2.5rem;flex-wrap:wrap;padding-top:2.25rem;padding-bottom:2.25rem}
+.ask-band h3{font-family:var(--display);font-weight:500;font-size:clamp(1.3rem,2.4vw,1.75rem);margin:.4rem 0 0;max-width:28ch}
+.ask-band .acts{display:flex;gap:.75rem;flex-wrap:wrap}
+@media (prefers-reduced-motion:reduce){.dock{transition:none} .dock .pill .dot{animation:none}}
 </style>
 </head>
 <body>
@@ -561,7 +595,8 @@ footer nav a:hover{color:var(--navy)}
           </div>
         </div>
         <div class="deliver"><span class="eyebrow"><span class="en">What you receive</span><span class="es">Lo que recibe</span></span>
-          <ul><li><span class="en">Credentials gap analysis and document checklist</span><span class="es">Análisis de brechas y lista de documentos</span></li><li><span class="en">A work plan with sequence and dependencies, and a fixed fee per service in writing</span><span class="es">Un plan de trabajo con secuencia y dependencias, y un honorario fijo por servicio por escrito</span></li><li><span class="en">Weekly follow-up log with each agency, payer and hospital</span><span class="es">Bitácora de seguimiento semanal con cada agencia, plan y hospital</span></li><li><span class="en">Issued licenses, acceptance letters and contracts, organized in one file</span><span class="es">Licencias emitidas, cartas de aceptación y contratos, organizados en un solo expediente</span></li></ul></div>
+          <ul><li><span class="en">Credentials gap analysis and document checklist</span><span class="es">Análisis de brechas y lista de documentos</span></li><li><span class="en">A work plan with sequence and dependencies, and a fixed fee per service in writing</span><span class="es">Un plan de trabajo con secuencia y dependencias, y un honorario fijo por servicio por escrito</span></li><li><span class="en">Weekly follow-up log with each agency, payer and hospital</span><span class="es">Bitácora de seguimiento semanal con cada agencia, plan y hospital</span></li><li><span class="en">Issued licenses, acceptance letters and contracts, organized in one file</span><span class="es">Licencias emitidas, cartas de aceptación y contratos, organizados en un solo expediente</span></li></ul>
+          <a class="ask" href="#contact" data-needs="pr-license,registrations,medicare-medicaid,payer-contracts,privileges"><span class="en">Ask about this service</span><span class="es">Pregunte por este servicio</span> →</a></div>
       </div>
 
       <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
@@ -596,7 +631,8 @@ footer nav a:hover{color:var(--navy)}
           </div>
         </div>
         <div class="deliver"><span class="eyebrow"><span class="en">What you receive</span><span class="es">Lo que recibe</span></span>
-          <ul><li><span class="en">A dashboard you can open, refreshed monthly from the reports your biller already sends</span><span class="es">Un tablero que puede abrir, actualizado cada mes con los informes que su facturador ya envía</span></li><li><span class="en">A quarterly payer performance report: cobro, envejecimiento, producción, in plain language</span><span class="es">Un informe trimestral de desempeño por plan: cobro, envejecimiento, producción, en lenguaje claro</span></li><li><span class="en">A fixes list ranked by dollars, with an owner for each</span><span class="es">Una lista de arreglos ordenada por dólares, con un responsable para cada uno</span></li></ul></div>
+          <ul><li><span class="en">A dashboard you can open, refreshed monthly from the reports your biller already sends</span><span class="es">Un tablero que puede abrir, actualizado cada mes con los informes que su facturador ya envía</span></li><li><span class="en">A quarterly payer performance report: cobro, envejecimiento, producción, in plain language</span><span class="es">Un informe trimestral de desempeño por plan: cobro, envejecimiento, producción, en lenguaje claro</span></li><li><span class="en">A fixes list ranked by dollars, with an owner for each</span><span class="es">Una lista de arreglos ordenada por dólares, con un responsable para cada uno</span></li></ul>
+          <a class="ask" href="#contact" data-needs="payer-performance"><span class="en">Ask about this service</span><span class="es">Pregunte por este servicio</span> →</a></div>
       </div>
 
       <div class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
@@ -620,7 +656,8 @@ footer nav a:hover{color:var(--navy)}
           </div>
         </div>
         <div class="deliver"><span class="eyebrow"><span class="en">What you receive</span><span class="es">Lo que recibe</span></span>
-          <ul><li><span class="en">A weekly one-page status: what moved, what is blocked, who owes what</span><span class="es">Un estatus semanal de una página: qué avanzó, qué está trabado, quién debe qué</span></li><li><span class="en">A renewal calendar you can see</span><span class="es">Un calendario de renovaciones visible</span></li><li><span class="en">A named person who answers when the agency calls</span><span class="es">Una persona con nombre que responde cuando la agencia llama</span></li></ul></div>
+          <ul><li><span class="en">A weekly one-page status: what moved, what is blocked, who owes what</span><span class="es">Un estatus semanal de una página: qué avanzó, qué está trabado, quién debe qué</span></li><li><span class="en">A renewal calendar you can see</span><span class="es">Un calendario de renovaciones visible</span></li><li><span class="en">A named person who answers when the agency calls</span><span class="es">Una persona con nombre que responde cuando la agencia llama</span></li></ul>
+          <a class="ask" href="#contact" data-needs="coordination,maintenance"><span class="en">Ask about this service</span><span class="es">Pregunte por este servicio</span> →</a></div>
       </div>
     </div>
     <p class="eyebrow" style="margin-top:2.5rem"><span class="en">Advisory · by engagement</span><span class="es">Asesoría · por encomienda</span></p>
@@ -700,6 +737,19 @@ footer nav a:hover{color:var(--navy)}
       <div><b>Guaynabo</b><span><span class="en">Where we are based</span><span class="es">Nuestra sede</span></span></div>
       <div><b><span class="en">Fixed fee</span><span class="es">Honorario fijo</span></b><span><span class="en">Per service, quoted in writing</span><span class="es">Por servicio, cotizado por escrito</span></span></div>
       <div><b><span class="en">Weekly</span><span class="es">Semanal</span></b><span><span class="en">Follow-up with every agency and payer</span><span class="es">Seguimiento con cada agencia y plan</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="ask-band" aria-label="Contact">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow"><span class="en">Something pending?</span><span class="es">¿Algo pendiente?</span></span>
+      <h3><span class="en">Tell us in two minutes. We reply within 24 hours.</span><span class="es">Cuéntenos en dos minutos. Respondemos en 24 horas.</span></h3>
+    </div>
+    <div class="acts">
+      <a class="btn btn-primary" href="#contact"><span class="en">Send a request</span><span class="es">Enviar una solicitud</span></a>
+      <a class="btn btn-ghost" href="mailto:servicio@healthfrontgroup.com"><span class="en">Email us</span><span class="es">Escríbanos</span></a>
     </div>
   </div>
 </section>
@@ -856,6 +906,18 @@ footer nav a:hover{color:var(--navy)}
   </div>
 </footer>
 
+<div class="dock" id="dock">
+  <div class="sheet" id="dock-sheet" role="region" aria-label="Contact options" hidden>
+    <div class="hd"><h3><span class="en">How would you like to reach us?</span><span class="es">¿Cómo prefiere comunicarse?</span></h3><button type="button" class="x" id="dock-close" aria-label="Close">×</button></div>
+    <a class="row" href="#contact" id="dock-form"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20h4l10-10-4-4L4 16v4z"/><path d="m12.5 7.5 4 4"/></svg></span><span><b><span class="en">Send a request</span><span class="es">Enviar una solicitud</span></b><small><span class="en">Two minutes. The form writes it for you.</span><span class="es">Dos minutos. El formulario lo redacta por usted.</span></small></span><span class="go">→</span></a>
+    <a class="row" href="mailto:servicio@healthfrontgroup.com"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><b><span class="en">Email us</span><span class="es">Escríbanos</span></b><small class="addr">servicio@healthfrontgroup.com</small></span><button type="button" class="copy" id="dock-copy" data-copy="servicio@healthfrontgroup.com"><span class="en">Copy</span><span class="es">Copiar</span></button></a>
+    <a class="row sub" href="https://hf-credentialing-staging.netlify.app" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="12" r="3.5"/><path d="M11.5 12H20m-3 0v3m-3-3v2"/></svg></span><span><b><span class="en">Already a client? Sign in</span><span class="es">¿Ya es cliente? Entre</span></b></span><span class="go">→</span></a>
+    <p class="ft"><span class="en">We reply within 24 hours.</span><span class="es">Respondemos en 24 horas.</span></p>
+  </div>
+  <button type="button" class="pill" id="dock-btn" aria-expanded="false" aria-controls="dock-sheet"><span class="dot" aria-hidden="true"></span><span class="en">Talk to us</span><span class="es">Hablemos</span></button>
+</div>
+
+
 <script>
 (function(){
   var root=document.documentElement, KEY='hf-lang';
@@ -977,6 +1039,31 @@ footer nav a:hover{color:var(--navy)}
     applyDisclosure(); build();
   });});
   applyDisclosure();
+  // "Ask about this service" links: tick the needs for that service, open the list, go to the form
+  function goForm(focusSel){var c=document.getElementById('contact'); if(c) c.scrollIntoView({behavior:'smooth',block:'start'}); var f=focusSel&&document.querySelector(focusSel); if(f) setTimeout(function(){f.focus({preventScroll:true});},450);}
+  document.querySelectorAll('a.ask[data-needs]').forEach(function(a){a.addEventListener('click',function(e){
+    e.preventDefault(); var want=a.dataset.needs.split(','); expanded=true;
+    form.querySelectorAll('input[name="needs"]').forEach(function(c){ if(want.indexOf(c.value)>-1) c.checked=true; });
+    applyDisclosure(); build(); goForm('#contact-form input[name="needs"]:checked');
+  });});
+  // contact dock
+  var dock=document.getElementById('dock'), dockBtn=document.getElementById('dock-btn'), sheet=document.getElementById('dock-sheet'), hero=document.getElementById('top'), contactSec=document.getElementById('contact');
+  if(dock&&dockBtn&&sheet){
+    function placeDock(){ var past=window.scrollY>(hero?hero.offsetHeight*0.6:500); var near=!!contactSec&&contactSec.getBoundingClientRect().top<window.innerHeight*0.85; dock.classList.toggle('on',past); dock.classList.toggle('near',near); if(!past||near) closeDock(); }
+    function openDock(){ sheet.hidden=false; dockBtn.setAttribute('aria-expanded','true'); var first=sheet.querySelector('a.row'); if(first) first.focus(); }
+    function closeDock(ret){ if(sheet.hidden) return; sheet.hidden=true; dockBtn.setAttribute('aria-expanded','false'); if(ret) dockBtn.focus(); }
+    dockBtn.addEventListener('click',function(){ sheet.hidden?openDock():closeDock(true); });
+    document.getElementById('dock-close').addEventListener('click',function(){closeDock(true);});
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDock(true); });
+    document.addEventListener('click',function(e){ if(!dock.contains(e.target)) closeDock(); });
+    document.getElementById('dock-form').addEventListener('click',function(e){ e.preventDefault(); closeDock(); goForm('#contact-form input[name="situation"]'); });
+    var cp=document.getElementById('dock-copy');
+    cp.addEventListener('click',function(e){ e.preventDefault(); e.stopPropagation(); var v=cp.dataset.copy;
+      function done(){ var en=cp.querySelector('.en'), es=cp.querySelector('.es'); var o=[en.textContent,es.textContent]; en.textContent='Copied'; es.textContent='Copiado'; setTimeout(function(){en.textContent=o[0]; es.textContent=o[1];},1600); }
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(v).then(done,function(){ window.prompt('servicio@healthfrontgroup.com', v); }); } else { window.prompt('servicio@healthfrontgroup.com', v); }
+    });
+    window.addEventListener('scroll',placeDock,{passive:true}); window.addEventListener('resize',placeDock); placeDock();
+  }
   form.addEventListener('change',build); fillSelects(); build();
   document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){fillSelects();build();});});
   // contact form: Netlify Forms via fetch, with a readable fallback
