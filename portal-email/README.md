@@ -11,8 +11,9 @@ emails so the invitation and the password reset look like Health Front, not like
 Both link to `{{ .RedirectTo }}?token_hash={{ .TokenHash }}&type=recovery`, the mechanism the portal already uses
 (as of 2026-11-26): the link opens on pci.healthfrontgroup.com and the portal asks for a **Continuar** click before it
 spends the token, so a mail scanner such as Outlook Safe Links cannot consume it. `{{ .Email }}` fills the footer.
-Both templates are recovery-type on purpose: first access is sent as a password recovery, as the existing Supabase
-template does. Generate links with the redirect set to `https://pci.healthfrontgroup.com/portal/`, or
+`recovery.html` carries `type=recovery`; `invite.html` carries `type=invite`, because Supabase's "Invite user" issues
+invite tokens and the portal must verify them as such. If the portal only verifies `recovery`, keep sending first
+access as a password recovery and the Reset password template covers it. Generate links with the redirect set to `https://pci.healthfrontgroup.com/portal/`, or
 `{{ .RedirectTo }}` falls back to the Site URL. The logo loads from
 https://healthfrontgroup.com/assets/health-front-logo.png, which the public site already serves.
 
