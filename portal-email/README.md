@@ -8,7 +8,12 @@ emails so the invitation and the password reset look like Health Front, not like
 | `invite.html` | Authentication → Email Templates → **Invite user** (and **Confirm signup** if used) | `Su acceso al portal de credenciales de Health Front` |
 | `recovery.html` | Authentication → Email Templates → **Reset password** | `Restablezca su contraseña del portal de credenciales` |
 
-Both use only Supabase's own variables: `{{ .ConfirmationURL }}` and `{{ .Email }}`. The logo loads from
+Both link to `{{ .RedirectTo }}?token_hash={{ .TokenHash }}&type=recovery`, the mechanism the portal already uses
+(as of 2026-11-26): the link opens on pci.healthfrontgroup.com and the portal asks for a **Continuar** click before it
+spends the token, so a mail scanner such as Outlook Safe Links cannot consume it. `{{ .Email }}` fills the footer.
+Both templates are recovery-type on purpose: first access is sent as a password recovery, as the existing Supabase
+template does. Generate links with the redirect set to `https://pci.healthfrontgroup.com/portal/`, or
+`{{ .RedirectTo }}` falls back to the Site URL. The logo loads from
 https://healthfrontgroup.com/assets/health-front-logo.png, which the public site already serves.
 
 ## Where to paste
@@ -24,11 +29,7 @@ https://healthfrontgroup.com/assets/health-front-logo.png, which the public site
 
 ## What still shows Supabase
 
-- **The link itself.** `{{ .ConfirmationURL }}` points at `<project>.supabase.co/auth/v1/verify?...`. The button
-  hides it; the small fallback line at the bottom shows it. To make the link read `pci.healthfrontgroup.com`, either
-  buy Supabase's custom auth domain add-on, or change the portal to accept `{{ .TokenHash }}` on its own page and
-  call `verifyOtp` there. The second route also defeats Outlook Safe Links, which opens links to scan them and spends
-  the one-time token before the physician clicks. That is portal code, not this repository.
+- **The sender address**, until custom SMTP is set (step 3 above).
 - **The link preview** in iMessage or WhatsApp comes from the portal page's Open Graph tags (title, description,
   image). Also portal code.
 
